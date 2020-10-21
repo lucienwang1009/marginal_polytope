@@ -1,0 +1,644 @@
+[D 201021 16:58:51 mln:20] arity num: [1, 2]
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 generator:29] world size: 4398046511104
+[D 201021 16:58:51 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmp0ey8zwj2
+[D 201021 16:58:51 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-764.3181966063028) = 0.0
+    Inference took 117 ms
+    
+[D 201021 16:58:51 generator:39] delete tmp file
+[D 201021 16:58:51 main:172] ln(Z) = -764.3181966063028
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 main:174] find b = -27
+[D 201021 16:58:51 mln:20] arity num: [1, 2]
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 mln:46] herbrand size: 42
+[D 201021 16:58:51 generator:29] world size: 4398046511104
+[D 201021 16:58:51 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpdsd_g_7b
+[D 201021 16:58:52 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(1073.9205487586682) = Infinity
+    Inference took 121 ms
+    
+[D 201021 16:58:52 generator:39] delete tmp file
+[D 201021 16:58:52 main:172] ln(Z) = 1073.9205487586682
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 main:174] find b = 36
+[D 201021 16:58:52 mln:20] arity num: [1, 2]
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 generator:29] world size: 4398046511104
+[D 201021 16:58:52 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpxh4jayr2
+[D 201021 16:58:52 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(24.953298500159395) = 6.871947673609372E10
+    Inference took 118 ms
+    
+[D 201021 16:58:52 generator:39] delete tmp file
+[D 201021 16:58:52 main:172] ln(Z) = 24.953298500159395
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 main:174] find b = 0
+[D 201021 16:58:52 mln:20] arity num: [1, 2]
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 mln:46] herbrand size: 42
+[D 201021 16:58:52 generator:29] world size: 4398046511104
+[D 201021 16:58:52 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmps2ri9ssx
+[D 201021 16:58:53 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(199.62638800126564) = 4.973232364104777E86
+    Inference took 122 ms
+    
+[D 201021 16:58:53 generator:39] delete tmp file
+[D 201021 16:58:53 main:172] ln(Z) = 199.62638800126564
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 main:174] find b = 6
+[D 201021 16:58:53 main:123] Initial convex hull: 
+    Coordinate: [27.  0.]
+    Facets: 
+    [[-1  0]
+     [ 0 -1]] * x <= [-27   0]
+    
+    Coordinate: [27.  6.]
+    Facets: 
+    [[-1  0]
+     [ 0  1]] * x <= [-27   6]
+    
+    Coordinate: [36.  0.]
+    Facets: 
+    [[ 1  0]
+     [ 0 -1]] * x <= [36  0]
+    
+    Coordinate: [36.  6.]
+    Facets: 
+    [[1 0]
+     [0 1]] * x <= [36  6]
+    
+    
+[D 201021 16:58:53 main:55] try to find new vertices based on [27.  0.]
+[D 201021 16:58:53 main:66] new facet norm: [-1 -1]
+[D 201021 16:58:53 mln:20] arity num: [1, 2]
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 generator:29] world size: 4398046511104
+[D 201021 16:58:53 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmp7p_dxiaf
+[D 201021 16:58:53 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-850.7384506249825) = 0.0
+    Inference took 120 ms
+    
+[D 201021 16:58:53 generator:39] delete tmp file
+[D 201021 16:58:53 main:172] ln(Z) = -850.7384506249825
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 main:174] find b = -30
+[D 201021 16:58:53 main:68] new facet b: -30
+[D 201021 16:58:53 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:53 main:80] try to purge [27.  0.]
+[D 201021 16:58:53 main:81] False
+[D 201021 16:58:53 main:84] purge [27.  0.] successfully, try to find new possible vertices
+[D 201021 16:58:53 main:98] [[-1 -1]
+     [-1  0]] [-30 -27]
+[D 201021 16:58:53 main:111] found possible vertex: 
+    Coordinate: [27.  3.]
+    Facets: 
+    [[-1 -1]
+     [-1  0]] * x <= [-30 -27]
+    
+[D 201021 16:58:53 main:98] [[-1 -1]
+     [ 0 -1]] [-30   0]
+[D 201021 16:58:53 main:111] found possible vertex: 
+    Coordinate: [30.  0.]
+    Facets: 
+    [[-1 -1]
+     [ 0 -1]] * x <= [-30   0]
+    
+[D 201021 16:58:53 main:55] try to find new vertices based on [27.  6.]
+[D 201021 16:58:53 main:66] new facet norm: [-1  1]
+[D 201021 16:58:53 mln:20] arity num: [1, 2]
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 generator:29] world size: 4398046511104
+[D 201021 16:58:53 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpvn_onf5g
+[D 201021 16:58:53 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-676.0653611238763) = 2.446494580093731E-294
+    Inference took 121 ms
+    
+[D 201021 16:58:53 generator:39] delete tmp file
+[D 201021 16:58:53 main:172] ln(Z) = -676.0653611238763
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 main:174] find b = -24
+[D 201021 16:58:53 main:68] new facet b: -24
+[D 201021 16:58:53 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:53 main:80] try to purge [27.  6.]
+[D 201021 16:58:53 main:81] False
+[D 201021 16:58:53 main:84] purge [27.  6.] successfully, try to find new possible vertices
+[D 201021 16:58:53 main:98] [[-1  1]
+     [-1  0]] [-24 -27]
+[D 201021 16:58:53 main:118] update vertex: 
+    Coordinate: [27.  3.]
+    Facets: 
+    [[-1 -1]
+     [-1  0]
+     [-1  1]] * x <= [-30 -27 -24]
+    
+[D 201021 16:58:53 main:98] [[-1  1]
+     [ 0  1]] [-24   6]
+[D 201021 16:58:53 main:111] found possible vertex: 
+    Coordinate: [30.  6.]
+    Facets: 
+    [[-1  1]
+     [ 0  1]] * x <= [-24   6]
+    
+[D 201021 16:58:53 main:55] try to find new vertices based on [36.  0.]
+[D 201021 16:58:53 main:66] new facet norm: [ 1 -1]
+[D 201021 16:58:53 mln:20] arity num: [1, 2]
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 mln:46] herbrand size: 42
+[D 201021 16:58:53 generator:29] world size: 4398046511104
+[D 201021 16:58:53 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpz0rdc2ro
+[D 201021 16:58:54 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(1072.9918355067953) = Infinity
+    Inference took 121 ms
+    
+[D 201021 16:58:54 generator:39] delete tmp file
+[D 201021 16:58:54 main:172] ln(Z) = 1072.9918355067953
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 main:174] find b = 36
+[D 201021 16:58:54 main:68] new facet b: 36
+[D 201021 16:58:54 main:71] possible vertex [36.  0.] is a true vertex
+[D 201021 16:58:54 main:55] try to find new vertices based on [36.  6.]
+[D 201021 16:58:54 main:66] new facet norm: [1 1]
+[D 201021 16:58:54 mln:20] arity num: [1, 2]
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 generator:29] world size: 4398046511104
+[D 201021 16:58:54 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpujo_pxey
+[D 201021 16:58:54 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(1247.6649250079015) = Infinity
+    Inference took 120 ms
+    
+[D 201021 16:58:54 generator:39] delete tmp file
+[D 201021 16:58:54 main:172] ln(Z) = 1247.6649250079015
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 main:174] find b = 42
+[D 201021 16:58:54 main:68] new facet b: 42
+[D 201021 16:58:54 main:71] possible vertex [36.  6.] is a true vertex
+[D 201021 16:58:54 main:55] try to find new vertices based on [27.  3.]
+[D 201021 16:58:54 main:66] new facet norm: [-2  1]
+[D 201021 16:58:54 mln:20] arity num: [1, 2]
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 mln:46] herbrand size: 42
+[D 201021 16:58:54 generator:29] world size: 4398046511104
+[D 201021 16:58:54 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmp1jidw6on
+[D 201021 16:58:55 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-1463.0105546107302) = 0.0
+    Inference took 119 ms
+    
+[D 201021 16:58:55 generator:39] delete tmp file
+[D 201021 16:58:55 main:172] ln(Z) = -1463.0105546107302
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 main:174] find b = -51
+[D 201021 16:58:55 main:68] new facet b: -51
+[D 201021 16:58:55 main:71] possible vertex [27.  3.] is a true vertex
+[D 201021 16:58:55 main:55] try to find new vertices based on [30.  0.]
+[D 201021 16:58:55 main:66] new facet norm: [-1 -2]
+[D 201021 16:58:55 mln:20] arity num: [1, 2]
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 generator:29] world size: 4398046511104
+[D 201021 16:58:55 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpf5vqzihr
+[D 201021 16:58:55 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-909.4736394157832) = 0.0
+    Inference took 121 ms
+    
+[D 201021 16:58:55 generator:39] delete tmp file
+[D 201021 16:58:55 main:172] ln(Z) = -909.4736394157832
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 main:174] find b = -32
+[D 201021 16:58:55 main:68] new facet b: -32
+[D 201021 16:58:55 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:55 main:80] try to purge [30.  0.]
+[D 201021 16:58:55 main:81] False
+[D 201021 16:58:55 main:84] purge [30.  0.] successfully, try to find new possible vertices
+[D 201021 16:58:55 main:98] [[-1 -2]
+     [-1 -1]] [-32 -30]
+[D 201021 16:58:55 main:111] found possible vertex: 
+    Coordinate: [28.  2.]
+    Facets: 
+    [[-1 -2]
+     [-1 -1]] * x <= [-32 -30]
+    
+[D 201021 16:58:55 main:98] [[-1 -2]
+     [ 0 -1]] [-32   0]
+[D 201021 16:58:55 main:111] found possible vertex: 
+    Coordinate: [32.  0.]
+    Facets: 
+    [[-1 -2]
+     [ 0 -1]] * x <= [-32   0]
+    
+[D 201021 16:58:55 main:55] try to find new vertices based on [30.  6.]
+[D 201021 16:58:55 main:66] new facet norm: [-1  2]
+[D 201021 16:58:55 mln:20] arity num: [1, 2]
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 mln:46] herbrand size: 42
+[D 201021 16:58:55 generator:29] world size: 4398046511104
+[D 201021 16:58:55 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmp3v8y3hvh
+[D 201021 16:58:56 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-560.1274604135708) = 5.4920537618389085E-244
+    Inference took 119 ms
+    
+[D 201021 16:58:56 generator:39] delete tmp file
+[D 201021 16:58:56 main:172] ln(Z) = -560.1274604135708
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 main:174] find b = -20
+[D 201021 16:58:56 main:68] new facet b: -20
+[D 201021 16:58:56 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:56 main:80] try to purge [30.  6.]
+[D 201021 16:58:56 main:81] False
+[D 201021 16:58:56 main:84] purge [30.  6.] successfully, try to find new possible vertices
+[D 201021 16:58:56 main:98] [[-1  2]
+     [-1  1]] [-20 -24]
+[D 201021 16:58:56 main:111] found possible vertex: 
+    Coordinate: [28.  4.]
+    Facets: 
+    [[-1  2]
+     [-1  1]] * x <= [-20 -24]
+    
+[D 201021 16:58:56 main:98] [[-1  2]
+     [ 0  1]] [-20   6]
+[D 201021 16:58:56 main:111] found possible vertex: 
+    Coordinate: [32.  6.]
+    Facets: 
+    [[-1  2]
+     [ 0  1]] * x <= [-20   6]
+    
+[D 201021 16:58:56 main:55] try to find new vertices based on [28.  2.]
+[D 201021 16:58:56 main:66] new facet norm: [-2 -3]
+[D 201021 16:58:56 mln:20] arity num: [1, 2]
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 generator:29] world size: 4398046511104
+[D 201021 16:58:56 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpiwut56u_
+[D 201021 16:58:56 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-1782.839086921317) = 0.0
+    Inference took 121 ms
+    
+[D 201021 16:58:56 generator:39] delete tmp file
+[D 201021 16:58:56 main:172] ln(Z) = -1782.839086921317
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 main:174] find b = -62
+[D 201021 16:58:56 main:68] new facet b: -62
+[D 201021 16:58:56 main:71] possible vertex [28.  2.] is a true vertex
+[D 201021 16:58:56 main:55] try to find new vertices based on [32.  0.]
+[D 201021 16:58:56 main:66] new facet norm: [-1 -3]
+[D 201021 16:58:56 mln:20] arity num: [1, 2]
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 generator:29] world size: 4398046511104
+[D 201021 16:58:56 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmp4cbbh032
+[D 201021 16:58:56 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-966.2629180575307) = 0.0
+    Inference took 121 ms
+    
+[D 201021 16:58:56 generator:39] delete tmp file
+[D 201021 16:58:56 main:172] ln(Z) = -966.2629180575307
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 main:174] find b = -34
+[D 201021 16:58:56 main:68] new facet b: -34
+[D 201021 16:58:56 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:56 main:80] try to purge [32.  0.]
+[D 201021 16:58:56 main:81] False
+[D 201021 16:58:56 main:84] purge [32.  0.] successfully, try to find new possible vertices
+[D 201021 16:58:56 main:98] [[-1 -3]
+     [-1 -2]] [-34 -32]
+[D 201021 16:58:56 main:118] update vertex: 
+    Coordinate: [28.  2.]
+    Facets: 
+    [[-1 -3]
+     [-1 -2]
+     [-1 -1]] * x <= [-34 -32 -30]
+    
+[D 201021 16:58:56 main:98] [[-1 -3]
+     [ 0 -1]] [-34   0]
+[D 201021 16:58:56 main:111] found possible vertex: 
+    Coordinate: [34.  0.]
+    Facets: 
+    [[-1 -3]
+     [ 0 -1]] * x <= [-34   0]
+    
+[D 201021 16:58:56 main:55] try to find new vertices based on [28.  4.]
+[D 201021 16:58:56 main:66] new facet norm: [-2  3]
+[D 201021 16:58:56 mln:20] arity num: [1, 2]
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 mln:46] herbrand size: 42
+[D 201021 16:58:56 generator:29] world size: 4398046511104
+[D 201021 16:58:56 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpfedj8gg4
+[D 201021 16:58:57 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-1258.8198184179982) = 0.0
+    Inference took 120 ms
+    
+[D 201021 16:58:57 generator:39] delete tmp file
+[D 201021 16:58:57 main:172] ln(Z) = -1258.8198184179982
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 main:174] find b = -44
+[D 201021 16:58:57 main:68] new facet b: -44
+[D 201021 16:58:57 main:71] possible vertex [28.  4.] is a true vertex
+[D 201021 16:58:57 main:55] try to find new vertices based on [32.  6.]
+[D 201021 16:58:57 main:66] new facet norm: [-1  3]
+[D 201021 16:58:57 mln:20] arity num: [1, 2]
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 generator:29] world size: 4398046511104
+[D 201021 16:58:57 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpt18b_j49
+[D 201021 16:58:57 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-442.2436495542119) = 8.630249311732094E-193
+    Inference took 121 ms
+    
+[D 201021 16:58:57 generator:39] delete tmp file
+[D 201021 16:58:57 main:172] ln(Z) = -442.2436495542119
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 main:174] find b = -16
+[D 201021 16:58:57 main:68] new facet b: -16
+[D 201021 16:58:57 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:57 main:80] try to purge [32.  6.]
+[D 201021 16:58:57 main:81] False
+[D 201021 16:58:57 main:84] purge [32.  6.] successfully, try to find new possible vertices
+[D 201021 16:58:57 main:98] [[-1  3]
+     [-1  2]] [-16 -20]
+[D 201021 16:58:57 main:118] update vertex: 
+    Coordinate: [28.  4.]
+    Facets: 
+    [[-1  1]
+     [-1  2]
+     [-1  3]] * x <= [-24 -20 -16]
+    
+[D 201021 16:58:57 main:98] [[-1  3]
+     [ 0  1]] [-16   6]
+[D 201021 16:58:57 main:111] found possible vertex: 
+    Coordinate: [34.  6.]
+    Facets: 
+    [[-1  3]
+     [ 0  1]] * x <= [-16   6]
+    
+[D 201021 16:58:57 main:55] try to find new vertices based on [34.  0.]
+[D 201021 16:58:57 main:66] new facet norm: [-1 -4]
+[D 201021 16:58:57 mln:20] arity num: [1, 2]
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 mln:46] herbrand size: 42
+[D 201021 16:58:57 generator:29] world size: 4398046511104
+[D 201021 16:58:57 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpptsr7h8d
+[D 201021 16:58:58 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-995.6470333565308) = 0.0
+    Inference took 119 ms
+    
+[D 201021 16:58:58 generator:39] delete tmp file
+[D 201021 16:58:58 main:172] ln(Z) = -995.6470333565308
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 main:174] find b = -35
+[D 201021 16:58:58 main:68] new facet b: -35
+[D 201021 16:58:58 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:58 main:80] try to purge [34.  0.]
+[D 201021 16:58:58 main:81] False
+[D 201021 16:58:58 main:84] purge [34.  0.] successfully, try to find new possible vertices
+[D 201021 16:58:58 main:98] [[-1 -4]
+     [-1 -3]] [-35 -34]
+[D 201021 16:58:58 main:111] found possible vertex: 
+    Coordinate: [31.  1.]
+    Facets: 
+    [[-1 -4]
+     [-1 -3]] * x <= [-35 -34]
+    
+[D 201021 16:58:58 main:98] [[-1 -4]
+     [ 0 -1]] [-35   0]
+[D 201021 16:58:58 main:111] found possible vertex: 
+    Coordinate: [35.  0.]
+    Facets: 
+    [[-1 -4]
+     [ 0 -1]] * x <= [-35   0]
+    
+[D 201021 16:58:58 main:55] try to find new vertices based on [34.  6.]
+[D 201021 16:58:58 main:66] new facet norm: [-1  4]
+[D 201021 16:58:58 mln:20] arity num: [1, 2]
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 generator:29] world size: 4398046511104
+[D 201021 16:58:58 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpfgvl67on
+[D 201021 16:58:58 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-296.95467535210594) = 1.0819896817744018E-129
+    Inference took 120 ms
+    
+[D 201021 16:58:58 generator:39] delete tmp file
+[D 201021 16:58:58 main:172] ln(Z) = -296.95467535210594
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 main:174] find b = -11
+[D 201021 16:58:58 main:68] new facet b: -11
+[D 201021 16:58:58 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:58 main:80] try to purge [34.  6.]
+[D 201021 16:58:58 main:81] False
+[D 201021 16:58:58 main:84] purge [34.  6.] successfully, try to find new possible vertices
+[D 201021 16:58:58 main:98] [[-1  4]
+     [-1  3]] [-11 -16]
+[D 201021 16:58:58 main:111] found possible vertex: 
+    Coordinate: [31.  5.]
+    Facets: 
+    [[-1  4]
+     [-1  3]] * x <= [-11 -16]
+    
+[D 201021 16:58:58 main:98] [[-1  4]
+     [ 0  1]] [-11   6]
+[D 201021 16:58:58 main:111] found possible vertex: 
+    Coordinate: [35.  6.]
+    Facets: 
+    [[-1  4]
+     [ 0  1]] * x <= [-11   6]
+    
+[D 201021 16:58:58 main:55] try to find new vertices based on [31.  1.]
+[D 201021 16:58:58 main:66] new facet norm: [-2 -7]
+[D 201021 16:58:58 mln:20] arity num: [1, 2]
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 generator:29] world size: 4398046511104
+[D 201021 16:58:58 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpe_5qjhrz
+[D 201021 16:58:58 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-1985.4612071961353) = 0.0
+    Inference took 118 ms
+    
+[D 201021 16:58:58 generator:39] delete tmp file
+[D 201021 16:58:58 main:172] ln(Z) = -1985.4612071961353
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 main:174] find b = -69
+[D 201021 16:58:58 main:68] new facet b: -69
+[D 201021 16:58:58 main:71] possible vertex [31.  1.] is a true vertex
+[D 201021 16:58:58 main:55] try to find new vertices based on [35.  0.]
+[D 201021 16:58:58 main:66] new facet norm: [-1 -5]
+[D 201021 16:58:58 mln:20] arity num: [1, 2]
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 mln:46] herbrand size: 42
+[D 201021 16:58:58 generator:29] world size: 4398046511104
+[D 201021 16:58:58 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpwvqpq6ls
+[D 201021 16:58:59 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-1022.9133882495527) = 0.0
+    Inference took 120 ms
+    
+[D 201021 16:58:59 generator:39] delete tmp file
+[D 201021 16:58:59 main:172] ln(Z) = -1022.9133882495527
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 main:174] find b = -36
+[D 201021 16:58:59 main:68] new facet b: -36
+[D 201021 16:58:59 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:58:59 main:80] try to purge [35.  0.]
+[D 201021 16:58:59 main:81] False
+[D 201021 16:58:59 main:84] purge [35.  0.] successfully, try to find new possible vertices
+[D 201021 16:58:59 main:98] [[-1 -5]
+     [-1 -4]] [-36 -35]
+[D 201021 16:58:59 main:118] update vertex: 
+    Coordinate: [31.  1.]
+    Facets: 
+    [[-1 -5]
+     [-1 -4]
+     [-1 -3]] * x <= [-36 -35 -34]
+    
+[D 201021 16:58:59 main:98] [[-1 -5]
+     [ 0 -1]] [-36   0]
+[D 201021 16:58:59 main:118] update vertex: 
+    Coordinate: [36.  0.]
+    Facets: 
+    [[-1 -5]
+     [ 0 -1]
+     [ 1  0]] * x <= [-36   0  36]
+    
+[D 201021 16:58:59 main:55] try to find new vertices based on [31.  5.]
+[D 201021 16:58:59 main:66] new facet norm: [-2  7]
+[D 201021 16:58:59 mln:20] arity num: [1, 2]
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 generator:29] world size: 4398046511104
+[D 201021 16:58:59 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpghv0v3om
+[D 201021 16:58:59 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-762.7495806883915) = 0.0
+    Inference took 121 ms
+    
+[D 201021 16:58:59 generator:39] delete tmp file
+[D 201021 16:58:59 main:172] ln(Z) = -762.7495806883915
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 main:174] find b = -27
+[D 201021 16:58:59 main:68] new facet b: -27
+[D 201021 16:58:59 main:71] possible vertex [31.  5.] is a true vertex
+[D 201021 16:58:59 main:55] try to find new vertices based on [35.  6.]
+[D 201021 16:58:59 main:66] new facet norm: [-1  5]
+[D 201021 16:58:59 mln:20] arity num: [1, 2]
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 mln:46] herbrand size: 42
+[D 201021 16:58:59 generator:29] world size: 4398046511104
+[D 201021 16:58:59 partition_func_solver:32] command: java -jar forclift.jar -z --format-in mln /tmp/tmpmfv8n6yr
+[D 201021 16:59:00 partition_func_solver:35] result: Reading model using MLN syntax.
+    Starting to run inference
+    Computing weighted model count/partition function Z
+    Running first-order knowledge compilation
+    Z = exp(-149.54794074402145) = 1.1275986698090682E-65
+    Inference took 122 ms
+    
+[D 201021 16:59:00 generator:39] delete tmp file
+[D 201021 16:59:00 main:172] ln(Z) = -149.54794074402145
+[D 201021 16:59:00 mln:46] herbrand size: 42
+[D 201021 16:59:00 main:174] find b = -6
+[D 201021 16:59:00 main:68] new facet b: -6
+[D 201021 16:59:00 main:75] purge possible vertices and find new possible vertices
+[D 201021 16:59:00 main:80] try to purge [35.  6.]
+[D 201021 16:59:00 main:81] False
+[D 201021 16:59:00 main:84] purge [35.  6.] successfully, try to find new possible vertices
+[D 201021 16:59:00 main:98] [[-1  5]
+     [-1  4]] [ -6 -11]
+[D 201021 16:59:00 main:118] update vertex: 
+    Coordinate: [31.  5.]
+    Facets: 
+    [[-1  3]
+     [-1  4]
+     [-1  5]] * x <= [-16 -11  -6]
+    
+[D 201021 16:59:00 main:98] [[-1  5]
+     [ 0  1]] [-6  6]
+[D 201021 16:59:00 main:118] update vertex: 
+    Coordinate: [36.  6.]
+    Facets: 
+    [[-1  5]
+     [ 0  1]
+     [ 1  0]] * x <= [-6  6 36]
+    
