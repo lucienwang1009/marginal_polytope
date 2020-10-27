@@ -1,6 +1,8 @@
 import numpy as np
+import sys
 
 from logzero import logger
+from scipy.optimize import linprog
 
 from utils import coordinate2str
 
@@ -44,6 +46,32 @@ class Vertex(object):
         )
         self.facets_norm = unique_facets[:, :-1]
         self.facets_intercept = unique_facets[:, -1]
+        logger.debug('before prune redundant facets: \n%s', self)
+
+        irredundant_facets_norm = []
+        irredundant_facets_intercept = []
+        for i in range(self.facets_norm.shape[0]):
+            c = -self.facets_norm[i, :]
+            A = np.vstack((
+                self.facets_norm[:i, :],
+                self.facets_norm[i + 1:, :]
+            ))
+            b = np.hstack((
+                self.facets_intercept[:i],
+                self.facets_intercept[i + 1:]
+            ))
+            try:
+                res = linprog(c, A, b, bounds=(None, None))
+            except ValueError:
+                irredundant_facets_norm.append(self.facets_norm[i, :])
+                irredundant_facets_intercept.append(self.facets_intercept[i])
+                continue
+            if -res.fun - self.facets_intercept[i] > 1e-5:
+                irredundant_facets_norm.append(self.facets_norm[i, :])
+                irredundant_facets_intercept.append(self.facets_intercept[i])
+        self.facets_norm = np.array(irredundant_facets_norm)
+        self.facets_intercept = np.array(irredundant_facets_intercept)
+        logger.debug('after prune redundant facets: \n%s', self)
 
     def __str__(self):
         string = 'Coordinate: {}\n'.format(self.coordinate)
@@ -90,6 +118,57 @@ class ConvexHull(object):
         if self.get_vertex(vertex.coordinate) is None:
             raise RuntimeError('Unable to remove vertex {}'.format(vertex.coordinate))
         del self.vertices[coordinate2str(vertex.coordinate)]
+
+    def get_feasible_point_on_facet(
+            self, norm, intercept, initial_point, handler=None
+    ):
+        """
+        Get the feasible integer points on the given facet
+        """
+        sys.setrecursionlimit(10000)
+
+        visited = set()
+        res = []
+        directions = np.zeros(
+            [2 * len(initial_point), len(initial_point)],
+            dtype=np.int
+        )
+        for i in range(len(initial_point)):
+            directions[2 * i][i] = 1
+            directions[2 * i + 1][i] = -1
+
+        def dfs(point):
+            # nonlocal res, visited
+            if not self.contains(point) or \
+                    str(point) in visited or \
+                    len(res) > 10:
+                return
+            visited.add(str(point))
+            if np.dot(norm, point) == intercept and \
+                    (handler and handler(point)):
+                # logger.debug(
+                #     'Found feasible integer point %s on \n%s * x <= %s',
+                #     point, norm, intercept
+                # )
+                res.append(point.copy())
+            for d in directions:
+                point += d
+                dfs(point)
+                point -= d
+
+        tmp = initial_point.astype(np.int)
+        dfs(tmp)
+        for d in directions:
+            tmp += d
+            if self.contains(tmp):
+                dfs(tmp)
+        #     if res is not None:
+        #         return res
+            tmp -= d
+        dfs(tmp)
+
+        sys.setrecursionlimit(998)
+        return res
 
     def __str__(self):
         string = ''

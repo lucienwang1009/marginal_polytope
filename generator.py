@@ -13,26 +13,29 @@ class MLNGenerator(object):
     @contextmanager
     def generate(self, mln):
         _, file_name = tempfile.mkstemp()
+        content = ''
         with open(file_name, 'w') as fd:
             for name, size in zip(mln.domain_name, mln.domain_size):
-                fd.write('{} = {{{}}}{}'.format(
+                content += '{} = {{{}}}{}'.format(
                     name,
                     ', '.join(map(str, range(size))),
                     os.linesep
-                ))
-            fd.write(os.linesep)
+                )
+            content += os.linesep
             for predicate in mln.predicates:
-                fd.write(predicate + os.linesep)
-            fd.write(os.linesep)
+                content += predicate + os.linesep
+            content += os.linesep
 
             world_size = mln.world_size
             logger.debug('world size: %s', world_size)
             for index, formula in enumerate(mln.formulas):
-                fd.write('{} {}{}'.format(
+                content += '{} {}{}'.format(
                     mln.formula_weights[index],
                     formula,
                     os.linesep
-                ))
+                )
+            # logger.debug('generate model config:\n%s', content)
+            fd.write(content)
         try:
             yield file_name
         finally:
