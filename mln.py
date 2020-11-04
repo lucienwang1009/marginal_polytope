@@ -14,9 +14,9 @@ class MLN(object):
         self.sanity_check()
 
         # get number of arities in each predicate
-        self._arity_num = []
+        self._arity_num = {}
         for predicate in self.predicates:
-            self._arity_num.append(len(predicate.split(',')))
+            self._arity_num[predicate] = len(predicate.split(','))
         logger.debug('arity num: %s', self._arity_num)
 
     def sanity_check(self):
@@ -41,7 +41,7 @@ class MLN(object):
         if self.domain_size[0] == 0:
             return 0
         total = 0
-        for n in self._arity_num:
+        for n in self._arity_num.values():
             total += (self.domain_size[0] ** n)
         logger.debug('herbrand size: %s', total)
         return total

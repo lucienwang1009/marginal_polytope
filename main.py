@@ -250,7 +250,12 @@ class PolytopeSolver(object):
         mln = self._construct_mln(norm_vector)
         ln_Z = self.solver.solve(mln)
         logger.debug("ln(Z) = %s", ln_Z)
-        b = math.floor(ln_Z / math.log(mln.world_size))
+        b = ln_Z / math.log(mln.world_size)
+        b_floor = math.floor(b)
+        if abs(b - b_floor) < 1e-7:
+            b = b_floor - 1
+        else:
+            b = b_floor
         logger.debug("find b = %s", b)
         return b
 
@@ -277,3 +282,5 @@ if __name__ == '__main__':
         raise e
     logger.info(convex_hull)
     logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
+    if convex_hull.dimension <= 3:
+        convex_hull.show()

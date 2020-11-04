@@ -3,6 +3,8 @@ import sys
 
 from logzero import logger
 from scipy.optimize import linprog
+from matplotlib import pyplot as plt
+from scipy.spatial import ConvexHull as scipy_convex_hull
 
 from utils import coordinate2str
 
@@ -118,6 +120,32 @@ class ConvexHull(object):
         if self.get_vertex(vertex.coordinate) is None:
             raise RuntimeError('Unable to remove vertex {}'.format(vertex.coordinate))
         del self.vertices[coordinate2str(vertex.coordinate)]
+
+    def show(self, file_name=None):
+        if self.dimension > 3:
+            logger.warning('Cannot show convex hull in 4D space')
+            return
+        corners = []
+        for v in self.vertices.values():
+            corners.append(v.coordinate)
+        corners = np.array(corners)
+        hull = scipy_convex_hull(corners)
+        fig = plt.figure()
+        if self.dimension == 3:
+            ax = fig.add_subplot(111, projection='3d')
+        else:
+            ax = fig.add_subplot(111)
+        ax.plot(*corners.T, "ko")
+
+        for s in hull.simplices:
+            logger.debug(s)
+            # s = np.append(s, s[0])
+            ax.plot(*corners[s, :].T, 'r-')
+
+        if file_name is None:
+            plt.show()
+        else:
+            plt.savefig(file_name)
 
     def get_feasible_point_on_facet(
             self, norm, intercept, initial_point, handler=None
