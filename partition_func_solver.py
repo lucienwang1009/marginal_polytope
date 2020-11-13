@@ -2,6 +2,7 @@ import subprocess
 import re
 
 from logzero import logger
+from contexttimer import Timer
 
 from generator import MLNGenerator
 from mln import MLN
@@ -30,8 +31,11 @@ class WFOMCSolver(PartitionFunctionSolver):
         with self.mln_generator.generate(mln) as file_name:
             command = self.command + [file_name]
             logger.debug('command: %s', ' '.join(map(str, command)))
-            result = subprocess.run(command, stdout=subprocess.PIPE) \
-                .stdout.decode('utf-8')
+            with Timer() as t:
+                result = subprocess.run(
+                    command, stdout=subprocess.PIPE
+                ).stdout.decode('utf-8')
+            logger.info('elapsed time for WFOMC call: %s', t.elapsed)
             logger.debug('result: %s', result)
             res = re.findall(self.pattern, result)
             if not res or len(res) > 1:

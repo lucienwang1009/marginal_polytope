@@ -6,12 +6,12 @@ import logzero
 
 from logzero import logger
 from itertools import combinations, product
-from functools import reduce
 
 from mln import MLN
 from partition_func_solver import WFOMCSolver
-from polytope import ConvexHull, Vertex
-from utils import generalized_cross_product
+from polytope import IntegralConvexHull, Vertex
+# from utils import get_orthogonal_vector
+from utils import normalize_norm
 
 example_usage = '''Example:
 python main.py -d person -p 'smokes(person);friends(person,person)' \\
@@ -69,21 +69,6 @@ class PolytopeSolver(object):
             ))
         return points
 
-    def _get_orthogonal_vector(self, points):
-        vecs = []
-        for p in points[1:]:
-            vecs.append(p - points[0])
-        vecs = np.array(vecs)
-        orthogonal_vec = generalized_cross_product(vecs).astype(np.int)
-        logger.debug(
-            'Found norm orthogonal to\n%s:\n%s', vecs, orthogonal_vec
-        )
-        return orthogonal_vec
-
-    def _normalize_norm(self, norm):
-        gcd = reduce(math.gcd, norm)
-        return np.array(norm / gcd, dtype=np.int)
-
     def _norm_in_boundary(self, norm, facets_norm):
         if np.all(norm >= -self.norm_boundary) and \
                 np.all(norm <= self.norm_boundary):
@@ -91,50 +76,11 @@ class PolytopeSolver(object):
         return False
 
     def _get_new_norm(self, vertex):
-        # """
-        # Find the norm of new hyperplane, which is not parallel to
-        # the facet of the given cone
-        # """
-        # norm = None
-        # # get all feasible points of each hyperplane
-        # feasible_points = self._get_integers_points(vertex)
-        # for points in product(*feasible_points):
-        #     on_hyperplane = np.dot(
-        #         vertex.facets_norm, np.transpose(points)
-        #     ) == vertex.facets_intercept.reshape(
-        #         vertex.facets_norm.shape[0], 1
-        #     )
-        #     # if all points are on the facet of the given cone
-        #     if not np.any(np.all(on_hyperplane, axis=1)):
-        #         logger.debug("Found feasible integer points:%s", points)
-        #         norm = self._get_orthogonal_vector(points)
-        #         break
-        # if norm is None:
-        #     raise RuntimeError('Cannot find new hyperplane')
-        # if np.dot(norm, vertex.coordinate) <= np.dot(norm, points[0]):
-        #     norm = -norm
-        # return norm
-        # return np.sum(vertex.facets_norm, axis=1)
-        # for facets_norm in combinations(vertex.facets_norm, self.dimension):
-        #     facets_norm = np.array(facets_norm)
-        # # sum_norm = np.sum(facets_norm, axis=0)
-        # # sum_norm = self._normalize_norm(sum_norm)
-        # # if np.all(sum_norm >= -self.norm_boundary) and \
-        # #         np.all(sum_norm <= self.norm_boundary):
-        # #     return sum_norm
-        # # [a1^T, a2^T, ..., ad^T] \dot [\lambda_1, ..., \lambda_d]^T = norm
-        #     facets_norm_inverse = np.linalg.inv(np.transpose(facets_norm))
-
-        #     boundary_iter = [
-        #         list(range(-b, b + 1)) for b in self.norm_boundary
-        #     ]
-        #     for new_norm in product(*boundary_iter):
-        #         if np.all(np.dot(facets_norm_inverse, new_norm) > 0):
-        #             logger.debug(facets_norm_inverse)
-        #             logger.debug(new_norm)
-        #             return self._normalize_norm(np.array(new_norm, dtype=np.int))
-        # return None
-        return self._normalize_norm(np.sum(vertex.facets_norm, axis=0))
+        """
+        Find the norm of new hyperplane, which is not parallel to
+        the facet of the given cone
+        """
+        return normalize_norm(np.sum(vertex.facets_norm, axis=0))
 
     def _find_new_vertices(self, vertex):
         logger.debug('try to find new vertices based on %s', vertex)
@@ -148,51 +94,7 @@ class PolytopeSolver(object):
             logger.debug('possible vertex %s is a true vertex', vertex.coordinate)
             self.visited.add(vertex)
             return vertices
-        # purge possible vertices
-        logger.debug('purge possible vertices and find new possible vertices')
-        for vertex in self.vertices:
-            if vertex in self.visited or \
-                    new_facet_norm.dot(vertex.coordinate) <= new_facet_b:
-                continue
-            logger.debug(vertex in self.visited)
-            self.convex_hull.remove_vertex(vertex)
-            self.visited.add(vertex)
-            logger.debug(
-                'purge %s successfully, try to find new possible vertices',
-                vertex.coordinate
-            )
-            # intersect new hyperplane with facets of the cone
-            for facets_index in combinations(
-                range(vertex.facets_norm.shape[0]), self.dimension - 1
-            ):
-                A = [new_facet_norm]
-                b = [new_facet_b]
-                for index in facets_index:
-                    A.append(vertex.facets_norm[index])
-                    b.append(vertex.facets_intercept[index])
-                A = np.array(A)
-                b = np.array(b)
-                try:
-                    x = np.linalg.solve(A, b)
-                except Exception:
-                    # not linear independent
-                    continue
-                x += 0  # workaround the -0.0 problem
-                if self.convex_hull.contains(x):
-                    origin_vertex = self.convex_hull.get_vertex(x)
-                    if origin_vertex is None:
-                        new_vertex = Vertex(
-                            x, A.astype(np.int), b.astype(np.int)
-                        )
-                        vertices.append(new_vertex)
-                        logger.debug('found possible vertex: \n%s', new_vertex)
-                    else:
-                        # vertex is already a possible vertex
-                        origin_vertex.update_facet(
-                            np.array([new_facet_norm], dtype=np.int),
-                            np.array([new_facet_b], dtype=np.int)
-                        )
-                        logger.debug('update vertex: \n%s', origin_vertex)
+        vertices = self.convex_hull.add_facet(new_facet_norm, new_facet_b)
         return vertices
 
     def get_convex_hull(self):
@@ -200,18 +102,16 @@ class PolytopeSolver(object):
         logger.debug("Initial convex hull: \n%s", self.convex_hull)
         self.vertices = [v for v in self.convex_hull.get_vertices()]
         for vertex in self.vertices:
-            if vertex in self.visited:
+            if vertex in self.visited or \
+                    self.convex_hull.get_vertex(vertex.coordinate) is None:
                 continue
             vertices = self._find_new_vertices(vertex)
-            for v in vertices:
-                self.convex_hull.add_vertex(v)
             self.vertices.extend(vertices)
         return self.convex_hull
 
     def _init_convex_hull(self):
         # find all possible initial vertices
-        self.convex_hull = ConvexHull(self.dimension)
-        self.norm_boundary = np.zeros(self.dimension, dtype=np.int)
+        vertices = []
         bases = np.diag([1] * self.dimension).astype(np.float)
         min_max = np.zeros([self.dimension, 2]).astype(np.float)
         # the vertices of cube is possible vertices
@@ -220,8 +120,6 @@ class PolytopeSolver(object):
             min_max[i][0] = -b
             b = self.get_b(bases[i])
             min_max[i][1] = b
-            self.norm_boundary[i] = int(abs(min_max[i][0] - min_max[i][1]))
-        logger.debug('Norm boundary: %s', self.norm_boundary)
         for ind in product(*([[0, 1]] * self.dimension)):
             coordinate = np.array(
                 [min_max[i][ind[i]] for i in range(self.dimension)],
@@ -229,10 +127,11 @@ class PolytopeSolver(object):
             sign = np.array(ind) * 2 - 1
             vertex = Vertex(
                 coordinate,
-                (bases * sign).astype(np.int),
-                (coordinate * sign).astype(np.int)
+                (bases * sign).astype(np.int32),
+                (coordinate * sign).astype(np.int32)
             )
-            self.convex_hull.add_vertex(vertex)
+            vertices.append(vertex)
+        self.convex_hull = IntegralConvexHull(self.dimension, vertices)
 
     def _construct_mln(self, norm_vector):
         mln = MLN(
@@ -283,4 +182,4 @@ if __name__ == '__main__':
     logger.info(convex_hull)
     logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
     if convex_hull.dimension <= 3:
-        convex_hull.show()
+        convex_hull.show('./polytope.png')
