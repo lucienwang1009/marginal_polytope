@@ -1,15 +1,15 @@
 import numpy as np
 import sys
-import copy
 
 from logzero import logger
 from scipy.optimize import linprog
 from matplotlib import pyplot as plt
 from scipy.spatial import ConvexHull as scipy_convex_hull
 from itertools import product
-from contexttimer import Timer, timer
+from contexttimer import Timer
+from fractions import Fraction
 
-from utils import coordinate2str, get_hyperplane
+from utils import coordinate2str, get_hyperplane, get_integral_vec
 
 
 class Facet(object):
@@ -239,7 +239,6 @@ class IntegralConvexHull(ConvexHull):
             if self.contains(p):
                 self.integral_points.append(p)
 
-    @timer(logger=logger)
     def add_facet(self, norm, intercept):
         # filter integral points
         self.integral_points = list(filter(
@@ -262,26 +261,35 @@ class IntegralConvexHull(ConvexHull):
             norms = []
             intercepts = []
             if self.get_vertex(vertex_coordinate) is None:
-                facets_index = np.where(
-                    np.abs(np.dot(new_convex_hull.equations,
-                           np.append(vertex_coordinate, 1)) - 0) < 1e-7
-                )[0]
-                logger.info(vertex_coordinate)
+                # facets_index = np.where(
+                #     np.abs(np.dot(new_convex_hull.equations,
+                #            np.append(vertex_coordinate, 1)) - 0) < 1e-7
+                # )[0]
+                facets_index = np.where(new_convex_hull.simplices == v)[0]
                 for i in facets_index:
+                    # integral_equation = get_integral_vec(
+                    #     new_convex_hull.equations[i]
+                    # )
+                    # norms.append(integral_equation[:-1])
+                    # intercepts.append(-integral_equation[-1])
                     new_norm, new_intercept = get_hyperplane(
                         [self.integral_points[v] for v in
                          new_convex_hull.simplices[i]]
                     )
+                    new_norm = np.array(new_norm, dtype=np.int32)
+                    new_intercept = np.array(new_intercept, dtype=np.int32)
                     # get the half-space
                     for k in range(len(self.integral_points)):
-                        if k not in new_convex_hull.vertices:
-                            sign = np.dot(new_norm, self.integral_points[k])
-                            if sign != new_intercept:
-                                sign = 1 - 2 * int(sign > new_intercept)
-                                new_norm *= sign
-                                new_intercept *= sign
+                        sign = np.dot(new_norm, self.integral_points[k])
+                        if sign != new_intercept:
+                            sign = 1 - 2 * int(sign > new_intercept)
+                            new_norm *= sign
+                            new_intercept *= sign
+                            break
                     norms.append(new_norm)
                     intercepts.append(new_intercept)
+                norms = np.array(norms, dtype=np.int32)
+                intercepts = np.array(intercepts, dtype=np.int32)
                 vertex = Vertex(vertex_coordinate, norms, intercepts)
                 logger.debug('find new vertex %s', vertex)
                 self.add_vertex(vertex)

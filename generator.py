@@ -12,35 +12,38 @@ class MLNGenerator(object):
 
     @contextmanager
     def generate(self, mln):
-        _, file_name = tempfile.mkstemp()
+        fd = tempfile.NamedTemporaryFile(
+            mode='w',
+            suffix='.mln',
+            delete=False
+        )
         content = ''
-        with open(file_name, 'w') as fd:
-            for name, size in zip(mln.domain_name, mln.domain_size):
-                content += '{} = {{{}}}{}'.format(
-                    name,
-                    ', '.join(map(str, range(size))),
-                    os.linesep
-                )
-            content += os.linesep
-            for predicate in mln.predicates:
-                content += predicate + os.linesep
-            content += os.linesep
+        for name, size in zip(mln.domain_name, mln.domain_size):
+            content += '{} = {{{}}}{}'.format(
+                name,
+                ', '.join(map(str, range(size))),
+                os.linesep
+            )
+        content += os.linesep
+        for predicate in mln.predicates:
+            content += predicate + os.linesep
+        content += os.linesep
 
-            world_size = mln.world_size
-            logger.debug('world size: %s', world_size)
-            for index, formula in enumerate(mln.formulas):
-                content += '{} {}{}'.format(
-                    mln.formula_weights[index],
-                    formula,
-                    os.linesep
-                )
-            # logger.debug('generate model config:\n%s', content)
-            fd.write(content)
+        world_size = mln.world_size
+        logger.debug('world size: %s', world_size)
+        for index, formula in enumerate(mln.formulas):
+            content += '{} {}{}'.format(
+                mln.formula_weights[index],
+                formula,
+                os.linesep
+            )
+        fd.file.write(content)
+        fd.close()
         try:
-            yield file_name
+            yield fd.name
         finally:
             logger.debug('delete tmp file')
-            os.remove(file_name)
+            os.remove(fd.name)
 
 
 if __name__ == '__main__':

@@ -12,6 +12,7 @@ from partition_func_solver import WFOMCSolver
 from polytope import IntegralConvexHull, Vertex
 # from utils import get_orthogonal_vector
 from utils import normalize_norm
+from contexttimer import Timer
 
 example_usage = '''Example:
 python main.py -d person -p 'smokes(person);friends(person,person)' \\
@@ -80,7 +81,7 @@ class PolytopeSolver(object):
         Find the norm of new hyperplane, which is not parallel to
         the facet of the given cone
         """
-        return normalize_norm(np.sum(vertex.facets_norm, axis=0))
+        return np.array(normalize_norm(np.sum(vertex.facets_norm, axis=0)))
 
     def _find_new_vertices(self, vertex):
         logger.debug('try to find new vertices based on %s', vertex)
@@ -94,7 +95,9 @@ class PolytopeSolver(object):
             logger.debug('possible vertex %s is a true vertex', vertex.coordinate)
             self.visited.add(vertex)
             return vertices
-        vertices = self.convex_hull.add_facet(new_facet_norm, new_facet_b)
+        with Timer() as t:
+            vertices = self.convex_hull.add_facet(new_facet_norm, new_facet_b)
+        logger.info('elapsed time for add facet: %s', t.elapsed)
         return vertices
 
     def get_convex_hull(self):
@@ -166,19 +169,19 @@ if __name__ == '__main__':
     else:
         logzero.loglevel(logging.INFO)
     logzero.logfile(args.log_file, mode='w')
-    partition_func_solver = WFOMCSolver()
-    solver = PolytopeSolver(
-        partition_func_solver,
-        args.domain_name.split(';'),
-        args.predicates.split(';'),
-        args.formulas.split(';'),
-        list(map(int, args.domain_size.split(';')))
-    )
-    try:
-        convex_hull = solver.get_convex_hull()
-    except RuntimeError as e:
-        logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
-        raise e
+    with WFOMCSolver() as s:
+        solver = PolytopeSolver(
+            s, args.domain_name.split(';'),
+            args.predicates.split(';'),
+            args.formulas.split(';'),
+            list(map(int, args.domain_size.split(';')))
+        )
+        try:
+            convex_hull = solver.get_convex_hull()
+        except Exception as e:
+            raise e
+        finally:
+            logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
     logger.info(convex_hull)
     logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
     if convex_hull.dimension <= 3:
