@@ -1,76 +1,28 @@
 import argparse
+import logzero
+import logging
+import re
 import heapq
 import itertools
 import math
-import sys
 import tempfile
 import subprocess
 import time
-from math import floor
+import numpy as np
 
+from math import floor
+from contexttimer import Timer
 from pyparsing import *
 from copy import deepcopy
+from logzero import logger
+from scipy.optimize import linprog
+
+from approxWFOMC.converter import convert2mln
+from approxWFOMC.logic import Predicate, Variable, Constant
+from main import main as get_irmp
+from utils import plot_convex_hull
 
 varcount = 0
-
-
-class Predicate:
-    def __init__(self, name, args, negated):
-        self.name = name
-        self.args = args
-        self.negated = negated
-
-    def arity(self):
-        return len(self.args)
-
-    def free_variables(self):
-        return list(filter(lambda x: isinstance(x, Variable), self.args))
-
-    def ground_variables(self):
-        return list(filter(lambda x: isinstance(x, Constant), self.args))
-
-    def substitute(self, map):
-        for key, value in map.items():
-            self.args = map(lambda x: value if x == key else x, self.args)
-
-    def __hash__(self):
-        return hash((self.name, str(self.args)))
-
-    def __eq__(self, other):
-        return other and self.name == other.name and self.args == other.args
-
-    def __repr__(self):
-        out = self.name + "(" + ",".join(map(str, self.args)) + ")"
-        if self.negated: out = "-" + out
-        return out
-
-
-class Variable:
-    def __init__(self, name):
-        self.name = name
-
-    def __repr__(self):
-        return self.name
-
-    def __hash__(self):
-        return hash(self.name)
-
-    def __eq__(self, other):
-        return other and self.name == other.name
-
-
-class Constant:
-    def __init__(self, name):
-        self.name = name
-
-    def __eq__(self, other):
-        return other and self.name == other.name
-
-    def __hash__(self):
-        return hash(str(self.name))
-
-    def __repr__(self):
-        return self.name
 
 
 class DimacsClause:
@@ -105,14 +57,15 @@ def get_approxmc_model_count(input_str, i, mmax):
         delta = 0.2 / (i * math.log(mmax + 1))
     else:
         delta = 0.2
-    print("Delta value for approxmc call", i, "is", str(delta))
+    logger.info("Delta value for approxmc call %s is %s", i, str(delta))
     with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
         tf.write(input_str)
         tf.flush()
         out = subprocess.run(['./approxmc', '--delta', str(delta), tf.name], check=False,
                              stdout=subprocess.PIPE,
                              universal_newlines=True).stdout
-        return int(out.split('\n')[-2])
+        cell, has = re.findall(r'is: (\d+) x 2\^(\d+)', out.split('\n')[-2])[0]
+        return int(cell) * math.pow(2, int(has))
 
 # Toggle ApproxMC/sharpSAT usage in the line below
 get_model_count = lambda x, i, m: get_approxmc_model_count(x, i, m)
@@ -140,8 +93,18 @@ def main():
     parser = argparse.ArgumentParser(description='Perform approximate WFOMC on an input FO CNF.')
     parser.add_argument('domain', metavar='N', type=int, help='domain size')
     parser.add_argument('file', help='filename of input FO CNF')
+    parser.add_argument('--improve', action='store_true', help='if use improved method to'
+                        ' comput lower and upper bound')
+    parser.add_argument('--debug', action='store_true', help='debug mode')
+    parser.add_argument('--log', type=str, default='./log.txt')
 
     args = parser.parse_args()
+    if args.debug:
+        logzero.loglevel(logging.DEBUG)
+    else:
+        logzero.loglevel(logging.INFO)
+    logzero.logfile(args.log, mode='w')
+
     with open(args.file, 'r') as file:
         data = file.read()
     domainsize = args.domain
@@ -161,6 +124,7 @@ def main():
                 predicatename = predicate[0]
                 negated = False
             for pos, var in enumerate(predicate[1]):
+                # capital is Variable
                 if is_var(var):
                     predicate_args.append(Variable(var))
                 else:
@@ -169,6 +133,17 @@ def main():
             arities[predicatename] = len(predicate_args)
             c.append(p)
         clauses.append(c)
+
+    ######################################################
+    # NOTE: start computing IRMP
+    mln = None
+    aux2dim = None
+    if args.improve:
+        mln, aux2dim = convert2mln(clauses, domainsize)
+        logger.debug('mln:%s\naux2dim:%s', mln, aux2dim)
+        convex_hull = get_irmp(mln, 'iter')
+        plot_convex_hull(convex_hull, './polytope.png')
+    ######################################################
 
     # At this point, clauses contains a list of lists of predicates
     # Start grounding
@@ -216,7 +191,7 @@ def main():
     mmax = 1
     # for predicatename, arity in arities.items():
     #     mmax = mmax*(domainsize**arity + 1)
-    # print(mmax)
+    # logger.info(mmax)
     # sys.exit(0)
     sampling_set = []
     non_aux_predicates = []
@@ -231,34 +206,35 @@ def main():
             aux_predicates.append(pred)
             mmax = mmax * (domainsize ** arities[pred] + 1)
 
-    print("mmax value", mmax)
-    # print(output_to_dimacs(out, sampling_set))
+    logger.info("mmax value: %s", mmax)
+    # logger.info(output_to_dimacs(out, sampling_set))
     start = time.time()
     number_of_mc_calls = 1
     non_heuristic_calls = 1
     mc = get_model_count(output_to_dimacs(out, sampling_set), non_heuristic_calls, mmax)
-    print("Initial model count is", mc)
+    logger.info("Initial model count is: %s", mc)
 
-    priority_queue = []
     tmin = 1
     tmax = 1
+    priority_queue = []
     bounds = {}
+    tolerance = 1.5
+    # tolerance = 1
+    # varcount keeps track of the highest variable ID in the DIMACS CNF,
+    # so we know where to start building the constraints
+    global varcount
+
     for pred in aux_predicates:
         # for pred in weights.keys():
         nog = domainsize ** arities[pred]
-        # varcount keeps track of the highest variable ID in the DIMACS CNF, so we know where to start building the
-        # constraints
-        global varcount
-        tolerance = 1.5
-        # tolerance = 1
-        p = weights[pred][0]
-        n = weights[pred][1]
-
-        minWeight = min(p ** nog, n ** nog)
-        maxWeight = max(p ** nog, n ** nog)
-        tmin *= minWeight
-        tmax *= maxWeight
         bounds[pred] = (0, nog)
+
+    if args.improve:
+        tmin, tmax = get_upper_lower_bound_imp(convex_hull, bounds, weights, aux2dim,
+                                               domainsize, arities)
+    else:
+        tmin, tmax = get_upper_lower_bound(bounds, weights, domainsize, arities)
+    logger.debug('tmin: %s, tmax: %s', tmin, tmax)
 
     currentLb = mc * tmin
     currentUb = mc * tmax
@@ -271,14 +247,14 @@ def main():
     gmstr = ""
     while True:
         if not (currentUb / currentLb > tolerance):
-            print("Converged!")
+            logger.info("Converged!")
             break
         if not priority_queue:
-            print("Queue empty, terminating!")
+            logger.info("Queue empty, terminating!")
             break
-        print("Current queue:", priority_queue)
-        print("Popping the first (left-most) item off the queue.")
+        logger.info("Current queue: %s", priority_queue)
         (_, _, parentMc, parentLb, parentUb, bounds) = heapq.heappop(priority_queue)
+        logger.info("Popping the first (left-most) item off the queue: [%s, %s]", parentLb, parentUb)
 
         # tbounds = bounds
         temp = {}
@@ -287,7 +263,7 @@ def main():
         best_pred_bounds = None
         for pred in aux_predicates:
             themin, themax = bounds[pred]
-            if (themin == themax):
+            if themin == themax:
                 continue
             else:
                 lr = [(themin, floor((themin + themax) / 2)), (floor((themin + themax) / 2) + 1, themax)]
@@ -303,24 +279,49 @@ def main():
 
                 tmin = 1
                 tmax = 1
-                print("Setting constraints:", newbounds)
+                logger.info("Setting constraints: %s", newbounds)
                 boundsb.append(newbounds)
-                # for pred in weights.keys():
-                for predic in aux_predicates:
-                    p = weights[predic][0]
-                    n = weights[predic][1]
-                    themin, themax = newbounds[predic]
-                    nog = domainsize ** arities[predic]
-                    minWeight = min(p ** themin * n ** (nog - themin), p ** themax * n ** (nog - themax))
-                    maxWeight = max(p ** themin * n ** (nog - themin), p ** themax * n ** (nog - themax))
-                    tmin *= minWeight
-                    tmax *= maxWeight
+                # if args.improve:
+                #     # improvement 1: if the current bound isn't intersected with convex hull,
+                #     # stop split it!
+                #     bounds_to_check = [[]] * len(aux2dim)
+                #     for p_aux, dim in aux2dim.items():
+                #         bounds_to_check[dim] = newbounds[p_aux]
+                #     intersected = False
+                #     for point in itertools.product(*bounds_to_check):
+                #         if contains(convex_hull, point):
+                #             intersected = True
+                #             break
+                #     if not intersected:
+                #         logger.debug('New bound is not intersected with convex hull, skip it!')
+                #         mcs.append(0)
+                #         upb.append(0)
+                #         lowb.append(0)
+                #         continue
+
+                #     # improvement 2: calculate upper and lower bound with additional
+                #     # convex hull constrains
+                #     with Timer() as t:
+                #         tmin, tmax = get_upper_lower_bound_imp(
+                #             convex_hull, newbounds, weights, aux2dim,
+                #             domainsize, arities
+                #         )
+                #     logger.debug('elapsed time for calculating upper and lower bound: %s',
+                #                  t.elapsed)
+                # else:
+                #     tmin, tmax = get_upper_lower_bound(
+                #         newbounds, weights, domainsize, arities
+                #     )
+                tmin, tmax = get_upper_lower_bound(
+                    newbounds, weights, domainsize, arities
+                )
+                # NOTE: disable cache
                 if len(mcs) > 0:
                     # if(parentMc < mcs[0]): # catch weird negative cases
                     #     mcA = 1
                     # else:
                     mcA = parentMc - mcs[0]
-                    print("Using cache to infer model count value for constraints above of", mcA)
+                    logger.info("Using cache to infer model count value for constraints above of: %s", mcA)
                 else:
                     tout = deepcopy(out)
                     oldvc = varcount  # Cache the varcount before adding the constraints
@@ -334,37 +335,38 @@ def main():
                     # ivalue += 1
                     mcA = get_model_count(output_to_dimacs(tout, sampling_set), None, mmax)
                     varcount = oldvc  # Restore the old varcount
-                    print("Model count for constraints above is", mcA)
+                    logger.info("Model count for constraints above is: %s", mcA)
                 # if mcA == 0:
                 #     continue
                 mcs.append(mcA)
                 lowb.append(mcA * tmin)
                 upb.append(mcA * tmax)
                 computedLeft = True
-            print("Left split bounds: [" + str(lowb[0]) + ", " + str(upb[0]) + "]")
-            print("Right split bounds: [" + str(lowb[1]) + ", " + str(upb[1]) + "]")
+            logger.info("Left split bounds: [" + str(lowb[0]) + ", " + str(upb[0]) + "]")
+            logger.info("Right split bounds: [" + str(lowb[1]) + ", " + str(upb[1]) + "]")
             testingub = upb[0] + upb[1]
             testinglb = lowb[0] + lowb[1]
             if testinglb <= 0 or testingub <= 0:  # catch weird negative case
                 testinglb = initialLb
                 testingub = initialUb
-            if best_pred_bounds is None or logheuristic(best_pred_bounds[1], best_pred_bounds[0]) > logheuristic(
-                    testingub, testinglb):
+            if best_pred_bounds is None:  # or logheuristic(best_pred_bounds[1], best_pred_bounds[0]) > logheuristic(
+                # testingub, testinglb):
                 best_pred = pred
                 best_pred_bounds = (testinglb, testingub)
 
-            print("Log heuristic for current best bounds", logheuristic(best_pred_bounds[1], best_pred_bounds[0]))
-            print("Log heuristic for split above", logheuristic(testingub, testinglb))
+            # logger.info("Log heuristic for current best bounds: %s", logheuristic(best_pred_bounds[1], best_pred_bounds[0]))
+            # logger.info("Log heuristic for split above: %s", logheuristic(testingub, testinglb))
             temp[pred] = [(-heuristic(upb[0], lowb[0]), id(boundsb[0]), mcs[0], lowb[0], upb[0], boundsb[0]),
                           (-heuristic(upb[1], lowb[1]), id(boundsb[1]), mcs[1], lowb[1], upb[1], boundsb[1])]
         if allsame:
             break
-        print("Best predicate above was", best_pred)
+        logger.info("Best predicate above was: %s", best_pred)
         currentUb = currentUb - parentUb
         currentLb = currentLb - parentLb
         currentUb += best_pred_bounds[1]
         currentLb += best_pred_bounds[0]
         #############################
+        # NOTE: disable cache
         # Get a more accurate value for the right split of the selected predicate
         tout = deepcopy(out)
         oldvc = varcount  # Cache the varcount before adding the constraints
@@ -374,32 +376,53 @@ def main():
             for x in encode_cardinality_constraint(amin, amax, m[predic]):
                 tout.add(DimacsClause(*list(x)))
 
-        number_of_mc_calls += 1 # if one of the splits is zero, we don't need to increase this
+        number_of_mc_calls += 1  # if one of the splits is zero, we don't need to increase this
         non_heuristic_calls += 1
         updatedmc = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
         varcount = oldvc  # Restore the old varcount
-        print("Got exact model count for right half of the split of the predicate selected:", updatedmc)
-        temp[best_pred][1] = temp[best_pred][1][:2] + (updatedmc,) + temp[best_pred][1][3:]
-        temp[best_pred][0] = temp[best_pred][0][:2] + (parentMc - updatedmc,) + temp[best_pred][0][3:]
+        logger.info("Got exact model count for right half of the split of the predicate selected: %s", updatedmc)
+
+        mcs = [parentMc - updatedmc, updatedmc]
+        for i, _ in enumerate(temp[best_pred]):
+            if mcs[i] != 0 and args.improve:
+                tmin, tmax = get_upper_lower_bound_imp(
+                    convex_hull, temp[best_pred][i][-1], weights, aux2dim,
+                    domainsize, arities
+                )
+            else:
+                tmin, tmax = get_upper_lower_bound(
+                    temp[best_pred][i][-1], weights, domainsize, arities
+                )
+            if temp[best_pred][i][2] == 0:
+                exact_lowb = 0
+                exact_upb = 0
+            else:
+                exact_lowb = mcs[i] * tmin  # temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
+                exact_upb = mcs[i] * tmax  # temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
+            temp[best_pred][i] = (-heuristic(exact_upb, exact_lowb), temp[best_pred][i][1],
+                                  mcs[i], exact_lowb, exact_upb, temp[best_pred][i][-1])
+            logger.debug(temp[best_pred][i])
+        currentLb = currentLb - best_pred_bounds[0] + temp[best_pred][0][3] + temp[best_pred][1][3]
+        currentUb = currentUb - best_pred_bounds[1] + temp[best_pred][0][4] + temp[best_pred][1][4]
         #############################
         for i in temp[best_pred]:
             heapq.heappush(priority_queue, i)
-        print("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
-        lbstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentLb) + ")"
-        ubstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentUb) + ")"
-        gmstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(math.sqrt(currentLb * currentUb)) + ")"
-        print("Number of model counter calls so far:", number_of_mc_calls)
-        print("Number of non-heuristic model counter calls so far:", non_heuristic_calls)
-        print("==============")
+        logger.info("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
+        # lbstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentLb) + ")"
+        # ubstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentUb) + ")"
+        # gmstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(math.sqrt(currentLb * currentUb)) + ")"
+        # logger.info("Number of model counter calls so far: %s", number_of_mc_calls)
+        # logger.info("Number of non-heuristic model counter calls so far: %s", non_heuristic_calls)
+        logger.info("==============")
 
-    print("Total number of model counter calls:", number_of_mc_calls)
-    print("Number of non-heuristic model counter calls so far:", non_heuristic_calls)
-    print("Best WMC bounds: [" + str(currentLb) + ", " + str(currentUb) + "]")
+    logger.info("Total number of model counter calls: %s", number_of_mc_calls)
+    logger.info("Number of non-heuristic model counter calls so far: %s", non_heuristic_calls)
+    logger.info("Best WMC bounds: [" + str(currentLb) + ", " + str(currentUb) + "]")
     end = time.time()
-    print("Runtime:", end - start)
-    # print(lbstr)
-    # print(ubstr)
-    # print(gmstr)
+    logger.info("Runtime: %s", end - start)
+    # logger.info(lbstr)
+    # logger.info(ubstr)
+    # logger.info(gmstr)
 
 
 def output_to_dimacs(clauses, sampling_set=None):
@@ -517,6 +540,92 @@ def get_n_fresh(n):
     for i in range(n):
         a.add(fresh_variable())
     return a
+
+
+def get_upper_lower_bound(constrains, weights, domainsize, arities):
+    lower_bound = 1
+    upper_bound = 1
+    # multiple unbounded formula
+    for p_aux, (c_l, c_u) in constrains.items():
+        nog = domainsize ** arities[p_aux]
+        l, u = constrains[p_aux]
+        lower_bound *= min(
+            weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
+            weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
+        )
+        upper_bound *= max(
+            weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
+            weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
+        )
+    return lower_bound, upper_bound
+
+
+def get_upper_lower_bound_imp(convex_hull, constrains, weights, aux2dim,
+                              domainsize, arities):
+    n_formulas = len(constrains)
+    # [n_formulas]
+    c = np.zeros(n_formulas)
+    # [facets, n_formulas]
+    A = np.hstack([
+        convex_hull.equations[:, :-1],
+        np.zeros([convex_hull.equations.shape[0],
+                  n_formulas - convex_hull.equations.shape[1] + 1])
+    ])
+    b = -convex_hull.equations[:, -1]
+
+    nog_log_sum = 0
+    n_dims = len(aux2dim)
+
+    for p_aux, (l, u) in constrains.items():
+        nog = domainsize ** arities[p_aux]
+        # ln (w_p^c * w_n^{nog-c}) = nog*ln(w_p) + ln(w_p/w_n) * c
+        obj_w = math.log(weights[p_aux][0] / weights[p_aux][1])
+        nog_log_sum += nog * math.log(weights[p_aux][1])
+        dim = None
+        if p_aux in aux2dim:
+            dim = aux2dim[p_aux]
+        else:
+            dim = n_dims
+            n_dims += 1
+        c[dim] = obj_w
+
+        A_p = np.zeros([1, A.shape[1]])
+        A_p[0, dim] = 1
+        A = np.vstack([A, -A_p, A_p])
+        b = np.append(b, [-constrains[p_aux][0], constrains[p_aux][1]])
+    try:
+        res = linprog(c, A, b)
+        if not res.success:
+            logger.error(res)
+        lower_bound = res.fun
+        res = linprog(-c, A, b)
+        if not res.success:
+            logger.error(res)
+        upper_bound = -res.fun
+    except Exception as e:
+        logger.error(e)
+        raise RuntimeError('Encount error when calling linprog')
+
+    lower_bound = math.exp(lower_bound + nog_log_sum)
+    upper_bound = math.exp(upper_bound + nog_log_sum)
+    # # multiple unbounded formula
+    # for p_aux, (c_l, c_u) in constrains.items():
+    #     if p_aux not in aux2dim:
+    #         nog = domainsize ** arities[p_aux]
+    #         l, u = constrains[p_aux]
+    #         lower_bound *= min(
+    #             weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
+    #             weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
+    #         )
+    #         upper_bound *= max(
+    #             weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
+    #             weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
+    #         )
+    return lower_bound, upper_bound
+
+
+def contains(convex_hull, point):
+    return np.all(np.dot(convex_hull.equations, np.append(point, 1)) <= 0)
 
 
 if __name__ == '__main__':
