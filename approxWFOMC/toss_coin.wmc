@@ -1,0 +1,10 @@
+predicate heads 1 0.5 1
+predicate tails 1 0.1 1
+predicate aux1 1 0.5 1
+predicate aux2 1 0.1 1
+aux1(X), -heads(X)
+-aux1(X), heads(X)
+aux2(X), -tails(X)
+-aux2(X), tails(X)
+aux1(X), aux2(X)
+-aux1(X), -aux2(X)
