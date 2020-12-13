@@ -12,7 +12,8 @@ import numpy as np
 
 from math import floor
 from contexttimer import Timer
-from pyparsing import *
+from pyparsing import Word, alphas, nums, alphanums, \
+    Suppress, OneOrMore, Group, Optional, delimitedList
 from copy import deepcopy
 from logzero import logger
 from scipy.optimize import linprog
@@ -242,9 +243,6 @@ def main():
     initialUb = currentUb
     heapq.heappush(priority_queue, (-heuristic(currentUb, currentLb), id(bounds), mc, currentLb, currentUb, bounds))
 
-    lbstr = ""
-    ubstr = ""
-    gmstr = ""
     while True:
         if not (currentUb / currentLb > tolerance):
             logger.info("Converged!")
@@ -281,40 +279,37 @@ def main():
                 tmax = 1
                 logger.info("Setting constraints: %s", newbounds)
                 boundsb.append(newbounds)
-                # if args.improve:
-                #     # improvement 1: if the current bound isn't intersected with convex hull,
-                #     # stop split it!
-                #     bounds_to_check = [[]] * len(aux2dim)
-                #     for p_aux, dim in aux2dim.items():
-                #         bounds_to_check[dim] = newbounds[p_aux]
-                #     intersected = False
-                #     for point in itertools.product(*bounds_to_check):
-                #         if contains(convex_hull, point):
-                #             intersected = True
-                #             break
-                #     if not intersected:
-                #         logger.debug('New bound is not intersected with convex hull, skip it!')
-                #         mcs.append(0)
-                #         upb.append(0)
-                #         lowb.append(0)
-                #         continue
+                if args.improve:
+                    # improvement 1: if the current bound isn't intersected with convex hull,
+                    # stop split it!
+                    bounds_to_check = [[]] * len(aux2dim)
+                    for p_aux, dim in aux2dim.items():
+                        bounds_to_check[dim] = newbounds[p_aux]
+                    intersected = False
+                    for point in itertools.product(*bounds_to_check):
+                        if contains(convex_hull, point):
+                            intersected = True
+                            break
+                    if not intersected:
+                        logger.debug('New bound is not intersected with convex hull, skip it!')
+                        mcs.append(0)
+                        upb.append(0)
+                        lowb.append(0)
+                        continue
 
-                #     # improvement 2: calculate upper and lower bound with additional
-                #     # convex hull constrains
-                #     with Timer() as t:
-                #         tmin, tmax = get_upper_lower_bound_imp(
-                #             convex_hull, newbounds, weights, aux2dim,
-                #             domainsize, arities
-                #         )
-                #     logger.debug('elapsed time for calculating upper and lower bound: %s',
-                #                  t.elapsed)
-                # else:
-                #     tmin, tmax = get_upper_lower_bound(
-                #         newbounds, weights, domainsize, arities
-                #     )
-                tmin, tmax = get_upper_lower_bound(
-                    newbounds, weights, domainsize, arities
-                )
+                    # improvement 2: calculate upper and lower bound with additional
+                    # convex hull constrains
+                    with Timer() as t:
+                        tmin, tmax = get_upper_lower_bound_imp(
+                            convex_hull, newbounds, weights, aux2dim,
+                            domainsize, arities
+                        )
+                    logger.debug('elapsed time for calculating upper and lower bound: %s',
+                                 t.elapsed)
+                else:
+                    tmin, tmax = get_upper_lower_bound(
+                        newbounds, weights, domainsize, arities
+                    )
                 # NOTE: disable cache
                 if len(mcs) > 0:
                     # if(parentMc < mcs[0]): # catch weird negative cases
@@ -341,7 +336,6 @@ def main():
                 mcs.append(mcA)
                 lowb.append(mcA * tmin)
                 upb.append(mcA * tmax)
-                computedLeft = True
             logger.info("Left split bounds: [" + str(lowb[0]) + ", " + str(upb[0]) + "]")
             logger.info("Right split bounds: [" + str(lowb[1]) + ", " + str(upb[1]) + "]")
             testingub = upb[0] + upb[1]
@@ -349,8 +343,8 @@ def main():
             if testinglb <= 0 or testingub <= 0:  # catch weird negative case
                 testinglb = initialLb
                 testingub = initialUb
-            if best_pred_bounds is None:  # or logheuristic(best_pred_bounds[1], best_pred_bounds[0]) > logheuristic(
-                # testingub, testinglb):
+            if best_pred_bounds is None or \
+                    logheuristic(best_pred_bounds[1], best_pred_bounds[0]) > logheuristic(testingub, testinglb):
                 best_pred = pred
                 best_pred_bounds = (testinglb, testingub)
 
@@ -382,35 +376,24 @@ def main():
         varcount = oldvc  # Restore the old varcount
         logger.info("Got exact model count for right half of the split of the predicate selected: %s", updatedmc)
 
+        currentLb -= best_pred_bounds[0]
+        currentUb -= best_pred_bounds[1]
         mcs = [parentMc - updatedmc, updatedmc]
         for i, _ in enumerate(temp[best_pred]):
-            if mcs[i] != 0 and args.improve:
-                tmin, tmax = get_upper_lower_bound_imp(
-                    convex_hull, temp[best_pred][i][-1], weights, aux2dim,
-                    domainsize, arities
-                )
-            else:
-                tmin, tmax = get_upper_lower_bound(
-                    temp[best_pred][i][-1], weights, domainsize, arities
-                )
             if temp[best_pred][i][2] == 0:
                 exact_lowb = 0
                 exact_upb = 0
             else:
-                exact_lowb = mcs[i] * tmin  # temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
-                exact_upb = mcs[i] * tmax  # temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
+                exact_lowb = mcs[i] * temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
+                exact_upb = mcs[i] * temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
             temp[best_pred][i] = (-heuristic(exact_upb, exact_lowb), temp[best_pred][i][1],
                                   mcs[i], exact_lowb, exact_upb, temp[best_pred][i][-1])
-            logger.debug(temp[best_pred][i])
-        currentLb = currentLb - best_pred_bounds[0] + temp[best_pred][0][3] + temp[best_pred][1][3]
-        currentUb = currentUb - best_pred_bounds[1] + temp[best_pred][0][4] + temp[best_pred][1][4]
+            currentLb += exact_lowb
+            currentUb += exact_upb
         #############################
         for i in temp[best_pred]:
             heapq.heappush(priority_queue, i)
         logger.info("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
-        # lbstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentLb) + ")"
-        # ubstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(currentUb) + ")"
-        # gmstr += "(" + str(number_of_mc_calls) + "," + '{:f}'.format(math.sqrt(currentLb * currentUb)) + ")"
         # logger.info("Number of model counter calls so far: %s", number_of_mc_calls)
         # logger.info("Number of non-heuristic model counter calls so far: %s", non_heuristic_calls)
         logger.info("==============")
@@ -420,9 +403,6 @@ def main():
     logger.info("Best WMC bounds: [" + str(currentLb) + ", " + str(currentUb) + "]")
     end = time.time()
     logger.info("Runtime: %s", end - start)
-    # logger.info(lbstr)
-    # logger.info(ubstr)
-    # logger.info(gmstr)
 
 
 def output_to_dimacs(clauses, sampling_set=None):
