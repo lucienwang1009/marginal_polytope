@@ -19,9 +19,10 @@ class MLNGenerator(object):
         )
         content = ''
         for name, size in zip(mln.domain_name, mln.domain_size):
+            items = list(map(str, range(size)))
             content += '{} = {{{}}}{}'.format(
                 name,
-                ', '.join(map(str, range(size))),
+                ', '.join(items),
                 os.linesep
             )
         content += os.linesep
@@ -32,8 +33,17 @@ class MLNGenerator(object):
         world_size = mln.world_size
         logger.debug('world size: %s', world_size)
         for index, formula in enumerate(mln.formulas):
+            # NOTE: mln can have complex weight
+            formula_weight = mln.formula_weights[index]
+            if isinstance(formula_weight, complex):
+                weight_str = '{},{}'.format(
+                    formula_weight.real,
+                    formula_weight.imag
+                )
+            else:
+                weight_str = formula_weight
             content += '{} {}{}'.format(
-                mln.formula_weights[index],
+                weight_str,
                 formula,
                 os.linesep
             )

@@ -1,5 +1,6 @@
 import numpy as np
 import sys
+import pickle
 
 from logzero import logger
 from scipy.optimize import linprog
@@ -124,30 +125,13 @@ class ConvexHull(object):
             raise RuntimeError('Unable to remove vertex {}'.format(vertex.coordinate))
         del self.vertices[coordinate2str(vertex.coordinate)]
 
-    def show(self, file_name=None):
-        if self.dimension > 3:
-            logger.warning('Cannot show convex hull in 4D space')
-            return
+    def to_scipy_convex_hull(self):
         corners = []
         for v in self.vertices.values():
             corners.append(v.coordinate)
         corners = np.array(corners)
         hull = scipy_convex_hull(corners)
-        fig = plt.figure()
-        if self.dimension == 3:
-            ax = fig.add_subplot(111, projection='3d')
-        else:
-            ax = fig.add_subplot(111)
-        ax.plot(*corners.T, "ko")
-
-        for s in hull.simplices:
-            # s = np.append(s, s[0])
-            ax.plot(*corners[s, :].T, 'r-')
-
-        if file_name is None:
-            plt.show()
-        else:
-            plt.savefig(file_name)
+        return hull
 
     def get_feasible_point_on_facet(
             self, norm, intercept, initial_point, handler=None
@@ -214,7 +198,6 @@ class IntegralConvexHull(ConvexHull):
             self.add_vertex(v)
         self.integral_points = []
         self._iter_integral_points()
-        # logger.debug('integral points in polytope: %s', self.integral_points)
 
     def add_vertex(self, vertex):
         # all vertices are integral

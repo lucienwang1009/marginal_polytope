@@ -5,6 +5,7 @@ from logzero import logger
 from functools import reduce
 from scipy import linalg
 from fractions import Fraction
+from matplotlib import pyplot as plt
 
 
 def gcd_vec(vec):
@@ -55,15 +56,46 @@ def get_orthogonal_vector(points):
     for p in points[1:]:
         vecs.append(p - points[0])
     vecs = np.array(vecs)
-    orthogonal_vec = generalized_cross_product(vecs).astype(np.int32)
+    orthogonal_vec = generalized_cross_product(vecs)
     return orthogonal_vec
 
 
 def get_hyperplane(points):
+    # points must be integral
+    assert isinstance(points[0][0], (int, np.integer))
     points = np.array(points)
     norm = get_orthogonal_vector(points)
     if norm[0] < 0:
         norm = -norm
+    # round to integral norm
+    norm = [round(n) for n in norm]
     norm = normalize_norm(norm)
     intercept = np.dot(norm, points[0])
     return norm, intercept
+
+
+def inverse_dft_with_ln_input(x):
+    pass
+
+
+def plot_convex_hull(convex_hull, file_name=None):
+    dimension = convex_hull.points.shape[1]
+    if dimension > 3:
+        logger.warning('Cannot show convex hull in 4D space')
+        return
+    corners = np.array([convex_hull.points[i] for i in convex_hull.vertices])
+    fig = plt.figure()
+    if dimension == 3:
+        ax = fig.add_subplot(111, projection='3d')
+    else:
+        ax = fig.add_subplot(111)
+    ax.plot(*corners.T, "ko")
+
+    for s in convex_hull.simplices:
+        # s = np.append(s, s[0])
+        ax.plot(*(convex_hull.points[s, :].T), 'r-')
+
+    if file_name is None:
+        plt.show()
+    else:
+        plt.savefig(file_name)
