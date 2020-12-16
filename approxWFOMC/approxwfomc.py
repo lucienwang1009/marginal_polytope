@@ -136,14 +136,17 @@ def main():
         clauses.append(c)
 
     ######################################################
-    # NOTE: start computing IRMP
-    mln = None
-    aux2dim = None
+    # NOTE(lucien): start computing IRMP
+    aux2dim = {}
+    dim2bound = None
     if args.improve:
         mln, aux2dim = convert2mln(clauses, domainsize)
         logger.debug('mln:%s\naux2dim:%s', mln, aux2dim)
         convex_hull = get_irmp(mln, 'iter')
-        plot_convex_hull(convex_hull, './polytope.png')
+        vertices_cood = convex_hull.points[convex_hull.vertices, :]
+        dim2bound = np.stack([np.min(vertices_cood, axis=0),
+                              np.max(vertices_cood, axis=0)], axis=0).T
+        # plot_convex_hull(convex_hull, './polytope.png')
     ######################################################
 
     # At this point, clauses contains a list of lists of predicates
@@ -190,13 +193,10 @@ def main():
 
     ############################################
     mmax = 1
-    # for predicatename, arity in arities.items():
-    #     mmax = mmax*(domainsize**arity + 1)
-    # logger.info(mmax)
-    # sys.exit(0)
     sampling_set = []
     non_aux_predicates = []
     aux_predicates = []
+    bounds = {}
     for pred in weights.keys():
         # Use the non-auxiliary predicates as our sampling set
         if not pred.startswith("aux"):
@@ -205,10 +205,19 @@ def main():
         # We only need to consider the auxiliary predicates when computing weights
         else:
             aux_predicates.append(pred)
-            mmax = mmax * (domainsize ** arities[pred] + 1)
+            # NOTE(lucien): improvement 1
+            bound = None
+            nog = 0
+            if args.improve and pred in aux2dim:
+                bound = tuple(int(b) for b in dim2bound[aux2dim[pred]])
+                nog = bound[1] - bound[0]
+            else:
+                nog = domainsize ** arities[pred]
+                bound = (0, nog)
+            bounds[pred] = bound
+            mmax = mmax * (nog + 1)
 
     logger.info("mmax value: %s", mmax)
-    # logger.info(output_to_dimacs(out, sampling_set))
     start = time.time()
     number_of_mc_calls = 1
     non_heuristic_calls = 1
@@ -218,17 +227,10 @@ def main():
     tmin = 1
     tmax = 1
     priority_queue = []
-    bounds = {}
     tolerance = 1.5
-    # tolerance = 1
     # varcount keeps track of the highest variable ID in the DIMACS CNF,
     # so we know where to start building the constraints
     global varcount
-
-    for pred in aux_predicates:
-        # for pred in weights.keys():
-        nog = domainsize ** arities[pred]
-        bounds[pred] = (0, nog)
 
     if args.improve:
         tmin, tmax = get_upper_lower_bound_imp(convex_hull, bounds, weights, aux2dim,
@@ -280,7 +282,7 @@ def main():
                 logger.info("Setting constraints: %s", newbounds)
                 boundsb.append(newbounds)
                 if args.improve:
-                    # improvement 1: if the current bound isn't intersected with convex hull,
+                    # NOTE(lucien) improvement 2: if the current bound isn't intersected with convex hull,
                     # stop split it!
                     bounds_to_check = [[]] * len(aux2dim)
                     for p_aux, dim in aux2dim.items():
@@ -297,7 +299,7 @@ def main():
                         lowb.append(0)
                         continue
 
-                    # improvement 2: calculate upper and lower bound with additional
+                    # NOTE(lucien) improvement 3: calculate upper and lower bound with additional
                     # convex hull constrains
                     with Timer() as t:
                         tmin, tmax = get_upper_lower_bound_imp(
@@ -310,6 +312,9 @@ def main():
                     tmin, tmax = get_upper_lower_bound(
                         newbounds, weights, domainsize, arities
                     )
+                # tmin, tmax = get_upper_lower_bound(
+                #     newbounds, weights, domainsize, arities
+                # )
                 # NOTE: disable cache
                 if len(mcs) > 0:
                     # if(parentMc < mcs[0]): # catch weird negative cases
@@ -376,6 +381,7 @@ def main():
         varcount = oldvc  # Restore the old varcount
         logger.info("Got exact model count for right half of the split of the predicate selected: %s", updatedmc)
 
+        # refine bounds
         currentLb -= best_pred_bounds[0]
         currentUb -= best_pred_bounds[1]
         mcs = [parentMc - updatedmc, updatedmc]
@@ -383,9 +389,20 @@ def main():
             if temp[best_pred][i][2] == 0:
                 exact_lowb = 0
                 exact_upb = 0
+            # NOTE(lucien)
+            # elif args.improve:
+            #     with Timer() as t:
+            #         tmin, tmax = get_upper_lower_bound_imp(
+            #             convex_hull, temp[best_pred][i][-1], weights, aux2dim,
+            #             domainsize, arities
+            #         )
+            #     logger.debug('elapsed time for calculating upper and lower bound: %s',
+            #                  t.elapsed)
+            #     exact_lowb = mcs[i] * tmin
+            #     exact_upb = mcs[i] * tmax
             else:
-                exact_lowb = mcs[i] * temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
-                exact_upb = mcs[i] * temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
+                exact_lowb = temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
+                exact_upb = temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
             temp[best_pred][i] = (-heuristic(exact_upb, exact_lowb), temp[best_pred][i][1],
                                   mcs[i], exact_lowb, exact_upb, temp[best_pred][i][-1])
             currentLb += exact_lowb
@@ -558,7 +575,7 @@ def get_upper_lower_bound_imp(convex_hull, constrains, weights, aux2dim,
 
     for p_aux, (l, u) in constrains.items():
         nog = domainsize ** arities[p_aux]
-        # ln (w_p^c * w_n^{nog-c}) = nog*ln(w_p) + ln(w_p/w_n) * c
+        # ln (w_p^c * w_n^{nog-c}) = nog*ln(w_n) + ln(w_p/w_n) * c
         obj_w = math.log(weights[p_aux][0] / weights[p_aux][1])
         nog_log_sum += nog * math.log(weights[p_aux][1])
         dim = None

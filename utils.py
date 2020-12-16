@@ -68,7 +68,7 @@ def get_hyperplane(points):
     if norm[0] < 0:
         norm = -norm
     # round to integral norm
-    norm = [round(n) for n in norm]
+    norm = [int(round(n)) for n in norm]
     norm = normalize_norm(norm)
     intercept = np.dot(norm, points[0])
     return norm, intercept
