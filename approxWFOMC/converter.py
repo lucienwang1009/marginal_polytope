@@ -42,7 +42,8 @@ def convert2mln(clauses, domain_size):
                 break
         # formula of mln in wmc must contain aux pred!
         if not has_aux:
-            raise RuntimeError('not mln format')
+            logger.debug('evidence literal: %s', c)
+            continue
         if not aux_predicate:
             continue
         # formula with more than 2 variables is not supported by WFOMC

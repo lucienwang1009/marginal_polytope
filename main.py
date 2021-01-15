@@ -93,7 +93,7 @@ if __name__ == '__main__':
               args.predicates.split(';'),
               args.formulas.split(';'),
               list(map(int, args.domain_size.split(';'))))
-    convex_hull = main(mln, args.method)
-    plot_convex_hull(convex_hull, './polytope.png')
+    convex_hull = main(mln, args.method, args.debug)
+    # plot_convex_hull(convex_hull, '{}/polytope.png'.format(args.output_dir))
     with open('{}/convex_hull.pkl'.format(args.output_dir), 'wb') as f:
         pickle.dump(convex_hull, f)

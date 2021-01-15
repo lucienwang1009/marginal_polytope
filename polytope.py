@@ -10,7 +10,7 @@ from itertools import product
 from contexttimer import Timer
 from fractions import Fraction
 
-from utils import coordinate2str, get_hyperplane, get_integral_vec
+from utils import coordinate2str, get_hyperplane, get_integral_vec, cartesian_product
 
 
 class Facet(object):
@@ -197,7 +197,9 @@ class IntegralConvexHull(ConvexHull):
         for v in vertices:
             self.add_vertex(v)
         self.integral_points = []
-        self._iter_integral_points()
+        with Timer() as t:
+            self._iter_integral_points()
+        logger.info('time of finding all integral points: %s', t.elapsed)
 
     def add_vertex(self, vertex):
         # all vertices are integral
@@ -215,19 +217,24 @@ class IntegralConvexHull(ConvexHull):
             np.max(vertices_coordinate, axis=0)
         ]).astype(np.int32)
         coordinate_lists = [
-            range(min_max_coordinate[0, d], min_max_coordinate[1, d] + 1)
+            np.arange(min_max_coordinate[0, d], min_max_coordinate[1, d] + 1, dtype=np.int32)
             for d in range(self.dimension)
         ]
-        for p in product(*coordinate_lists):
-            if self.contains(p):
-                self.integral_points.append(p)
+        self.integral_points = cartesian_product(*coordinate_lists)
+        # for p in product(*coordinate_lists):
+        #     if self.contains(p):
+        #         self.integral_points.append(p)
+        # self.integral_points = np.array(self.integral_points, dtype=np.int32)
 
     def add_facet(self, norm, intercept):
         # filter integral points
-        self.integral_points = list(filter(
-            lambda p: np.dot(norm, p) <= intercept,
-            self.integral_points
-        ))
+        self.integral_points = self.integral_points[
+            np.where(np.dot(norm, self.integral_points.T) <= intercept)
+        ]
+        # list(filter(
+        #     lambda p: np.dot(norm, p) <= intercept,
+        #     self.integral_points
+        # ))
         # filter vertex
         self.vertices = dict(filter(
             lambda v: np.dot(norm, v[1].coordinate) <= intercept,
@@ -262,8 +269,8 @@ class IntegralConvexHull(ConvexHull):
                     new_norm = np.array(new_norm, dtype=np.int32)
                     new_intercept = np.array(new_intercept, dtype=np.int32)
                     # get the half-space
-                    for k in range(len(self.integral_points)):
-                        sign = np.dot(new_norm, self.integral_points[k])
+                    for v in new_convex_hull.vertices:
+                        sign = np.dot(new_norm, self.integral_points[v])
                         if sign != new_intercept:
                             sign = 1 - 2 * int(sign > new_intercept)
                             new_norm *= sign

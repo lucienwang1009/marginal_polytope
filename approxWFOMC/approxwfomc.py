@@ -55,7 +55,7 @@ def get_sharpsat_model_count(input_str):
 
 def get_approxmc_model_count(input_str, i, mmax):
     if i is not None:
-        delta = 0.2 / (i * math.log(mmax + 1))
+        delta = 0.2 / (i * (math.log(mmax) + 1))
     else:
         delta = 0.2
     logger.info("Delta value for approxmc call %s is %s", i, str(delta))
@@ -65,7 +65,8 @@ def get_approxmc_model_count(input_str, i, mmax):
         out = subprocess.run(['./approxmc', '--delta', str(delta), tf.name], check=False,
                              stdout=subprocess.PIPE,
                              universal_newlines=True).stdout
-        cell, has = re.findall(r'is: (\d+) x 2\^(\d+)', out.split('\n')[-2])[0]
+        # logger.debug(out)
+        cell, has = re.findall(r'is: (\d+)\*2\*\*(\d+)', out.split('\n')[-3])[0]
         return int(cell) * math.pow(2, int(has))
 
 # Toggle ApproxMC/sharpSAT usage in the line below
@@ -258,6 +259,7 @@ def main():
 
         # tbounds = bounds
         temp = {}
+        temp_bounds = {}
         allsame = True
         best_pred = None
         best_pred_bounds = None
@@ -273,6 +275,8 @@ def main():
             upb = []
             boundsb = []
             mcs = []
+            tmins = []
+            tmaxs = []
             for uu in lr:
                 newbounds = deepcopy(bounds)
                 newbounds[pred] = uu
@@ -293,21 +297,24 @@ def main():
                             intersected = True
                             break
                     if not intersected:
-                        logger.debug('New bound is not intersected with convex hull, skip it!')
                         mcs.append(0)
                         upb.append(0)
                         lowb.append(0)
+                        tmins.append(0)
+                        tmaxs.append(0)
                         continue
 
-                    # NOTE(lucien) improvement 3: calculate upper and lower bound with additional
-                    # convex hull constrains
+                    # NOTE(lucien) improvement 3: calculate upper and lower bound with
+                    # additional convex hull constrains
                     with Timer() as t:
                         tmin, tmax = get_upper_lower_bound_imp(
                             convex_hull, newbounds, weights, aux2dim,
                             domainsize, arities
                         )
-                    logger.debug('elapsed time for calculating upper and lower bound: %s',
-                                 t.elapsed)
+                    logger.debug(
+                        'elapsed time for calculating upper and lower bound: %s',
+                        t.elapsed
+                    )
                 else:
                     tmin, tmax = get_upper_lower_bound(
                         newbounds, weights, domainsize, arities
@@ -315,32 +322,40 @@ def main():
                 # tmin, tmax = get_upper_lower_bound(
                 #     newbounds, weights, domainsize, arities
                 # )
-                # NOTE: disable cache
-                if len(mcs) > 0:
+                # NOTE(lucien): disable cache
+                if len(mcs) > 1:
                     # if(parentMc < mcs[0]): # catch weird negative cases
                     #     mcA = 1
                     # else:
                     mcA = parentMc - mcs[0]
                     logger.info("Using cache to infer model count value for constraints above of: %s", mcA)
                 else:
-                    tout = deepcopy(out)
-                    oldvc = varcount  # Cache the varcount before adding the constraints
-                    # for pred in weights.keys():
-                    for predic in aux_predicates:
-                        amin, amax = newbounds[predic]
-                        for x in encode_cardinality_constraint(amin, amax, m[predic]):
-                            tout.add(DimacsClause(*list(x)))
+                    mcA = 0
+                    try:
+                        tout = deepcopy(out)
+                        # Cache the varcount before adding the constraints
+                        oldvc = varcount
+                        # for pred in weights.keys():
+                        for predic in aux_predicates:
+                            amin, amax = newbounds[predic]
+                            for x in encode_cardinality_constraint(amin, amax, m[predic]):
+                                tout.add(DimacsClause(*list(x)))
 
-                    number_of_mc_calls += 1
-                    # ivalue += 1
-                    mcA = get_model_count(output_to_dimacs(tout, sampling_set), None, mmax)
-                    varcount = oldvc  # Restore the old varcount
+                        number_of_mc_calls += 1
+                        # ivalue += 1
+                        mcA = get_model_count(output_to_dimacs(tout, sampling_set), None, mmax)
+                        varcount = oldvc  # Restore the old varcount
+                    except Exception as e:
+                        logger.debug('approxMC failed, might encount infeasible area: %s', e)
+                        pass
                     logger.info("Model count for constraints above is: %s", mcA)
                 # if mcA == 0:
                 #     continue
                 mcs.append(mcA)
                 lowb.append(mcA * tmin)
                 upb.append(mcA * tmax)
+                tmins.append(tmin)
+                tmaxs.append(tmax)
             logger.info("Left split bounds: [" + str(lowb[0]) + ", " + str(upb[0]) + "]")
             logger.info("Right split bounds: [" + str(lowb[1]) + ", " + str(upb[1]) + "]")
             testingub = upb[0] + upb[1]
@@ -357,39 +372,59 @@ def main():
             # logger.info("Log heuristic for split above: %s", logheuristic(testingub, testinglb))
             temp[pred] = [(-heuristic(upb[0], lowb[0]), id(boundsb[0]), mcs[0], lowb[0], upb[0], boundsb[0]),
                           (-heuristic(upb[1], lowb[1]), id(boundsb[1]), mcs[1], lowb[1], upb[1], boundsb[1])]
+            temp_bounds[pred] = (tmins, tmaxs)
         if allsame:
             break
         logger.info("Best predicate above was: %s", best_pred)
         currentUb = currentUb - parentUb
         currentLb = currentLb - parentLb
-        currentUb += best_pred_bounds[1]
-        currentLb += best_pred_bounds[0]
+        # NOTE(lucien): continue process of improvement 2
+        # if one of split is zero, just push back the non-zero split constraint
+        # if args.improve:
+        # if temp[best_pred][0][2] == 0:
+        #     heapq.heappush(priority_queue, temp[best_pred][1])
+        #     logger.info("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
+        #     logger.info("==============")
+        #     continue
+        # if temp[best_pred][1][2] == 0:
+        #     heapq.heappush(priority_queue, temp[best_pred][0])
+        #     logger.info("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
+        #     logger.info("==============")
+        #     continue
         #############################
-        # NOTE: disable cache
+        # NOTE: disable cache here
         # Get a more accurate value for the right split of the selected predicate
-        tout = deepcopy(out)
-        oldvc = varcount  # Cache the varcount before adding the constraints
-        # for pred in weights.keys():
-        for predic in aux_predicates:
-            amin, amax = temp[best_pred][1][5][predic]
-            for x in encode_cardinality_constraint(amin, amax, m[predic]):
-                tout.add(DimacsClause(*list(x)))
+        # updatedmc = 0
+        # try:
+        #     tout = deepcopy(out)
+        #     oldvc = varcount  # Cache the varcount before adding the constraints
+        #     for predic in aux_predicates:
+        #         amin, amax = temp[best_pred][1][5][predic]
+        #         for x in encode_cardinality_constraint(amin, amax, m[predic]):
+        #             tout.add(DimacsClause(*list(x)))
 
-        number_of_mc_calls += 1  # if one of the splits is zero, we don't need to increase this
-        non_heuristic_calls += 1
-        updatedmc = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
-        varcount = oldvc  # Restore the old varcount
-        logger.info("Got exact model count for right half of the split of the predicate selected: %s", updatedmc)
+        #     number_of_mc_calls += 1  # if one of the splits is zero, we don't need to increase this
+        #     non_heuristic_calls += 1
+        #     updatedmc = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
+        #     varcount = oldvc  # Restore the old varcount
+        # except Exception:
+        #     logger.debug('approxMC failed, might encount infeasible area')
+        #     pass
+        # logger.info("Got exact model count for right half of the split of the predicate selected: %s", updatedmc)
 
         # refine bounds
-        currentLb -= best_pred_bounds[0]
-        currentUb -= best_pred_bounds[1]
-        mcs = [parentMc - updatedmc, updatedmc]
+        # NOTE(lucien): disable cache
+        # mcs = [parentMc - updatedmc, updatedmc]
+        mcs = [0, 0]
         for i, _ in enumerate(temp[best_pred]):
-            if temp[best_pred][i][2] == 0:
+            # improvement 2
+            if temp_bounds[best_pred][0][i] == 0 and temp[best_pred][1][i] == 0:
+                logger.debug(
+                    'New bound is not intersected with convex hull, skip it!'
+                )
                 exact_lowb = 0
                 exact_upb = 0
-            # NOTE(lucien)
+            # NOTE(lucien): disable improved heuristic
             # elif args.improve:
             #     with Timer() as t:
             #         tmin, tmax = get_upper_lower_bound_imp(
@@ -401,15 +436,32 @@ def main():
             #     exact_lowb = mcs[i] * tmin
             #     exact_upb = mcs[i] * tmax
             else:
-                exact_lowb = temp[best_pred][i][3] * mcs[i] / temp[best_pred][i][2]
-                exact_upb = temp[best_pred][i][4] * mcs[i] / temp[best_pred][i][2]
-            temp[best_pred][i] = (-heuristic(exact_upb, exact_lowb), temp[best_pred][i][1],
-                                  mcs[i], exact_lowb, exact_upb, temp[best_pred][i][-1])
+                try:
+                    tout = deepcopy(out)
+                    oldvc = varcount  # Cache the varcount before adding the constraints
+                    for predic in aux_predicates:
+                        amin, amax = temp[best_pred][i][5][predic]
+                        for x in encode_cardinality_constraint(amin, amax, m[predic]):
+                            tout.add(DimacsClause(*list(x)))
+
+                    number_of_mc_calls += 1  # if one of the splits is zero, we don't need to increase this
+                    non_heuristic_calls += 1
+                    mcs[i] = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
+                    varcount = oldvc  # Restore the old varcount
+                except Exception:
+                    logger.debug('approxMC failed, might encount infeasible area')
+                    pass
+                exact_lowb = temp_bounds[best_pred][0][i] * mcs[i]
+                exact_upb = temp_bounds[best_pred][1][i] * mcs[i]
+                temp[best_pred][i] = (-heuristic(exact_upb, exact_lowb), temp[best_pred][i][1],
+                                      mcs[i], exact_lowb, exact_upb, temp[best_pred][i][-1])
+                heapq.heappush(priority_queue, temp[best_pred][i])
             currentLb += exact_lowb
             currentUb += exact_upb
+        logger.info("Got exact model count: %s", mcs)
         #############################
-        for i in temp[best_pred]:
-            heapq.heappush(priority_queue, i)
+        # for i in temp[best_pred]:
+        #     heapq.heappush(priority_queue, i)
         logger.info("Current bounds on WMC: [" + str(currentLb) + ", " + str(currentUb) + "]")
         # logger.info("Number of model counter calls so far: %s", number_of_mc_calls)
         # logger.info("Number of non-heuristic model counter calls so far: %s", non_heuristic_calls)
@@ -539,6 +591,7 @@ def get_n_fresh(n):
     return a
 
 
+# TODO(lucien): use arbitrary-precision floating-point number
 def get_upper_lower_bound(constrains, weights, domainsize, arities):
     lower_bound = 1
     upper_bound = 1
@@ -557,6 +610,9 @@ def get_upper_lower_bound(constrains, weights, domainsize, arities):
     return lower_bound, upper_bound
 
 
+# TODO(lucien): use arbitrary-precision floating-point number,
+# it might be intractable to implement a arbitrary-precision linprog,
+# but we can rather get coarse bounds by the bounding box of polytope.
 def get_upper_lower_bound_imp(convex_hull, constrains, weights, aux2dim,
                               domainsize, arities):
     n_formulas = len(constrains)
@@ -591,11 +647,11 @@ def get_upper_lower_bound_imp(convex_hull, constrains, weights, aux2dim,
         A = np.vstack([A, -A_p, A_p])
         b = np.append(b, [-constrains[p_aux][0], constrains[p_aux][1]])
     try:
-        res = linprog(c, A, b)
+        res = linprog(c, A, b, options={'maxiter': 5000})
         if not res.success:
             logger.error(res)
         lower_bound = res.fun
-        res = linprog(-c, A, b)
+        res = linprog(-c, A, b, options={'maxiter': 5000})
         if not res.success:
             logger.error(res)
         upper_bound = -res.fun
@@ -605,19 +661,6 @@ def get_upper_lower_bound_imp(convex_hull, constrains, weights, aux2dim,
 
     lower_bound = math.exp(lower_bound + nog_log_sum)
     upper_bound = math.exp(upper_bound + nog_log_sum)
-    # # multiple unbounded formula
-    # for p_aux, (c_l, c_u) in constrains.items():
-    #     if p_aux not in aux2dim:
-    #         nog = domainsize ** arities[p_aux]
-    #         l, u = constrains[p_aux]
-    #         lower_bound *= min(
-    #             weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
-    #             weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
-    #         )
-    #         upper_bound *= max(
-    #             weights[p_aux][0] ** l * weights[p_aux][1] ** (nog - l),
-    #             weights[p_aux][0] ** u * weights[p_aux][1] ** (nog - u)
-    #         )
     return lower_bound, upper_bound
 
 

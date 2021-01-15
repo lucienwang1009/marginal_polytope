@@ -1,0 +1,1178 @@
+[D 210112 11:56:49 converter:70] predicates: ['dead(domain)', 'disease(domain)', 'contact(domain,domain)']
+    formulas: ['!disease(x) v dead(x)', '!contact(x,y) v !disease(x) v disease(y)', '!disease(x) v !contact(x,y)']
+[D 210112 11:56:49 mln:24] arity num: {'dead(domain)': 1, 'disease(domain)': 1, 'contact(domain,domain)': 2}
+[D 210112 11:56:49 approxwfomc:145] mln:<mln.MLN object at 0x7f83b86a2820>
+    aux2dim:{'aux1': 0, 'aux4': 1, 'aux5': 2}
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.25921315400046296
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.010475754010258242
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.048896903987042606
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.03998001899162773
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.03350946200953331
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.03089873699354939
+[I 210112 11:56:50 polytope:202] time of finding all integral points: 0.00020475199562497437
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.027996606004307978
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0003626240068115294
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0020874350011581555
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.02480862599622924
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002580259897513315
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0019254130020271987
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.022725260991137475
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.02252916799625382
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.0219902390090283
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002884519926737994
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0032225269969785586
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.02693890100636054
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002795470063574612
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.003536114003509283
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.01862487399193924
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.018735185003606603
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.018381309011601843
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002901920088334009
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.001836903000366874
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.021100440004374832
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002985869941767305
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0017231309902854264
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.01723930099979043
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.00030310101283248514
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0007116880005924031
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.016417311009718105
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002911259944085032
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0022401330061256886
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.016521976998774335
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.00030160399910528213
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.001464239991037175
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.01704829699883703
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0003279450029367581
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0007644809957128018
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.016723535998607986
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.015818763989955187
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.015087744992342778
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002631610113894567
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.001157192004029639
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.01387165900086984
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002605250047054142
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0011375659960322082
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.013984903998789378
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002560639986768365
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0005950159975327551
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.013817150000249967
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.013033587005338632
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.0002481499977875501
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0005632469983538613
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.0132175730104791
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.013305736007168889
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.00024705998657736927
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0005907329905312508
+[I 210112 11:56:50 partition_func_solver:48] elapsed time for WFOMC call: 0.01361472399730701
+[I 210112 11:56:50 polytope:247] elapsed time for quick-hull: 0.00022308599727693945
+[I 210112 11:56:50 solver:74] elapsed time for add facet: 0.0005295860028127208
+[I 210112 11:56:50 main:71] Total time for finding convex hull: 0.9028163059992949
+[I 210112 11:56:50 main:75] num of call WFOMC: 30
+[I 210112 11:56:50 approxwfomc:221] mmax value: 3360
+[I 210112 11:56:50 approxwfomc:61] Delta value for approxmc call 1 is 0.0010965277485812418
+[I 210112 11:56:50 approxwfomc:226] Initial model count is: 16384.0
+[D 210112 11:56:50 approxwfomc:241] tmin: 512.0000019730783, tmax: 1.348204570919106e+30
+[I 210112 11:56:50 approxwfomc:256] Current queue: [(-2.2088983689938633e+34, 140203710608704, 16384.0, 8388608.032326914, 2.2088983689938633e+34, {'aux1': (0, 3), 'aux3': (0, 27), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:50 approxwfomc:258] Popping the first (left-most) item off the queue: [8388608.032326914, 2.2088983689938633e+34]
+[I 210112 11:56:50 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (0, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:50 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.006371890005539171
+[I 210112 11:56:50 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:50 approxwfomc:351] Model count for constraints above is: 1728.0
+[I 210112 11:56:50 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (0, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:50 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005102168986923061
+[I 210112 11:56:50 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 14848.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [884736.3081045081, 1.0354210780746484e+33]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [17104896.168119926, 2.0018139226671162e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004777001988259144
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:51 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004886542999884114
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 16384.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [3.689348814988126e+19, 2.2088981998769397e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (0, 27), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (0, 27), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004954567004460841
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 10240.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [5242880.000241795, 1.3805609331439133e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (0, 27), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005096027001854964
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 2560.0
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (0, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005101109010865912
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 15616.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [1310720.0645585407, 1.3938876039969072e+32]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [74240187.40303756, 2.1053562578604216e+34]
+[I 210112 11:56:51 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call 2 is 0.0005482638742906209
+[D 210112 11:56:51 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call 3 is 0.0003655092495270806
+[I 210112 11:56:51 approxwfomc:461] Got exact model count: [0, 16384.0]
+[I 210112 11:56:51 approxwfomc:465] Current bounds on WMC: [3.689348814988126e+19, 2.2088981998769397e+34]
+[I 210112 11:56:51 approxwfomc:468] ==============
+[I 210112 11:56:51 approxwfomc:256] Current queue: [(-2.208898199876936e+34, 140203702335232, 16384.0, 3.689348814988126e+19, 2.2088981998769397e+34, {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:51 approxwfomc:258] Popping the first (left-most) item off the queue: [3.689348814988126e+19, 2.2088981998769397e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004818724992219359
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 1728.0
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004823146999115124
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 14848.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [3.8911100784002714e+18, 1.0354205050754756e+33]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [7.52281282321697e+19, 2.0018114721839802e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004813203995581716
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:51 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005087825993541628
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 16384.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [7.737125246277824e+25, 2.208898346673484e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004891132994089276
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 10240.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [2.3058430092419133e+19, 1.3805614551621718e+34]
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005719776003388688
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 2560.0
+[I 210112 11:56:51 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (14, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:51 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004798347988980822
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:51 approxwfomc:351] Model count for constraints above is: 15616.0
+[I 210112 11:56:51 approxwfomc:359] Left split bounds: [5.764607523104005e+18, 1.3938875542273392e+32]
+[I 210112 11:56:51 approxwfomc:360] Right split bounds: [3.265117778709787e+20, 2.1053561085899787e+34]
+[I 210112 11:56:51 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:56:51 approxwfomc:61] Delta value for approxmc call 4 is 0.00027413193714531046
+[D 210112 11:56:52 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call 5 is 0.0002193055497162484
+[I 210112 11:56:52 approxwfomc:461] Got exact model count: [0, 16384.0]
+[I 210112 11:56:52 approxwfomc:465] Current bounds on WMC: [7.737125246277824e+25, 2.208898346673484e+34]
+[I 210112 11:56:52 approxwfomc:468] ==============
+[I 210112 11:56:52 approxwfomc:256] Current queue: [(-2.208898338936359e+34, 140203702376896, 16384.0, 7.737125246277824e+25, 2.208898346673484e+34, {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:52 approxwfomc:258] Popping the first (left-most) item off the queue: [7.737125246277824e+25, 2.208898346673484e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004857578009250574
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 1728.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004700538003817201
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 14848.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [8.160249282732948e+24, 1.0354208324239779e+33]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [1.5776481954332875e+26, 2.0018128066589496e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004709093002020381
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 2112.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00434594000398647
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 15104.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [9.973638011988e+24, 5.561343856198556e+30]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [2.9215385039288232e+29, 2.036328184490752e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004817159991944209
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 10240.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [4.835703278475727e+25, 1.380561476533751e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004965956002706662
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 2560.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (21, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004347369002061896
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 15616.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [1.2089258196243777e+25, 1.3938876041297418e+32]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [6.847448366700393e+26, 2.1053562578961746e+34]
+[I 210112 11:56:52 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call 6 is 0.0001827546247635403
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call 7 is 0.00015664682122589168
+[I 210112 11:56:52 approxwfomc:461] Got exact model count: [2112.0, 15104.0]
+[I 210112 11:56:52 approxwfomc:465] Current bounds on WMC: [2.9216382403089432e+29, 2.036884318876372e+34]
+[I 210112 11:56:52 approxwfomc:468] ==============
+[I 210112 11:56:52 approxwfomc:256] Current queue: [(-2.036298969105713e+34, 140203701727872, 15104.0, 2.9215385039288232e+29, 2.036328184490752e+34, {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:52 approxwfomc:258] Popping the first (left-most) item off the queue: [2.9215385039288232e+29, 2.036328184490752e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004714052003691904
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 1664.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004360374994575977
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 12800.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [3.2186441021711258e+28, 9.970721747874743e+32]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [5.570730243139816e+29, 1.725701728699133e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0043426789925433695
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 6912.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004483158001676202
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 7680.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [1.3369752477403268e+29, 1.1648487494729085e+33]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [9.507379515410295e+30, 1.0354211107127633e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005319058007444255
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 9088.0
+[I 210112 11:56:52 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:52 approxwfomc:360] Right split bounds: [1.7578748562100656e+29, 1.2252483147638103e+34]
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004326153997681104
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:52 approxwfomc:351] Model count for constraints above is: 2432.0
+[I 210112 11:56:52 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:52 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004106180000235327
+[I 210112 11:56:52 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 13824.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [4.704172248777157e+28, 1.3241932242981453e+32]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [2.482862295649607e+30, 1.8637577995497691e+34]
+[I 210112 11:56:53 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 8 is 0.00013706596857265523
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 9 is 0.00012183641650902687
+[I 210112 11:56:53 approxwfomc:461] Got exact model count: [6912.0, 7680.0]
+[I 210112 11:56:53 approxwfomc:465] Current bounds on WMC: [9.64108701382234e+30, 1.152462120045674e+34]
+[I 210112 11:56:53 approxwfomc:468] ==============
+[I 210112 11:56:53 approxwfomc:256] Current queue: [(-1.0344703727612222e+34, 140203711121856, 7680.0, 9.507379515410295e+30, 1.0354211107127633e+34, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 9)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:53 approxwfomc:258] Popping the first (left-most) item off the queue: [9.507379515410295e+30, 1.0354211107127633e+34]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004768090002471581
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 896.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004585935996146873
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 6912.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [1.1091944378449336e+30, 5.36885017222286e+32]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [1.9252443596577145e+31, 9.318789452825082e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005010599998058751
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 5632.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [6.972078301816032e+30, 7.593088147952917e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004567861993564293
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 1280.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004254458996001631
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 7296.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [1.5845632696485316e+30, 6.969438022671438e+31]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [8.386557087402456e+31, 9.836499970795959e+33]
+[I 210112 11:56:53 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 10 is 0.0001096527748581242
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 11 is 9.96843407801129e-05
+[I 210112 11:56:53 approxwfomc:461] Got exact model count: [1280.0, 7296.0]
+[I 210112 11:56:53 approxwfomc:465] Current bounds on WMC: [8.558384164208513e+31, 1.1076604444351781e+34]
+[I 210112 11:56:53 approxwfomc:468] ==============
+[I 210112 11:56:53 approxwfomc:256] Current queue: [(-9.752634399921934e+33, 140203702334080, 7296.0, 8.386557087402456e+31, 9.836499970795959e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:53 approxwfomc:258] Popping the first (left-most) item off the queue: [8.386557087402456e+31, 9.836499970795959e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004613188997609541
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 752.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004560055007459596
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 6784.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [8.644039103238601e+30, 4.505999279548217e+32]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [1.1697040148269864e+32, 9.146219813575718e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004584700000123121
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 1792.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0042345449910499156
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 5376.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [2.0598561267811565e+31, 6.357848927920535e+32]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [1.647884901381077e+32, 7.247947470756951e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003953488005208783
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 4480.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004554728991934098
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 4160.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [5.149640350438885e+31, 1.6731181249476902e+33]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [5.355960711990973e+32, 5.608531017084973e+33]
+[I 210112 11:56:53 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 12 is 9.137731238177015e-05
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call 13 is 8.434828835240322e-05
+[I 210112 11:56:53 approxwfomc:461] Got exact model count: [4480.0, 4160.0]
+[I 210112 11:56:53 approxwfomc:465] Current bounds on WMC: [5.888107454715467e+32, 8.521753615588485e+33]
+[I 210112 11:56:53 approxwfomc:468] ==============
+[I 210112 11:56:53 approxwfomc:256] Current queue: [(-5.0729349458858756e+33, 140203851357120, 4160.0, 5.355960711990973e+32, 5.608531017084973e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-1.6216217214433014e+33, 140203710639424, 4480.0, 5.149640350438885e+31, 1.6731181249476902e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:53 approxwfomc:258] Popping the first (left-most) item off the queue: [5.355960711990973e+32, 5.608531017084973e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00460378298885189
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 176.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004678081008023582
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 4096.0
+[I 210112 11:56:53 approxwfomc:359] Left split bounds: [2.2659833755518767e+31, 1.0545955760447837e+32]
+[I 210112 11:56:53 approxwfomc:360] Right split bounds: [9.688150747356949e+32, 5.522245925737481e+33]
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004865059003350325
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:53 approxwfomc:351] Model count for constraints above is: 336.0
+[I 210112 11:56:53 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 9)}
+[D 210112 11:56:53 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004511063001700677
+[I 210112 11:56:53 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 3904.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [4.325968260846699e+31, 1.1920966739876075e+32]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [8.2080166054991e+32, 5.263390646588302e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004758722003316507
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2560.0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004588686002534814
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2432.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [3.295975816921306e+32, 1.8165282649887864e+33]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [9.715062277229772e+32, 3.278833518542221e+33]
+[I 210112 11:56:54 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 14 is 7.832341061294584e-05
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 15 is 7.310184990541612e-05
+[I 210112 11:56:54 approxwfomc:461] Got exact model count: [2560.0, 2432.0]
+[I 210112 11:56:54 approxwfomc:465] Current bounds on WMC: [1.3543184836875572e+33, 8.008584382034519e+33]
+[I 210112 11:56:54 approxwfomc:468] ==============
+[I 210112 11:56:54 approxwfomc:256] Current queue: [(-2.3073272908192436e+33, 140203702059648, 2432.0, 9.715062277229772e+32, 3.278833518542221e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.6216217214433014e+33, 140203710639424, 4480.0, 5.149640350438885e+31, 1.6731181249476902e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}), (-1.4869306832966557e+33, 140203702239872, 2560.0, 3.295975816921306e+32, 1.8165282649887864e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:54 approxwfomc:258] Popping the first (left-most) item off the queue: [9.715062277229772e+32, 3.278833518542221e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0042133950046263635
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:54 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00428120099240914
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2304.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [2.0708422150553085e+33, 3.1062633333610857e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (9, 9)}
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (9, 9)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005444599999464117
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2432.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [9.715062277264976e+32, 3.278833518545762e+33]
+[I 210112 11:56:54 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 16 is 6.853298428632761e-05
+[D 210112 11:56:54 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 17 is 6.450163226948481e-05
+[I 210112 11:56:54 approxwfomc:461] Got exact model count: [0, 2304.0]
+[I 210112 11:56:54 approxwfomc:465] Current bounds on WMC: [2.4536544710198886e+33, 7.836014196853384e+33]
+[I 210112 11:56:54 approxwfomc:468] ==============
+[I 210112 11:56:54 approxwfomc:256] Current queue: [(-1.6216217214433014e+33, 140203710639424, 4480.0, 5.149640350438885e+31, 1.6731181249476902e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.4869306832966557e+33, 140203702239872, 2560.0, 3.295975816921306e+32, 1.8165282649887864e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:56:54 approxwfomc:258] Popping the first (left-most) item off the queue: [5.149640350438885e+31, 1.6731181249476902e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004247771998052485
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 704.0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004548141005216166
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 3776.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [8.09229194821223e+30, 1.1685269541244693e+32]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [6.510616686249525e+31, 1.410199574231898e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 7)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004316320992074907
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 1568.0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 7)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004227740995702334
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2752.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [1.8023741157537258e+31, 2.9279567430775147e+32]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [8.435601333051036e+31, 1.0277725710525425e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004287075003958307
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2688.0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004235148997395299
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 3200.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [3.0897841906634222e+31, 5.283530965017367e+32]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [1.3278715749850533e+32, 1.1950843849490966e+33]
+[I 210112 11:56:54 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 18 is 6.0918208254513435e-05
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call 19 is 5.7711986767433786e-05
+[I 210112 11:56:54 approxwfomc:461] Got exact model count: [2688.0, 3200.0]
+[I 210112 11:56:54 approxwfomc:465] Current bounds on WMC: [2.5658430669206395e+33, 7.886333553356528e+33]
+[I 210112 11:56:54 approxwfomc:468] ==============
+[I 210112 11:56:54 approxwfomc:256] Current queue: [(-1.4869306832966557e+33, 140203702239872, 2560.0, 3.295975816921306e+32, 1.8165282649887864e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-1.0622972274505912e+33, 140203702048832, 3200.0, 1.3278715749850533e+32, 1.1950843849490966e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:54 approxwfomc:258] Popping the first (left-most) item off the queue: [3.295975816921306e+32, 1.8165282649887864e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004584433001582511
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 144.0
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004542645998299122
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:54 approxwfomc:351] Model count for constraints above is: 2496.0
+[I 210112 11:56:54 approxwfomc:359] Left split bounds: [1.8539863995960514e+31, 4.541320662762933e+31]
+[I 210112 11:56:54 approxwfomc:360] Right split bounds: [5.9037168617111626e+32, 1.771115058495374e+33]
+[I 210112 11:56:54 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}
+[D 210112 11:56:54 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004598006999003701
+[I 210112 11:56:54 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 336.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004544516006717458
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 2496.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [4.325968259840587e+31, 1.1920966739866248e+32]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [5.247748321490885e+32, 1.771115058494191e+33]
+[I 210112 11:56:55 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 20 is 5.48263874290621e-05
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 21 is 5.221560707529723e-05
+[I 210112 11:56:55 approxwfomc:461] Got exact model count: [144.0, 2496.0]
+[I 210112 11:56:55 approxwfomc:465] Current bounds on WMC: [2.8451570353955857e+33, 7.886333553490744e+33]
+[I 210112 11:56:55 approxwfomc:468] ==============
+[I 210112 11:56:55 approxwfomc:256] Current queue: [(-1.1807433723242576e+33, 140203710666368, 2496.0, 5.9037168617111626e+32, 1.771115058495374e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-1.0622972274505912e+33, 140203702048832, 3200.0, 1.3278715749850533e+32, 1.1950843849490966e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:56:55 approxwfomc:258] Popping the first (left-most) item off the queue: [5.9037168617111626e+32, 1.771115058495374e+33]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004291548990295269
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 1376.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004518700006883591
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 1248.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [3.2546131416754244e+32, 6.509226279998878e+32]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [4.4277876462303095e+32, 8.855575292473723e+32]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0042532279912848026
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 336.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004220004004309885
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 2176.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [7.947311160955431e+31, 1.1920966739879464e+32]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [1.0293660171674542e+33, 1.544049025355841e+33]
+[I 210112 11:56:55 approxwfomc:378] Best predicate above was: aux4
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 22 is 4.984217039005645e-05
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 23 is 4.767511950353225e-05
+[I 210112 11:56:55 approxwfomc:461] Got exact model count: [336.0, 2176.0]
+[I 210112 11:56:55 approxwfomc:465] Current bounds on WMC: [3.363624478001478e+33, 7.778477187750006e+33]
+[I 210112 11:56:55 approxwfomc:468] ==============
+[I 210112 11:56:55 approxwfomc:256] Current queue: [(-1.1647150519481345e+33, 140203701708608, 6912.0, 1.3369752477403268e+29, 1.1648487494729085e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}), (-1.0622972274505912e+33, 140203702048832, 3200.0, 1.3278715749850533e+32, 1.1950843849490966e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:55 approxwfomc:258] Popping the first (left-most) item off the queue: [1.3369752477403268e+29, 1.1648487494729085e+33]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004825865005841479
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 688.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004443925994564779
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 6400.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [1.3307855422446628e+28, 5.153137433940008e+31]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [2.7853651205210728e+29, 1.0785635770933759e+33]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004605891008395702
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 2496.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (0, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004566250994685106
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 4480.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [4.827966160169304e+28, 5.257997827838267e+31]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [6.932464229986681e+29, 7.54994559894719e+32]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 8), 'aux5': (0, 9)}
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (9, 9), 'aux5': (0, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004942900006426498
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 3584.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [6.932464295044307e+28, 6.039956481199117e+32]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004426522005815059
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 1152.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0040867090137908235
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 6272.0
+[I 210112 11:56:55 approxwfomc:359] Left split bounds: [2.228292120616064e+28, 7.840617775509e+30]
+[I 210112 11:56:55 approxwfomc:360] Right split bounds: [1.1264838193036091e+30, 1.0569922792821752e+33]
+[I 210112 11:56:55 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 24 is 4.5688656190885076e-05
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call 25 is 4.386110994324968e-05
+[I 210112 11:56:55 approxwfomc:461] Got exact model count: [1152.0, 6272.0]
+[I 210112 11:56:55 approxwfomc:465] Current bounds on WMC: [3.3646395472172135e+33, 7.678461335334782e+33]
+[I 210112 11:56:55 approxwfomc:468] ==============
+[I 210112 11:56:55 approxwfomc:256] Current queue: [(-1.0622972274505912e+33, 140203702048832, 3200.0, 1.3278715749850533e+32, 1.1950843849490966e+33, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.0558657954628716e+33, 140203710665792, 6272.0, 1.1264838193036091e+30, 1.0569922792821752e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 9)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)})]
+[I 210112 11:56:55 approxwfomc:258] Popping the first (left-most) item off the queue: [1.3278715749850533e+32, 1.1950843849490966e+33]
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004537957007414661
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:55 approxwfomc:351] Model count for constraints above is: 352.0
+[I 210112 11:56:55 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:56:55 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0041900210053427145
+[I 210112 11:56:55 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 2880.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [1.4606586927229384e+31, 5.842634770840048e+31]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [1.7926266044121374e+32, 1.0755759464515887e+33]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004483527998672798
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 976.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003884795994963497
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 2208.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [4.050008193453301e+31, 1.8225036870171187e+32]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [2.4432837081106763e+32, 8.246082212941549e+32]
+[I 210112 11:56:56 approxwfomc:378] Best predicate above was: aux4
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 26 is 4.217414417620161e-05
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 27 is 4.0612138836342295e-05
+[I 210112 11:56:56 approxwfomc:461] Got exact model count: [976.0, 2208.0]
+[I 210112 11:56:56 approxwfomc:465] Current bounds on WMC: [3.516680842464309e+33, 7.490235540381551e+33]
+[I 210112 11:56:56 approxwfomc:468] ==============
+[I 210112 11:56:56 approxwfomc:256] Current queue: [(-1.0558657954628716e+33, 140203710665792, 6272.0, 1.1264838193036091e+30, 1.0569922792821752e+33, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 9)}), (-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-5.8027985048308724e+32, 140203701838016, 2208.0, 2.4432837081106763e+32, 8.246082212941549e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:56:56 approxwfomc:258] Popping the first (left-most) item off the queue: [1.1264838193036091e+30, 1.0569922792821752e+33]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004449628002475947
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 408.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004393866998725571
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 6144.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [7.327892191961428e+28, 3.055930361587914e+31]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [1.655241530423079e+30, 1.0354211099039317e+33]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004204017997835763
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 2304.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004222170988214202
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 4096.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [4.138103826020961e+29, 4.853536169800652e+31]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [5.885303219229803e+30, 6.902806997049757e+32]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 8), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004737460010801442
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 3264.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (9, 9), 'aux5': (5, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004543646995443851
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 3200.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [5.862313753781203e+29, 1.4475459612649395e+32]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [1.5326310466729614e+30, 5.392818287061661e+32]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004091077993507497
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 3904.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004394060000777245
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 3840.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [7.011787038511255e+29, 1.822503686873785e+32]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [7.724943337918125e+30, 6.4713819424088525e+32]
+[I 210112 11:56:56 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 28 is 3.916170530647292e-05
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 29 is 3.781130167521524e-05
+[I 210112 11:56:56 approxwfomc:461] Got exact model count: [3904.0, 3840.0]
+[I 210112 11:56:56 approxwfomc:465] Current bounds on WMC: [3.5239804806867745e+33, 7.26263182402764e+33]
+[I 210112 11:56:56 approxwfomc:468] ==============
+[I 210112 11:56:56 approxwfomc:256] Current queue: [(-1.0354211183057771e+33, 140203702053568, 2304.0, 2.0708422150553085e+33, 3.1062633333610857e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-6.394132509029671e+32, 140203718154368, 3840.0, 7.724943337918125e+30, 6.4713819424088525e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-5.8027985048308724e+32, 140203701838016, 2208.0, 2.4432837081106763e+32, 8.246082212941549e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)})]
+[I 210112 11:56:56 approxwfomc:258] Popping the first (left-most) item off the queue: [2.0708422150553085e+33, 3.1062633333610857e+33]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0039220790058607236
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 624.0
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038700860022800043
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 1888.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [5.608531018566419e+32, 5.608531018566499e+32]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [2.5454102315033188e+33, 2.5454102315033188e+33]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (9, 9)}
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (9, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004507974997977726
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:56 approxwfomc:351] Model count for constraints above is: 2304.0
+[I 210112 11:56:56 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:56 approxwfomc:360] Right split bounds: [2.0708422222401439e+33, 3.106263333362057e+33]
+[I 210112 11:56:56 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 30 is 3.655092495270806e-05
+[I 210112 11:56:56 approxwfomc:61] Delta value for approxmc call 31 is 3.537186285745941e-05
+[I 210112 11:56:56 approxwfomc:461] Got exact model count: [624.0, 1888.0]
+[I 210112 11:56:56 approxwfomc:465] Current bounds on WMC: [4.5594015989914267e+33, 7.262631824026523e+33]
+[I 210112 11:56:56 approxwfomc:468] ==============
+[I 210112 11:56:56 approxwfomc:256] Current queue: [(-6.394132509029671e+32, 140203718154368, 3840.0, 7.724943337918125e+30, 6.4713819424088525e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-5.8027985048308724e+32, 140203701838016, 2208.0, 2.4432837081106763e+32, 8.246082212941549e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:56 approxwfomc:258] Popping the first (left-most) item off the queue: [7.724943337918125e+30, 6.4713819424088525e+32]
+[I 210112 11:56:56 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:56 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0044014729937771335
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:57 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00450848598848097
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 3712.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [1.3718572835684846e+31, 6.2556692128884925e+32]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00454988400451839
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 1568.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004535247004241683
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 2112.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [3.1543518616293087e+30, 3.3031011999659203e+31]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [3.39897506722507e+31, 3.559260068534726e+32]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 8), 'aux5': (8, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004389540990814567
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 992.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (9, 9), 'aux5': (8, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004515650987741537
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 2944.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [1.9956103585640236e+30, 4.399404392092534e+31]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [9.671331041376315e+30, 4.961392821555987e+32]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0045358600036706775
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 1952.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004517537003266625
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 2272.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [3.9268461884407714e+30, 1.7313785025255263e+32]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [1.4181114755104352e+31, 3.828900983800121e+32]
+[I 210112 11:56:57 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 32 is 3.426649214316381e-05
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 33 is 3.322811359337097e-05
+[I 210112 11:56:57 approxwfomc:461] Got exact model count: [1568.0, 2112.0]
+[I 210112 11:56:57 approxwfomc:465] Current bounds on WMC: [4.588820758187389e+33, 7.004450648638769e+33]
+[I 210112 11:56:57 approxwfomc:468] ==============
+[I 210112 11:56:57 approxwfomc:256] Current queue: [(-5.8027985048308724e+32, 140203701838016, 2208.0, 2.4432837081106763e+32, 8.246082212941549e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-3.219362561812219e+32, 140203702113024, 2112.0, 3.39897506722507e+31, 3.559260068534726e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)})]
+[I 210112 11:56:57 approxwfomc:258] Popping the first (left-most) item off the queue: [2.4432837081106763e+32, 8.246082212941549e+32]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0042430610046721995
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 288.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004167780003626831
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 1920.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [3.186891693229786e+31, 4.780337560569562e+31]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [4.78033754080052e+32, 7.170506309699777e+32]
+[I 210112 11:56:57 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 34 is 3.2250816134742406e-05
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 35 is 3.132936424517834e-05
+[I 210112 11:56:57 approxwfomc:461] Got exact model count: [288.0, 1920.0]
+[I 210112 11:56:57 approxwfomc:465] Current bounds on WMC: [4.8543950583886717e+33, 6.944696433920288e+33]
+[I 210112 11:56:57 approxwfomc:468] ==============
+[I 210112 11:56:57 approxwfomc:256] Current queue: [(-5.1468300818838676e+32, 140203702001344, 2176.0, 1.0293660171674542e+33, 1.544049025355841e+33, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-3.219362561812219e+32, 140203702113024, 2112.0, 3.39897506722507e+31, 3.559260068534726e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-2.390168768899257e+32, 140203702406336, 1920.0, 4.78033754080052e+32, 7.170506309699777e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:56:57 approxwfomc:258] Popping the first (left-most) item off the queue: [1.0293660171674542e+33, 1.544049025355841e+33]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.000927428001887165
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 1104.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0008553720108466223
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 1008.0
+[I 210112 11:56:57 approxwfomc:359] Left split bounds: [5.222518762228189e+32, 5.222518762228189e+32]
+[I 210112 11:56:57 approxwfomc:360] Right split bounds: [7.152580043921187e+32, 7.152580043921187e+32]
+[I 210112 11:56:57 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 36 is 3.0459104127256718e-05
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call 37 is 2.963588509679032e-05
+[I 210112 11:56:57 approxwfomc:461] Got exact model count: [1104.0, 1008.0]
+[I 210112 11:56:57 approxwfomc:465] Current bounds on WMC: [5.062538921836155e+33, 6.638157289179384e+33]
+[I 210112 11:56:57 approxwfomc:468] ==============
+[I 210112 11:56:57 approxwfomc:256] Current queue: [(-4.974552545951025e+32, 140203702439104, 2688.0, 3.0897841906634222e+31, 5.283530965017367e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}), (-3.219362561812219e+32, 140203702113024, 2112.0, 3.39897506722507e+31, 3.559260068534726e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-2.390168768899257e+32, 140203702406336, 1920.0, 4.78033754080052e+32, 7.170506309699777e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)})]
+[I 210112 11:56:57 approxwfomc:258] Popping the first (left-most) item off the queue: [3.0897841906634222e+31, 5.283530965017367e+32]
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00420614899485372
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:57 approxwfomc:351] Model count for constraints above is: 592.0
+[I 210112 11:56:57 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 6)}
+[D 210112 11:56:57 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0041995689971372485
+[I 210112 11:56:57 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 2176.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [6.804881852965854e+30, 5.171710203803193e+31]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [3.7518808220058357e+31, 4.2771441134414854e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0039073150110198185
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1120.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004176442002062686
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1600.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [1.2874100852474637e+31, 1.1007356097126796e+32]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [4.904419349345307e+31, 3.1449587462575243e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (5, 5)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0039365370030282065
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1952.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (6, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0039136059931479394
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 2272.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [2.24377185221421e+31, 2.019394664789657e+32]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [4.962046274436707e+31, 4.465841643438047e+32]
+[I 210112 11:56:58 approxwfomc:378] Best predicate above was: aux4
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call 38 is 2.8855993383716893e-05
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call 39 is 2.811609611746774e-05
+[I 210112 11:56:58 approxwfomc:461] Got exact model count: [1120.0, 1600.0]
+[I 210112 11:56:58 approxwfomc:465] Current bounds on WMC: [5.093559374275449e+33, 6.534373628274668e+33]
+[I 210112 11:56:58 approxwfomc:468] ==============
+[I 210112 11:56:58 approxwfomc:256] Current queue: [(-3.219362561812219e+32, 140203702113024, 2112.0, 3.39897506722507e+31, 3.559260068534726e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}), (-2.6545168113229937e+32, 140203702172032, 1600.0, 4.904419349345307e+31, 3.1449587462575243e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-2.390168768899257e+32, 140203702406336, 1920.0, 4.78033754080052e+32, 7.170506309699777e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)})]
+[I 210112 11:56:58 approxwfomc:258] Popping the first (left-most) item off the queue: [3.39897506722507e+31, 3.559260068534726e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004597238992573693
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:58 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 9)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004615728990756907
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 2080.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [6.149705064240304e+31, 3.5053318864544366e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (8, 9)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004549928999040276
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 528.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (8, 9)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004481329990085214
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1792.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [8.49743765523466e+30, 2.341618466761359e+31]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [4.709517724466671e+31, 3.019978239845731e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004482003001612611
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1120.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004486302001168951
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1536.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [1.802486774878829e+31, 9.934138949157513e+31]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [7.66978600833925e+31, 2.5885527777964757e+32]
+[I 210112 11:56:58 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call 40 is 2.741319371453105e-05
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call 41 is 2.6744579233688825e-05
+[I 210112 11:56:58 approxwfomc:461] Got exact model count: [1120.0, 1536.0]
+[I 210112 11:56:58 approxwfomc:465] Current bounds on WMC: [5.1542923514353783e+33, 6.536644288692419e+33]
+[I 210112 11:56:58 approxwfomc:468] ==============
+[I 210112 11:56:58 approxwfomc:256] Current queue: [(-2.6545168113229937e+32, 140203702172032, 1600.0, 4.904419349345307e+31, 3.1449587462575243e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-2.390168768899257e+32, 140203702406336, 1920.0, 4.78033754080052e+32, 7.170506309699777e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-1.8215741769625507e+32, 140203702048000, 1536.0, 7.66978600833925e+31, 2.5885527777964757e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)})]
+[I 210112 11:56:58 approxwfomc:258] Popping the first (left-most) item off the queue: [4.904419349345307e+31, 3.1449587462575243e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004583433998050168
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 408.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004554333005216904
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1248.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [1.2506269340967736e+31, 3.5642867621078806e+31]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [8.6072559581188e+31, 2.4530679480542357e+32]
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.005580890996498056
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1216.0
+[I 210112 11:56:58 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}
+[D 210112 11:56:58 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00557613700220827
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:58 approxwfomc:351] Model count for constraints above is: 1408.0
+[I 210112 11:56:58 approxwfomc:359] Left split bounds: [3.7273587054994667e+31, 1.2579835620782506e+32]
+[I 210112 11:56:58 approxwfomc:360] Right split bounds: [8.200189152112145e+31, 2.767563819817385e+32]
+[I 210112 11:56:58 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:58 approxwfomc:61] Delta value for approxmc call 42 is 2.6107803537648616e-05
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call 43 is 2.5500645315842835e-05
+[I 210112 11:56:59 approxwfomc:461] Got exact model count: [408.0, 1248.0]
+[I 210112 11:56:59 approxwfomc:465] Current bounds on WMC: [5.203826986864082e+33, 6.503098076493169e+33]
+[I 210112 11:56:59 approxwfomc:468] ==============
+[I 210112 11:56:59 approxwfomc:256] Current queue: [(-2.390168768899257e+32, 140203702406336, 1920.0, 4.78033754080052e+32, 7.170506309699777e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-1.8215741769625507e+32, 140203702048000, 1536.0, 7.66978600833925e+31, 2.5885527777964757e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-1.5923423522423557e+32, 140203720966336, 1248.0, 8.6072559581188e+31, 2.4530679480542357e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:59 approxwfomc:258] Popping the first (left-most) item off the queue: [4.78033754080052e+32, 7.170506309699777e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0008833449974190444
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 1072.0
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0008592770027462393
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 816.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [2.6690217930532973e+32, 2.6690217930532973e+32]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [3.0474651816205865e+32, 3.0474651816205865e+32]
+[I 210112 11:56:59 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call 44 is 2.4921085195028225e-05
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call 45 is 2.4367283301805377e-05
+[I 210112 11:56:59 approxwfomc:461] Got exact model count: [1072.0, 816.0]
+[I 210112 11:56:59 approxwfomc:465] Current bounds on WMC: [5.297441930251418e+33, 6.35769614299058e+33]
+[I 210112 11:56:59 approxwfomc:468] ==============
+[I 210112 11:56:59 approxwfomc:256] Current queue: [(-1.8215741769625507e+32, 140203702048000, 1536.0, 7.66978600833925e+31, 2.5885527777964757e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.5923423522423557e+32, 140203720966336, 1248.0, 8.6072559581188e+31, 2.4530679480542357e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:59 approxwfomc:258] Popping the first (left-most) item off the queue: [7.66978600833925e+31, 2.5885527777964757e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004224518008413725
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:56:59 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004253508988767862
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 1536.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [1.7257018458794144e+32, 2.588552777800927e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (9, 9)}
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (9, 9)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004518187997746281
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 1536.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [7.669786008367042e+31, 2.5885527777993086e+32]
+[I 210112 11:56:59 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call 46 is 2.3837559751766127e-05
+[D 210112 11:56:59 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call 47 is 2.3330377629388126e-05
+[I 210112 11:56:59 approxwfomc:461] Got exact model count: [0, 1536.0]
+[I 210112 11:56:59 approxwfomc:465] Current bounds on WMC: [5.393314254755966e+33, 6.357696142991025e+33]
+[I 210112 11:56:59 approxwfomc:468] ==============
+[I 210112 11:56:59 approxwfomc:256] Current queue: [(-1.8154918998352736e+32, 140203710638528, 3904.0, 7.011787038511255e+29, 1.822503686873785e+32, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-1.5923423522423557e+32, 140203720966336, 1248.0, 8.6072559581188e+31, 2.4530679480542357e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:56:59 approxwfomc:258] Popping the first (left-most) item off the queue: [7.011787038511255e+29, 1.822503686873785e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004548833996523172
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 408.0
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004445796002983116
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 3520.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [7.32789219188671e+28, 8.465181059693549e+30]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [9.48315460127913e+29, 1.6432410291158486e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003885986006935127
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 1184.0
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003921272000297904
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 2624.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [2.1265255911410638e+29, 6.909081542752759e+30]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [3.770272399428475e+30, 1.2249614843367123e+32]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 8), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004435010007000528
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 2944.0
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (9, 9), 'aux5': (5, 7)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004486017991439439
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:56:59 approxwfomc:351] Model count for constraints above is: 864.0
+[I 210112 11:56:59 approxwfomc:359] Left split bounds: [5.287577111018481e+29, 6.871735213257847e+31]
+[I 210112 11:56:59 approxwfomc:360] Right split bounds: [4.138103826007469e+29, 4.0334097991682723e+31]
+[I 210112 11:56:59 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (5, 6)}
+[D 210112 11:56:59 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00444355899526272
+[I 210112 11:56:59 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 2112.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004542582013527863
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 2560.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [3.7932618405059e+29, 5.189182197765861e+31]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [1.659839423542878e+30, 1.1950843849483258e+32]
+[I 210112 11:57:00 approxwfomc:378] Best predicate above was: aux3
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 48 is 2.2844328095442538e-05
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 49 is 2.237811731798453e-05
+[I 210112 11:57:00 approxwfomc:461] Got exact model count: [1184.0, 2624.0]
+[I 210112 11:57:00 approxwfomc:465] Current bounds on WMC: [5.396596001010657e+33, 6.304851004280071e+33]
+[I 210112 11:57:00 approxwfomc:468] ==============
+[I 210112 11:57:00 approxwfomc:256] Current queue: [(-1.5923423522423557e+32, 140203720966336, 1248.0, 8.6072559581188e+31, 2.4530679480542357e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-1.1872587603424276e+32, 140203710609472, 2624.0, 3.770272399428475e+30, 1.2249614843367123e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)})]
+[I 210112 11:57:00 approxwfomc:258] Popping the first (left-most) item off the queue: [8.6072559581188e+31, 2.4530679480542357e+32]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038392040005419403
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 736.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0037938080058665946
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 448.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [5.076074028191932e+31, 9.644540657324325e+31]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [4.63467628673857e+31, 8.805884953726115e+31]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004096142001799308
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 816.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004122977989027277
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 1072.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [5.627821204696258e+31, 8.441731805044667e+31]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [1.4047483124476012e+32, 2.1071224682004633e+32]
+[I 210112 11:57:00 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 50 is 2.193055497162484e-05
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 51 is 2.150054408982827e-05
+[I 210112 11:57:00 approxwfomc:461] Got exact model count: [816.0, 1072.0]
+[I 210112 11:57:00 approxwfomc:465] Current bounds on WMC: [5.507276484721191e+33, 6.35467377434514e+33]
+[I 210112 11:57:00 approxwfomc:468] ==============
+[I 210112 11:57:00 approxwfomc:256] Current queue: [(-1.4175028676717886e+32, 140203702092160, 976.0, 4.050008193453301e+31, 1.8225036870171187e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-1.1872587603424276e+32, 140203710609472, 2624.0, 3.770272399428475e+30, 1.2249614843367123e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:57:00 approxwfomc:258] Popping the first (left-most) item off the queue: [4.050008193453301e+31, 1.8225036870171187e+32]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004396128002554178
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:57:00 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (7, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004470592000870965
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 944.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [5.875831559381659e+31, 1.7627494677945534e+32]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038536179927177727
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 120.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003788672009250149
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 896.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [4.979518268354714e+30, 1.1203916105453077e+31]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [6.071534393632464e+31, 1.6731181124983912e+32]
+[I 210112 11:57:00 approxwfomc:378] Best predicate above was: aux4
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 52 is 2.1087072088100805e-05
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call 53 is 2.068920280341966e-05
+[I 210112 11:57:00 approxwfomc:461] Got exact model count: [120.0, 896.0]
+[I 210112 11:57:00 approxwfomc:465] Current bounds on WMC: [5.532471264991337e+33, 6.35093913299872e+33]
+[I 210112 11:57:00 approxwfomc:468] ==============
+[I 210112 11:57:00 approxwfomc:256] Current queue: [(-1.1872587603424276e+32, 140203710609472, 2624.0, 3.770272399428475e+30, 1.2249614843367123e+32, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-1.0659646731351448e+32, 140203701774976, 896.0, 6.071534393632464e+31, 1.6731181124983912e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)})]
+[I 210112 11:57:00 approxwfomc:258] Popping the first (left-most) item off the queue: [3.770272399428475e+30, 1.2249614843367123e+32]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004225241995300166
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 284.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004482588003156707
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 2208.0
+[I 210112 11:57:00 approxwfomc:359] Left split bounds: [4.0806301727490715e+29, 5.892429953326481e+30]
+[I 210112 11:57:00 approxwfomc:360] Right split bounds: [4.7588193999069684e+30, 1.0307602820127309e+32]
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (5, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004127866995986551
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:00 approxwfomc:351] Model count for constraints above is: 1728.0
+[I 210112 11:57:00 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (5, 7)}
+[D 210112 11:57:00 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004142562000197358
+[I 210112 11:57:00 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 768.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [2.4828623023138276e+30, 4.033409799137427e+31]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [2.942651627808527e+30, 3.5852531548344817e+31]
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00413401699915994
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 1600.0
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004136650997679681
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 1824.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [2.2989465704341137e+30, 3.9311986346855192e+31]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [9.461084971768451e+30, 8.514976242762268e+31]
+[I 210112 11:57:01 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 54 is 2.0306069418171147e-05
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 55 is 1.993686815602258e-05
+[I 210112 11:57:01 approxwfomc:461] Got exact model count: [1600.0, 1824.0]
+[I 210112 11:57:01 approxwfomc:465] Current bounds on WMC: [5.540461024134111e+33, 6.352904733339526e+33]
+[I 210112 11:57:01 approxwfomc:468] ==============
+[I 210112 11:57:01 approxwfomc:256] Current queue: [(-1.0659646731351448e+32, 140203701774976, 896.0, 6.071534393632464e+31, 1.6731181124983912e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-7.568867745585423e+31, 140203710674176, 1824.0, 9.461084971768451e+30, 8.514976242762268e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)})]
+[I 210112 11:57:01 approxwfomc:258] Popping the first (left-most) item off the queue: [6.071534393632464e+31, 1.6731181124983912e+32]
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0044150419998914
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:57:01 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004218771995510906
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 848.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [1.0556578735558817e+32, 1.5834868100588554e+32]
+[I 210112 11:57:01 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 56 is 1.958085265323646e-05
+[D 210112 11:57:01 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 57 is 1.9237328922477927e-05
+[I 210112 11:57:01 approxwfomc:461] Got exact model count: [0, 848.0]
+[I 210112 11:57:01 approxwfomc:465] Current bounds on WMC: [5.585311467553375e+33, 6.343941603095573e+33]
+[I 210112 11:57:01 approxwfomc:468] ==============
+[I 210112 11:57:01 approxwfomc:256] Current queue: [(-9.719946011879332e+31, 140203702383488, 1120.0, 1.2874100852474637e+31, 1.1007356097126796e+32, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-7.568867745585423e+31, 140203710674176, 1824.0, 9.461084971768451e+30, 8.514976242762268e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-5.278289365029737e+31, 140203702406784, 848.0, 1.0556578735558817e+32, 1.5834868100588554e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-0.0, 140203702239872, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)})]
+[I 210112 11:57:01 approxwfomc:258] Popping the first (left-most) item off the queue: [1.2874100852474637e+31, 1.1007356097126796e+32]
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038875400059623644
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 180.0
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038223879964789376
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 928.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [2.0690519196417618e+30, 7.862397256299903e+30]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [1.6000668131608035e+31, 9.120380744201412e+31]
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (5, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003836329997284338
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 336.0
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (5, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004107547996682115
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 720.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [3.8622302414508415e+30, 1.6511034291308727e+31]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [1.351499088847157e+31, 7.076157542462921e+31]
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 5)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0037919790047453716
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 688.0
+[I 210112 11:57:01 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (6, 6)}
+[D 210112 11:57:01 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0040945739892777056
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:01 approxwfomc:351] Model count for constraints above is: 832.0
+[I 210112 11:57:01 approxwfomc:359] Left split bounds: [7.908376213034122e+30, 3.5587692880443958e+31]
+[I 210112 11:57:01 approxwfomc:360] Right split bounds: [1.817087372611419e+31, 8.176893160148118e+31]
+[I 210112 11:57:01 approxwfomc:378] Best predicate above was: aux5
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 58 is 1.890565083760762e-05
+[I 210112 11:57:01 approxwfomc:61] Delta value for approxmc call 59 is 1.858521607764817e-05
+[I 210112 11:57:02 approxwfomc:461] Got exact model count: [688.0, 832.0]
+[I 210112 11:57:02 approxwfomc:465] Current bounds on WMC: [5.598516616640048e+33, 6.35122466660623e+33]
+[I 210112 11:57:02 approxwfomc:468] ==============
+[I 210112 11:57:02 approxwfomc:256] Current queue: [(-8.628509319215126e+31, 140203711120384, 1536.0, 1.7257018458794144e+32, 2.588552777800927e+32, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-7.568867745585423e+31, 140203710674176, 1824.0, 9.461084971768451e+30, 8.514976242762268e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-6.359805787536699e+31, 140203701831424, 832.0, 1.817087372611419e+31, 8.176893160148118e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (6, 6)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-5.278289365029737e+31, 140203702406784, 848.0, 1.0556578735558817e+32, 1.5834868100588554e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-0.0, 140203702239872, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-2.7679316667409835e+31, 140203702404544, 688.0, 7.908376213034122e+30, 3.5587692880443958e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 5)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:57:02 approxwfomc:258] Popping the first (left-most) item off the queue: [1.7257018458794144e+32, 2.588552777800927e+32]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.003889990010065958
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 176.0
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038050489965826273
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 1088.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [1.9773667052638185e+31, 1.9773667052638469e+31]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [1.8335582176083387e+32, 1.8335582176083387e+32]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (9, 9)}
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (9, 9)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004462394994334318
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 1536.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [0, 0]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [1.7257018518668017e+32, 2.5885527778017363e+32]
+[I 210112 11:57:02 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call 60 is 1.827546247635403e-05
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call 61 is 1.797586473084003e-05
+[I 210112 11:57:02 approxwfomc:461] Got exact model count: [176.0, 1088.0]
+[I 210112 11:57:02 approxwfomc:465] Current bounds on WMC: [5.629075920865578e+33, 6.295498877639611e+33]
+[I 210112 11:57:02 approxwfomc:468] ==============
+[I 210112 11:57:02 approxwfomc:256] Current queue: [(-8.131652174278683e+31, 140203718154496, 1120.0, 1.802486774878829e+31, 9.934138949157513e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-7.568867745585423e+31, 140203710674176, 1824.0, 9.461084971768451e+30, 8.514976242762268e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-6.359805787536699e+31, 140203701831424, 832.0, 1.817087372611419e+31, 8.176893160148118e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (6, 6)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-5.278289365029737e+31, 140203702406784, 848.0, 1.0556578735558817e+32, 1.5834868100588554e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-0.0, 140203702239872, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-2.7679316667409835e+31, 140203702404544, 688.0, 7.908376213034122e+30, 3.5587692880443958e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 5)}), (-2.8372677652434125e+17, 140203701990144, 176.0, 1.9773667052638185e+31, 1.9773667052638469e+31, {'aux1': (2, 2), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701809472, 1088.0, 1.8335582176083387e+32, 1.8335582176083387e+32, {'aux1': (3, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:57:02 approxwfomc:258] Popping the first (left-most) item off the queue: [1.802486774878829e+31, 9.934138949157513e+31]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004514047992415726
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[D 210112 11:57:02 approxwfomc:349] approxMC failed, might encount infeasible area: list index out of range
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 0
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0045674129942199215
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 1104.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [0.0, 0.0]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [3.264074226426826e+31, 9.792222679181238e+31]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (8, 8)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0044163590064272285
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 528.0
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (8, 8)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.00443351200374309
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 608.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [8.497437653258369e+30, 2.3416184667594287e+31]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [1.5978720850693537e+31, 5.392818287081717e+31]
+[I 210112 11:57:02 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call 62 is 1.7685931428729705e-05
+[D 210112 11:57:02 approxwfomc:452] approxMC failed, might encount infeasible area
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call 63 is 1.7405202358432413e-05
+[I 210112 11:57:02 approxwfomc:461] Got exact model count: [0, 1104.0]
+[I 210112 11:57:02 approxwfomc:465] Current bounds on WMC: [5.643691795381058e+33, 6.294079714939848e+33]
+[I 210112 11:57:02 approxwfomc:468] ==============
+[I 210112 11:57:02 approxwfomc:256] Current queue: [(-7.568867745585423e+31, 140203710674176, 1824.0, 9.461084971768451e+30, 8.514976242762268e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-6.528148452754412e+31, 140203710665728, 1104.0, 3.264074226426826e+31, 9.792222679181238e+31, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-6.359805787536699e+31, 140203701831424, 832.0, 1.817087372611419e+31, 8.176893160148118e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (6, 6)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-5.278289365029737e+31, 140203702406784, 848.0, 1.0556578735558817e+32, 1.5834868100588554e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701809472, 1088.0, 1.8335582176083387e+32, 1.8335582176083387e+32, {'aux1': (3, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203702239872, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-2.7679316667409835e+31, 140203702404544, 688.0, 7.908376213034122e+30, 3.5587692880443958e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 5)}), (-2.8372677652434125e+17, 140203701990144, 176.0, 1.9773667052638185e+31, 1.9773667052638469e+31, {'aux1': (2, 2), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701774976, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)})]
+[I 210112 11:57:02 approxwfomc:258] Popping the first (left-most) item off the queue: [9.461084971768451e+30, 8.514976242762268e+31]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004477470007259399
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 100.0
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (7, 7)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004118233991903253
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 1696.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [5.186998198589988e+29, 2.074799279417619e+30]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [1.3195723615811493e+31, 7.917434050268594e+31]
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (7, 7)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.004453781992197037
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 1056.0
+[I 210112 11:57:02 approxwfomc:286] Setting constraints: {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (7, 7)}
+[D 210112 11:57:02 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0038059189973864704
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:02 approxwfomc:351] Model count for constraints above is: 480.0
+[I 210112 11:57:02 approxwfomc:359] Left split bounds: [5.477470097703281e+30, 2.464861543916616e+31]
+[I 210112 11:57:02 approxwfomc:360] Right split bounds: [6.639357902474627e+30, 2.240783210038484e+31]
+[I 210112 11:57:02 approxwfomc:378] Best predicate above was: aux4
+[I 210112 11:57:02 approxwfomc:61] Delta value for approxmc call 64 is 1.7133246071581904e-05
+[I 210112 11:57:03 approxwfomc:61] Delta value for approxmc call 65 is 1.6869657670480643e-05
+[I 210112 11:57:03 approxwfomc:461] Got exact model count: [1056.0, 480.0]
+[I 210112 11:57:03 approxwfomc:465] Current bounds on WMC: [5.646347538409466e+33, 6.255986400051777e+33]
+[I 210112 11:57:03 approxwfomc:468] ==============
+[I 210112 11:57:03 approxwfomc:256] Current queue: [(-7.023741557528621e+31, 140203702263616, 1072.0, 1.4047483124476012e+32, 2.1071224682004633e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}), (-6.810981695706585e+31, 140203701835520, 1280.0, 1.5845632696485316e+30, 6.969438022671438e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (0, 4)}), (-6.359805787536699e+31, 140203701831424, 832.0, 1.817087372611419e+31, 8.176893160148118e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (6, 6)}), (-6.528148452754412e+31, 140203710665728, 1104.0, 3.264074226426826e+31, 9.792222679181238e+31, {'aux1': (2, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-3.9736555789240327e+31, 140203702051200, 336.0, 7.947311160955431e+31, 1.1920966739879464e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (8, 8)}), (-3.701303977642108e+31, 140203711871680, 1600.0, 2.2989465704341137e+30, 3.9311986346855192e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (5, 6)}), (-5.278289365029737e+31, 140203702406784, 848.0, 1.0556578735558817e+32, 1.5834868100588554e+32, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-1.9171145341462877e+31, 140203702007936, 1056.0, 5.477470097703281e+30, 2.464861543916616e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (7, 8), 'aux5': (7, 7)}), (-5.561333882560544e+30, 140203702300096, 2112.0, 9.973638011988e+24, 5.561343856198556e+30, {'aux1': (0, 3), 'aux3': (21, 24), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.687334263166882e+31, 140203702180992, 144.0, 1.8539863995960514e+31, 4.541320662762933e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (8, 8)}), (-0.0, 140203701862784, 816.0, 3.0474651816205865e+32, 3.0474651816205865e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-2.8139106003484084e+31, 140203702384128, 816.0, 5.627821204696258e+31, 8.441731805044667e+31, {'aux1': (2, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 5)}), (-6.224397837098363e+30, 140203702263488, 120.0, 4.979518268354714e+30, 1.1203916105453077e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 7), 'aux5': (7, 7)}), (-2.9876660138029893e+31, 140203701741056, 1568.0, 3.1543518616293087e+30, 3.3031011999659203e+31, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (8, 9)}), (-2.8372677652434125e+17, 140203701990144, 176.0, 1.9773667052638185e+31, 1.9773667052638469e+31, {'aux1': (2, 2), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.5934458673397764e+31, 140203710665792, 288.0, 3.186891693229786e+31, 4.780337560569562e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203701977664, 1008.0, 7.152580043921187e+32, 7.152580043921187e+32, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701873024, 1104.0, 5.222518762228189e+32, 5.222518762228189e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (8, 8)}), (-0.0, 140203701731200, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203881730432, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (14, 20), 'aux4': (7, 9), 'aux5': (0, 9)}), (-2.3136598280111073e+31, 140203702170816, 408.0, 1.2506269340967736e+31, 3.5642867621078806e+31, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (5, 6)}), (-0.0, 140203702439104, 1072.0, 2.6690217930532973e+32, 2.6690217930532973e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (7, 7)}), (-0.0, 140203711123008, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-6.696428983638653e+30, 140203702344640, 1184.0, 2.1265255911410638e+29, 6.909081542752759e+30, {'aux1': (0, 3), 'aux3': (25, 25), 'aux4': (7, 9), 'aux5': (5, 7)}), (-7.81833485430284e+30, 140203702096064, 1152.0, 2.228292120616064e+28, 7.840617775509e+30, {'aux1': (0, 3), 'aux3': (25, 26), 'aux4': (7, 9), 'aux5': (0, 4)}), (-0.0, 140203702007360, 0, 0.0, 0.0, {'aux1': (0, 3), 'aux3': (0, 13), 'aux4': (7, 9), 'aux5': (0, 9)}), (-0.0, 140203701809472, 1088.0, 1.8335582176083387e+32, 1.8335582176083387e+32, {'aux1': (3, 3), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203702239872, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (27, 27), 'aux4': (8, 8), 'aux5': (7, 7)}), (-2.7679316667409835e+31, 140203702404544, 688.0, 7.908376213034122e+30, 3.5587692880443958e+31, {'aux1': (0, 3), 'aux3': (27, 27), 'aux4': (7, 8), 'aux5': (5, 5)}), (-0.0, 140203711178368, 1888.0, 2.5454102315033188e+33, 2.5454102315033188e+33, {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-0.0, 140203701774976, 0, 0.0, 0.0, {'aux1': (0, 1), 'aux3': (26, 26), 'aux4': (7, 9), 'aux5': (8, 8)}), (-7.998392938210001e+18, 140203702160832, 624.0, 5.608531018566419e+32, 5.608531018566499e+32, {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (7, 9), 'aux5': (9, 9)}), (-1.5768474197910212e+31, 140203701987328, 480.0, 6.639357902474627e+30, 2.240783210038484e+31, {'aux1': (0, 3), 'aux3': (26, 26), 'aux4': (9, 9), 'aux5': (7, 7)})]
+[I 210112 11:57:03 approxwfomc:258] Popping the first (left-most) item off the queue: [1.4047483124476012e+32, 2.1071224682004633e+32]
+[I 210112 11:57:03 approxwfomc:286] Setting constraints: {'aux1': (2, 2), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}
+[D 210112 11:57:03 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0008948710019467399
+[I 210112 11:57:03 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:03 approxwfomc:351] Model count for constraints above is: 672.0
+[I 210112 11:57:03 approxwfomc:286] Setting constraints: {'aux1': (3, 3), 'aux3': (27, 27), 'aux4': (9, 9), 'aux5': (6, 6)}
+[D 210112 11:57:03 approxwfomc:314] elapsed time for calculating upper and lower bound: 0.0008553810039302334
+[I 210112 11:57:03 approxwfomc:61] Delta value for approxmc call None is 0.01
+[I 210112 11:57:03 approxwfomc:351] Model count for constraints above is: 392.0
+[I 210112 11:57:03 approxwfomc:359] Left split bounds: [8.80588494173119e+31, 8.80588494173119e+31]
+[I 210112 11:57:03 approxwfomc:360] Right split bounds: [7.705149324014868e+31, 7.705149324014868e+31]
+[I 210112 11:57:03 approxwfomc:378] Best predicate above was: aux1
+[I 210112 11:57:03 approxwfomc:61] Delta value for approxmc call 66 is 1.6614056796685485e-05
+[I 210112 11:57:03 approxwfomc:61] Delta value for approxmc call 67 is 1.636608579972003e-05
+[I 210112 11:57:03 approxwfomc:461] Got exact model count: [672.0, 392.0]
+[I 210112 11:57:03 approxwfomc:465] Current bounds on WMC: [5.670983049822167e+33, 6.210384495889191e+33]
+[I 210112 11:57:03 approxwfomc:468] ==============
+[I 210112 11:57:03 approxwfomc:251] Converged!
+[I 210112 11:57:03 approxwfomc:470] Total number of model counter calls: 227
+[I 210112 11:57:03 approxwfomc:471] Number of non-heuristic model counter calls so far: 67
+[I 210112 11:57:03 approxwfomc:472] Best WMC bounds: [5.670983049822167e+33, 6.210384495889191e+33]
+[I 210112 11:57:03 approxwfomc:474] Runtime: 12.411245822906494

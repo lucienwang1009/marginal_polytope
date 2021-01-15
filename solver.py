@@ -177,7 +177,8 @@ class DFTPolytopeSolver(PolytopeSolver):
 
     def get_convex_hull(self):
         dist = self.counting_distribution()
-        # np.save('./dist.npy', dist)
+        # self.plot(dist)
+        np.save('./dist.npy', dist)
         non_zero_points = np.array(np.where(dist > self.eps)).T
         logger.debug(non_zero_points)
         return scipy.spatial.ConvexHull(non_zero_points)
