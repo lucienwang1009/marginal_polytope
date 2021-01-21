@@ -172,8 +172,8 @@ def main():
         o = [(k, p) for p in range(v + 1)]
         pairs.append(o)
 
-    add_weights = False  # Whether to add weights or not
-    pysddmode = False  # Whether to print the weights in PySDD format or not
+    add_weights = True  # Whether to add weights or not
+    pysddmode = True  # Whether to print the weights in PySDD format or not
 
     print(output_to_dimacs(out))
     if add_weights:

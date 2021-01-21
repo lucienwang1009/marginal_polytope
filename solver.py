@@ -157,7 +157,7 @@ class DFTPolytopeSolver(PolytopeSolver):
         for weights in product(*range_M):
             self.mln.formula_weights = weights
             ln_Z = self.solver.solve(self.mln)
-            res.append(math.e ** (ln_Z - denominator_ln_Z))
+            res.append(math.e ** (ln_Z)) # - denominator_ln_Z))
         res = np.array(res, dtype=np.complex256).reshape(M)
         return res
 
@@ -178,7 +178,7 @@ class DFTPolytopeSolver(PolytopeSolver):
     def get_convex_hull(self):
         dist = self.counting_distribution()
         # self.plot(dist)
-        np.save('./dist.npy', dist)
+        # np.save('./dist.npy', dist)
         non_zero_points = np.array(np.where(dist > self.eps)).T
         logger.debug(non_zero_points)
         return scipy.spatial.ConvexHull(non_zero_points)

@@ -1,6 +1,8 @@
 import tempfile
 import os
 
+from random import choices, random, seed
+
 smoker_drinkers_str1 = '''
 predicate stress 1 1 1
 predicate smokes 1 1 1
@@ -75,21 +77,22 @@ aux2(X,Y), -smokes(Y)
 aux3(X,Y), -friends(X,Y)
 '''
 
+def random_evidences(num, n_persons):
+    persons = list(range(n_persons))
+    s = set()
+    res = []
+    while len(s) < num:
+        s.add(tuple(choices(persons, k=2)))
+    for evidence in s:
+        r = random()
+        if r < 0.3:
+            res.append('friends({}, {})'.format(*evidence))
+        else:
+            res.append('-friends({}, {})'.format(*evidence))
+    return res
 
-evidences = [
-    'friends(0,2)',
-    'friends(1,4)',
-    '-friends(2,4)',
-    '-friends(4,3)',
-    'friends(4,5)',
-    '-friends(4,2)',
-    'friends(0,1)',
-    'friends(1,3)',
-    '-friends(3,4)',
-    '-friends(0,3)',
-    'friends(2,5)',
-    '-friends(0,4)'
-]
+seed(0)
+evidences = random_evidences(13, 6)
 
 for i in range(len(evidences)):
     with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
