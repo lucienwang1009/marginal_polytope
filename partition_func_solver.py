@@ -1,14 +1,13 @@
 import subprocess
 import os
-import math
 import re
 import time
 
 from logzero import logger
 from contexttimer import Timer
+from pracmln import MLN
 
 from generator import MLNGenerator
-from mln import MLN
 from py4j.java_gateway import JavaGateway
 
 
@@ -86,11 +85,6 @@ class ComplexWFOMCSolver(WFOMCSolver):
 
 
 if __name__ == '__main__':
-    mln = MLN(
-        ['person'],
-        ['friends(person,person)', 'smokes(person)'],
-        ['smokes(x)', 'friends(x,y) ^ smokes(x) => smokes(y)'],
-        [2], [complex(0, -2*math.pi*0/3), complex(0, -2*math.pi*2/5)]
-    )
-    with ComplexWFOMCSolver() as solver:
+    mln = MLN.load('./models/friendsmoker.mln', grammar='StandardGrammar')
+    with WFOMCSolver() as solver:
         print(solver.solve(mln))

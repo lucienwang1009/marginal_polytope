@@ -3,15 +3,16 @@ import os
 import logging
 import logzero
 import pickle
+import numpy as np
 
 from logzero import logger
 from contexttimer import Timer
+from pracmln import MLN
 
 from partition_func_solver import WFOMCSolver, ComplexWFOMCSolver
 from solver import IterPolytopeSolver, DFTPolytopeSolver
 # from utils import get_orthogonal_vector
 from utils import plot_convex_hull
-from mln import MLN
 
 example_usage = '''Example:
 python main.py -d person -p 'smokes(person);friends(person,person)' \\
@@ -31,17 +32,8 @@ def parse_args():
         epilog=example_usage,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument('--domain_name', '-d', type=str, required=True,
-                        help='domain names, split by semicolon')
-    parser.add_argument('--predicates', '-p', type=str, required=True,
-                        help='predicates, split by semicolon')
-    parser.add_argument('--formulas', '-f', type=str, required=True,
-                        help='formulas, split by semicolon, variables should be lower-case,'
-                             'can contain ground atom (constant),'
-                             'but only support numerical name starting from 0, '
-                             'e.g. friends(0,2) or friends(1,x)')
-    parser.add_argument('--domain_size', '-s', type=str, required=True,
-                        help='domain size, if multiple, split by semicolon')
+    parser.add_argument('--input', '-i', type=str, required=True,
+                        help='mln file')
     parser.add_argument('--method', '-m', type=str, default='iter',
                         const='None', nargs='?', choices=METHODS.keys())
     parser.add_argument('--output_dir', '-o', type=str,
@@ -53,7 +45,7 @@ def parse_args():
     return args
 
 
-def main(mln, method, verbose=False):
+def construct_surrogate_polytope(mln, method='iter', verbose=False, max_vertices=None):
     log_level = logger.level
     if verbose:
         logzero.loglevel(logging.DEBUG)
@@ -61,13 +53,19 @@ def main(mln, method, verbose=False):
         logzero.loglevel(logging.INFO)
 
     PolytopeSolver, PartitionFuncSolver = METHODS[method]
+
+    mln_weights = [float(w) for w in mln.weights]
+
+    def vertex_key_func(vertex):
+        return np.dot(mln_weights, vertex.coordinate)
     with PartitionFuncSolver() as s:
-        solver = PolytopeSolver(
-            s, mln
-        )
+        solver = PolytopeSolver(s, mln)
         try:
             with Timer() as t:
-                convex_hull = solver.get_convex_hull()
+                if max_vertices is not None:
+                    convex_hull = solver.get_convex_hull(max_vertices, vertex_key_func)
+                else:
+                    convex_hull = solver.get_convex_hull()
             logger.info('Total time for finding convex hull: %s', t.elapsed)
         except Exception as e:
             raise e
@@ -77,6 +75,10 @@ def main(mln, method, verbose=False):
     # set back log level
     logzero.loglevel(log_level)
     return convex_hull
+
+
+def construct_polytope(mln, method='iter', verbose=False):
+    return construct_surrogate_polytope(mln, method, verbose)
 
 
 if __name__ == '__main__':
@@ -89,11 +91,8 @@ if __name__ == '__main__':
         logzero.loglevel(logging.INFO)
     logzero.logfile('{}/log.txt'.format(args.output_dir), mode='w')
 
-    mln = MLN(args.domain_name.split(';'),
-              args.predicates.split(';'),
-              args.formulas.split(';'),
-              list(map(int, args.domain_size.split(';'))))
-    convex_hull = main(mln, args.method, args.debug)
-    # plot_convex_hull(convex_hull, '{}/polytope.png'.format(args.output_dir))
+    mln = MLN.load(args.input, grammar='StandardGrammar')
+    convex_hull = construct_polytope(mln, args.method, args.debug)
+    plot_convex_hull(convex_hull, '{}/polytope.png'.format(args.output_dir))
     with open('{}/convex_hull.pkl'.format(args.output_dir), 'wb') as f:
         pickle.dump(convex_hull, f)

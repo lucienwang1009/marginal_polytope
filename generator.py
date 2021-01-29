@@ -4,7 +4,7 @@ import tempfile
 from logzero import logger
 from contextlib import contextmanager
 
-from mln import MLN
+from pracmln import MLN
 
 class MLNGenerator(object):
     def __init__(self):
@@ -18,51 +18,46 @@ class MLNGenerator(object):
             delete=False
         )
         content = ''
-        for name, size in zip(mln.domain_name, mln.domain_size):
-            items = list(map(str, range(size)))
+        for name, domain in mln.domains.items():
             content += '{} = {{{}}}{}'.format(
                 name,
-                ', '.join(items),
+                ', '.join(domain),
                 os.linesep
             )
         content += os.linesep
         for predicate in mln.predicates:
-            content += predicate + os.linesep
+            content += str(predicate) + os.linesep
         content += os.linesep
 
-        world_size = mln.world_size
-        logger.debug('world size: %s', world_size)
-        for index, formula in enumerate(mln.formulas):
-            # NOTE: mln can have complex weight
-            formula_weight = mln.formula_weights[index]
-            if isinstance(formula_weight, complex):
-                weight_str = '{},{}'.format(
-                    formula_weight.real,
-                    formula_weight.imag
-                )
+        for formula in mln.formulas:
+            if formula.ishard:
+                content += '{}.'.format(str(formula))
             else:
-                weight_str = formula_weight
-            content += '{} {}{}'.format(
-                weight_str,
-                formula,
-                os.linesep
-            )
+                # NOTE: mln can have complex weight
+                weight = formula.weight
+                if isinstance(weight, complex):
+                    weight_str = '{},{}'.format(
+                        weight.real,
+                        weight.imag
+                    )
+                else:
+                    weight_str = weight
+                content += '{} {}{}'.format(
+                    weight_str,
+                    str(formula),
+                    os.linesep
+                )
         fd.file.write(content)
         fd.close()
         try:
             yield fd.name
         finally:
-            logger.debug('delete tmp file')
+            logger.debug('delete tmp file: %s', fd.name)
             os.remove(fd.name)
 
 
 if __name__ == '__main__':
-    mln = MLN(
-        ['person'],
-        ['friends(person,person)', 'smokes(person)'],
-        ['smokes(x)', 'friends(x,y) ^ smokes(x) => smokes(y)'],
-        4, [1, 1]
-    )
+    mln = MLN.load('./models/friendsmoker.mln', grammar='StandardGrammar')
     generator = MLNGenerator()
     with generator.generate(mln) as file_name:
         with open(file_name, 'r') as f:

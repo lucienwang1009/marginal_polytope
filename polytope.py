@@ -1,6 +1,7 @@
 import numpy as np
 import sys
 import pickle
+import heapq
 
 from logzero import logger
 from scipy.optimize import linprog
@@ -231,10 +232,6 @@ class IntegralConvexHull(ConvexHull):
         self.integral_points = self.integral_points[
             np.where(np.dot(norm, self.integral_points.T) <= intercept)
         ]
-        # list(filter(
-        #     lambda p: np.dot(norm, p) <= intercept,
-        #     self.integral_points
-        # ))
         # filter vertex
         self.vertices = dict(filter(
             lambda v: np.dot(norm, v[1].coordinate) <= intercept,

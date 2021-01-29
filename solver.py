@@ -7,10 +7,11 @@ from itertools import product
 from logzero import logger
 from matplotlib import pyplot as plt
 from contexttimer import Timer
+from pracmln import MLN
+from copy import deepcopy
 
-from mln import MLN
 from polytope import IntegralConvexHull, Vertex
-from utils import normalize_norm
+from utils import normalize_norm, world_size
 
 
 class PolytopeSolver(object):
@@ -19,7 +20,7 @@ class PolytopeSolver(object):
         self.solver = partition_func_solver
 
         self.dimension = len(mln.formulas)
-        self.mln = mln
+        self.mln = deepcopy(mln)
 
     def get_convex_hull(self):
         raise NotImplementedError
@@ -74,19 +75,24 @@ class IterPolytopeSolver(PolytopeSolver):
         logger.info('elapsed time for add facet: %s', t.elapsed)
         return True
 
-    def get_convex_hull(self):
+    def get_convex_hull(self, max_vertices=None, vertex_key_func=None):
         self._init_convex_hull()
         logger.debug("Initial convex hull: \n%s", self.convex_hull)
         add_new_vertex = True
         while add_new_vertex:
             add_new_vertex = False
-            for vertex in self.convex_hull.vertices.values():
+            vertices = self.convex_hull.get_vertices()
+            if vertex_key_func is not None:
+                vertices = sorted(vertices, key=vertex_key_func)
+            for vertex in vertices:
                 if vertex in self.visited:
                     continue
                 self.visited.add(vertex)
                 if self._find_new_vertices(vertex):
                     add_new_vertex = True
                     break
+            if max_vertices is not None and len(self.convex_hull.get_vertices()) > max_vertices:
+                break
         return self.convex_hull.to_scipy_convex_hull()
 
     def _init_convex_hull(self):
@@ -114,15 +120,15 @@ class IterPolytopeSolver(PolytopeSolver):
         self.convex_hull = IntegralConvexHull(self.dimension, vertices)
 
     def _set_mln_weights(self, norm_vector):
-        self.mln.formula_weights = [
-            2 * i * math.log(self.mln.world_size) for i in norm_vector
+        self.mln.weights = [
+            2 * i * math.log(world_size(self.mln)) for i in norm_vector
         ]
 
     def get_b(self, norm_vector):
         self._set_mln_weights(norm_vector)
         ln_Z = self.solver.solve(self.mln)
         logger.debug("ln(Z) = %s", ln_Z)
-        b = (ln_Z / math.log(self.mln.world_size) - 1) / 2
+        b = (ln_Z / math.log(world_size(self.mln)) - 1) / 2
         b_round = round(b)
         if abs(b - b_round) <= 1e-10:
             b = b_round
@@ -137,17 +143,21 @@ class DFTPolytopeSolver(PolytopeSolver):
         self.eps = 1e-10
 
     def _get_M(self):
-        n_vars = self.mln.formula_vars
-        assert len(self.mln.domain_size) == 1
-        logger.info(n_vars)
-        M = [(self.mln.domain_size[0] ** n) + 1 for n in n_vars]
+        domains = self.mln.domains
+        M = []
+        for f in self.mln.formulas:
+            tmp = 1
+            for k, d in f.vardoms().items():
+                tmp *= len(domains[d])
+            M.append(tmp + 1)
+        logger.debug("M: %s", M)
         return M
 
     def dft(self):
         """
         g(k) = WFOMC(Phi_k) / Z
         """
-        self.mln.formula_weights = [complex(0) for i in self.mln.formulas]
+        self.mln.weights = [complex(0) for i in self.mln.formulas]
         denominator_ln_Z = self.solver.solve(self.mln)
         M = self._get_M()
         res = []
@@ -155,9 +165,9 @@ class DFTPolytopeSolver(PolytopeSolver):
         for i, m in enumerate(M):
             range_M[i] = complex(0, -2 * math.pi / m) * range_M[i]
         for weights in product(*range_M):
-            self.mln.formula_weights = weights
+            self.mln.weights = weights
             ln_Z = self.solver.solve(self.mln)
-            res.append(math.e ** (ln_Z)) # - denominator_ln_Z))
+            res.append(math.e ** (ln_Z - denominator_ln_Z))
         res = np.array(res, dtype=np.complex256).reshape(M)
         return res
 

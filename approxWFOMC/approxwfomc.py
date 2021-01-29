@@ -20,7 +20,7 @@ from scipy.optimize import linprog
 
 from approxWFOMC.converter import convert2mln
 from approxWFOMC.logic import Predicate, Variable, Constant
-from main import main as get_irmp
+from main import construct_polytope
 from utils import plot_convex_hull
 
 varcount = 0
@@ -143,7 +143,7 @@ def main():
     if args.improve:
         mln, aux2dim = convert2mln(clauses, domainsize)
         logger.debug('mln:%s\naux2dim:%s', mln, aux2dim)
-        convex_hull = get_irmp(mln, 'iter')
+        convex_hull = construct_polytope(mln)
         vertices_cood = convex_hull.points[convex_hull.vertices, :]
         dim2bound = np.stack([np.min(vertices_cood, axis=0),
                               np.max(vertices_cood, axis=0)], axis=0).T

@@ -173,3 +173,19 @@ def cartesian_product(*arrays):
     for i, a in enumerate(np.ix_(*arrays)):
         arr[i, ...] = a
     return arr.reshape(la, -1).T
+
+
+def herbrand_size(mln):
+    domains = mln.domains
+    preds = mln.predicates
+    total = 0
+    for p in preds:
+        tmp = 1
+        for d in p.argdoms:
+            tmp *= len(domains[d])
+        total += tmp
+    return total
+
+
+def world_size(mln):
+    return 2 ** herbrand_size(mln)
