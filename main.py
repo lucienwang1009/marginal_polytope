@@ -1,22 +1,29 @@
 import argparse
-import numpy as np
-import math
+import os
 import logging
 import logzero
+import pickle
+import numpy as np
 
 from logzero import logger
-from itertools import combinations, product
-from functools import reduce
+from contexttimer import Timer
+from pracmln import MLN
 
-from mln import MLN
-from partition_func_solver import WFOMCSolver
-from polytope import ConvexHull, Vertex
-from utils import generalized_cross_product
+from partition_func_solver import WFOMCSolver, ComplexWFOMCSolver
+from solver import IterPolytopeSolver, DFTPolytopeSolver
+# from utils import get_orthogonal_vector
+from utils import plot_convex_hull
 
 example_usage = '''Example:
 python main.py -d person -p 'smokes(person);friends(person,person)' \\
     -f 'smokes(x);smokes(x) ^ friends(x,y) => smokes(y)' -s 2
 '''
+
+
+METHODS = {
+    'iter': (IterPolytopeSolver, WFOMCSolver),
+    'dft': (DFTPolytopeSolver, ComplexWFOMCSolver)
+}
 
 
 def parse_args():
@@ -25,255 +32,67 @@ def parse_args():
         epilog=example_usage,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
-    parser.add_argument('--domain_name', '-d', type=str, required=True,
-                        help='domain names, split by semicolon')
-    parser.add_argument('--predicates', '-p', type=str, required=True,
-                        help='predicates, split by semicolon')
-    parser.add_argument('--formulas', '-f', type=str, required=True,
-                        help='formulas, split by semicolon')
-    parser.add_argument('--domain_size', '-s', type=str, required=True,
-                        help='domain size, if multiple, split by semicolon')
-    parser.add_argument('--log_file', '-l', type=str, default='log.txt')
+    parser.add_argument('--input', '-i', type=str, required=True,
+                        help='mln file')
+    parser.add_argument('--method', '-m', type=str, default='iter',
+                        const='None', nargs='?', choices=METHODS.keys())
+    parser.add_argument('--output_dir', '-o', type=str,
+                        default='./check-points',
+                        help="output convex hull pickle file in the formed of"
+                             " scipy.spatial.ConvexHull and log file")
     parser.add_argument('--debug', action='store_true', default=False)
     args = parser.parse_args()
     return args
 
 
-class PolytopeSolver(object):
-    def __init__(self, partition_func_solver, domain_name,
-                 predicates, formulas, domain_size):
-        super().__init__()
-        self.solver = partition_func_solver
-        self.domain_name = domain_name
-        self.predicates = predicates
-        self.formulas = formulas
-        self.domain_size = domain_size
+def construct_surrogate_polytope(mln, method='iter', verbose=False, max_vertices=None):
+    log_level = logger.level
+    if verbose:
+        logzero.loglevel(logging.DEBUG)
+    else:
+        logzero.loglevel(logging.INFO)
 
-        self.dimension = len(self.formulas)
-        self.vertices = []
-        self.visited = set()
-        self.convex_hull = None
-        self.norm_boundary = None
+    PolytopeSolver, PartitionFuncSolver = METHODS[method]
 
-    def _get_integers_points(self, vertex):
-        # find all feasible integer points on each hyperplane
-        points = []
+    mln_weights = [float(w) for w in mln.weights]
 
-        # d points in d dimension form a hyperplane
-        for i in range(self.dimension):
-            points.append(self.convex_hull.get_feasible_point_on_facet(
-                vertex.facets_norm[i],
-                vertex.facets_intercept[i],
-                vertex.coordinate,
-                handler=lambda x: not np.all(x == vertex.coordinate)
-            ))
-        return points
+    def vertex_key_func(vertex):
+        return np.dot(mln_weights, vertex.coordinate)
+    with PartitionFuncSolver() as s:
+        solver = PolytopeSolver(s, mln)
+        try:
+            with Timer() as t:
+                if max_vertices is not None:
+                    convex_hull = solver.get_convex_hull(max_vertices, vertex_key_func)
+                else:
+                    convex_hull = solver.get_convex_hull()
+            logger.info('Total time for finding convex hull: %s', t.elapsed)
+        except Exception as e:
+            raise e
+        finally:
+            logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
 
-    def _get_orthogonal_vector(self, points):
-        vecs = []
-        for p in points[1:]:
-            vecs.append(p - points[0])
-        vecs = np.array(vecs)
-        orthogonal_vec = generalized_cross_product(vecs).astype(np.int)
-        logger.debug(
-            'Found norm orthogonal to\n%s:\n%s', vecs, orthogonal_vec
-        )
-        return orthogonal_vec
+    # set back log level
+    logzero.loglevel(log_level)
+    return convex_hull
 
-    def _normalize_norm(self, norm):
-        gcd = reduce(math.gcd, norm)
-        return np.array(norm / gcd, dtype=np.int)
 
-    def _norm_in_boundary(self, norm, facets_norm):
-        if np.all(norm >= -self.norm_boundary) and \
-                np.all(norm <= self.norm_boundary):
-            return True
-        return False
-
-    def _get_new_norm(self, vertex):
-        # """
-        # Find the norm of new hyperplane, which is not parallel to
-        # the facet of the given cone
-        # """
-        # norm = None
-        # # get all feasible points of each hyperplane
-        # feasible_points = self._get_integers_points(vertex)
-        # for points in product(*feasible_points):
-        #     on_hyperplane = np.dot(
-        #         vertex.facets_norm, np.transpose(points)
-        #     ) == vertex.facets_intercept.reshape(
-        #         vertex.facets_norm.shape[0], 1
-        #     )
-        #     # if all points are on the facet of the given cone
-        #     if not np.any(np.all(on_hyperplane, axis=1)):
-        #         logger.debug("Found feasible integer points:%s", points)
-        #         norm = self._get_orthogonal_vector(points)
-        #         break
-        # if norm is None:
-        #     raise RuntimeError('Cannot find new hyperplane')
-        # if np.dot(norm, vertex.coordinate) <= np.dot(norm, points[0]):
-        #     norm = -norm
-        # return norm
-        # return np.sum(vertex.facets_norm, axis=1)
-        # for facets_norm in combinations(vertex.facets_norm, self.dimension):
-        #     facets_norm = np.array(facets_norm)
-        # # sum_norm = np.sum(facets_norm, axis=0)
-        # # sum_norm = self._normalize_norm(sum_norm)
-        # # if np.all(sum_norm >= -self.norm_boundary) and \
-        # #         np.all(sum_norm <= self.norm_boundary):
-        # #     return sum_norm
-        # # [a1^T, a2^T, ..., ad^T] \dot [\lambda_1, ..., \lambda_d]^T = norm
-        #     facets_norm_inverse = np.linalg.inv(np.transpose(facets_norm))
-
-        #     boundary_iter = [
-        #         list(range(-b, b + 1)) for b in self.norm_boundary
-        #     ]
-        #     for new_norm in product(*boundary_iter):
-        #         if np.all(np.dot(facets_norm_inverse, new_norm) > 0):
-        #             logger.debug(facets_norm_inverse)
-        #             logger.debug(new_norm)
-        #             return self._normalize_norm(np.array(new_norm, dtype=np.int))
-        # return None
-        return self._normalize_norm(np.sum(vertex.facets_norm, axis=0))
-
-    def _find_new_vertices(self, vertex):
-        logger.debug('try to find new vertices based on %s', vertex)
-        vertices = []
-        new_facet_norm = self._get_new_norm(vertex)
-        logger.debug('new facet norm: %s', new_facet_norm)
-        new_facet_b = self.get_b(new_facet_norm)
-        logger.debug('new facet b: %s', new_facet_b)
-        # this possible vertex is a true vertex
-        if new_facet_norm.dot(vertex.coordinate) == new_facet_b:
-            logger.debug('possible vertex %s is a true vertex', vertex.coordinate)
-            self.visited.add(vertex)
-            return vertices
-        # purge possible vertices
-        logger.debug('purge possible vertices and find new possible vertices')
-        for vertex in self.vertices:
-            if vertex in self.visited or \
-                    new_facet_norm.dot(vertex.coordinate) <= new_facet_b:
-                continue
-            logger.debug(vertex in self.visited)
-            self.convex_hull.remove_vertex(vertex)
-            self.visited.add(vertex)
-            logger.debug(
-                'purge %s successfully, try to find new possible vertices',
-                vertex.coordinate
-            )
-            # intersect new hyperplane with facets of the cone
-            for facets_index in combinations(
-                range(vertex.facets_norm.shape[0]), self.dimension - 1
-            ):
-                A = [new_facet_norm]
-                b = [new_facet_b]
-                for index in facets_index:
-                    A.append(vertex.facets_norm[index])
-                    b.append(vertex.facets_intercept[index])
-                A = np.array(A)
-                b = np.array(b)
-                try:
-                    x = np.linalg.solve(A, b)
-                except Exception:
-                    # not linear independent
-                    continue
-                x += 0  # workaround the -0.0 problem
-                if self.convex_hull.contains(x):
-                    origin_vertex = self.convex_hull.get_vertex(x)
-                    if origin_vertex is None:
-                        new_vertex = Vertex(
-                            x, A.astype(np.int), b.astype(np.int)
-                        )
-                        vertices.append(new_vertex)
-                        logger.debug('found possible vertex: \n%s', new_vertex)
-                    else:
-                        # vertex is already a possible vertex
-                        origin_vertex.update_facet(
-                            np.array([new_facet_norm], dtype=np.int),
-                            np.array([new_facet_b], dtype=np.int)
-                        )
-                        logger.debug('update vertex: \n%s', origin_vertex)
-        return vertices
-
-    def get_convex_hull(self):
-        self._init_convex_hull()
-        logger.debug("Initial convex hull: \n%s", self.convex_hull)
-        self.vertices = [v for v in self.convex_hull.get_vertices()]
-        for vertex in self.vertices:
-            if vertex in self.visited:
-                continue
-            vertices = self._find_new_vertices(vertex)
-            for v in vertices:
-                self.convex_hull.add_vertex(v)
-            self.vertices.extend(vertices)
-        return self.convex_hull
-
-    def _init_convex_hull(self):
-        # find all possible initial vertices
-        self.convex_hull = ConvexHull(self.dimension)
-        self.norm_boundary = np.zeros(self.dimension, dtype=np.int)
-        bases = np.diag([1] * self.dimension).astype(np.float)
-        min_max = np.zeros([self.dimension, 2]).astype(np.float)
-        # the vertices of cube is possible vertices
-        for i in range(self.dimension):
-            b = self.get_b(-bases[i])
-            min_max[i][0] = -b
-            b = self.get_b(bases[i])
-            min_max[i][1] = b
-            self.norm_boundary[i] = int(abs(min_max[i][0] - min_max[i][1]))
-        logger.debug('Norm boundary: %s', self.norm_boundary)
-        for ind in product(*([[0, 1]] * self.dimension)):
-            coordinate = np.array(
-                [min_max[i][ind[i]] for i in range(self.dimension)],
-            )
-            sign = np.array(ind) * 2 - 1
-            vertex = Vertex(
-                coordinate,
-                (bases * sign).astype(np.int),
-                (coordinate * sign).astype(np.int)
-            )
-            self.convex_hull.add_vertex(vertex)
-
-    def _construct_mln(self, norm_vector):
-        mln = MLN(
-            self.domain_name,
-            self.predicates,
-            self.formulas,
-            self.domain_size
-        )
-        mln.formula_weights = [
-            i * math.log(mln.world_size) for i in norm_vector
-        ]
-        return mln
-
-    def get_b(self, norm_vector):
-        mln = self._construct_mln(norm_vector)
-        ln_Z = self.solver.solve(mln)
-        logger.debug("ln(Z) = %s", ln_Z)
-        b = math.floor(ln_Z / math.log(mln.world_size))
-        logger.debug("find b = %s", b)
-        return b
+def construct_polytope(mln, method='iter', verbose=False):
+    return construct_surrogate_polytope(mln, method, verbose)
 
 
 if __name__ == '__main__':
     args = parse_args()
+    if not os.path.exists(args.output_dir):
+        os.makedirs(args.output_dir)
     if args.debug:
         logzero.loglevel(logging.DEBUG)
     else:
         logzero.loglevel(logging.INFO)
-    logzero.logfile(args.log_file, mode='w')
-    partition_func_solver = WFOMCSolver()
-    solver = PolytopeSolver(
-        partition_func_solver,
-        args.domain_name.split(';'),
-        args.predicates.split(';'),
-        args.formulas.split(';'),
-        list(map(int, args.domain_size.split(';')))
-    )
-    try:
-        convex_hull = solver.get_convex_hull()
-    except RuntimeError as e:
-        logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
-        raise e
-    logger.info(convex_hull)
-    logger.info('num of call WFOMC: {}'.format(solver.solver.calls))
+    logzero.logfile('{}/log.txt'.format(args.output_dir), mode='w')
+
+    mln = MLN.load(args.input, grammar='StandardGrammar')
+    convex_hull = construct_polytope(mln, args.method, args.debug)
+    plot_convex_hull(convex_hull, '{}/polytope.png'.format(args.output_dir))
+    with open('{}/convex_hull.pkl'.format(args.output_dir), 'wb') as f:
+        pickle.dump(convex_hull, f)

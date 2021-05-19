@@ -1,0 +1,32 @@
+predicate stress 1 1 1
+predicate smokes 1 1 1
+predicate drinks 1 1 1
+predicate friends 2 1 1
+predicate aux1 1 3.4 1
+predicate aux2 2 8 1
+predicate aux3 3 2 1
+predicate aux4 1 7.4 1
+predicate aux5 1 4.5 1
+
+-aux1(X), -stress(X), smokes(X)
+aux1(X), stress(X)
+aux1(X), -smokes(X)
+  
+-aux2(X,Y), -friends(X,Y), -smokes(X), smokes(Y)
+aux2(X,Y), friends(X,Y)
+aux2(X,Y), smokes(X)
+aux2(X,Y), -smokes(Y)
+
+-aux3(X,Y,Z), -friends(X,Y), -friends(Y,Z), friends(X,Z)
+aux3(X,Y,Z), friends(X,Y)
+aux3(X,Y,Z), friends(Y,Z)
+aux3(X,Y,Z), -friends(X,Z)
+
+-aux4(X), -stress(X), drinks(X)
+aux4(X), stress(X)
+aux4(X), -drinks(X)
+
+-aux5(X,Y), -friends(X,Y), -drinks(X), drinks(Y)
+aux5(X,Y), friends(X,Y)
+aux5(X,Y), drinks(X)
+aux5(X,Y), -drinks(Y)
