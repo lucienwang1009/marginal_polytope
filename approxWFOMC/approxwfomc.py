@@ -45,7 +45,7 @@ def is_var(x):
 
 
 def get_sharpsat_model_count(input_str):
-    with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
+    with tempfile.NamedTemporaryFile(mode='w', delete=True) as tf:
         tf.write(input_str)
         tf.flush()
         out = subprocess.check_output(['./sharpSAT', tf.name],
@@ -53,24 +53,28 @@ def get_sharpsat_model_count(input_str):
         return int(out.split('\n')[-6])
 
 
-def get_approxmc_model_count(input_str, i, mmax):
+def get_approxmc_model_count(input_str, i, mmax, with_pb=False):
     if i is not None:
         delta = 0.2 / (i * (math.log(mmax) + 1))
     else:
         delta = 0.2
     logger.info("Delta value for approxmc call %s is %s", i, str(delta))
-    with tempfile.NamedTemporaryFile(mode='w', delete=False) as tf:
+    if with_pb:
+        exec_file = './external/approxmcpb'
+    else:
+        exec_file = './external/approxmc'
+    with tempfile.NamedTemporaryFile(mode='w', delete=True) as tf:
         tf.write(input_str)
         tf.flush()
-        out = subprocess.run(['./approxmc', '--delta', str(delta), tf.name], check=False,
+        out = subprocess.run([exec_file, '--delta', str(delta), tf.name], check=False,
                              stdout=subprocess.PIPE,
                              universal_newlines=True).stdout
-        # logger.debug(out)
         cell, has = re.findall(r'is: (\d+)\*2\*\*(\d+)', out.split('\n')[-3])[0]
         return int(cell) * math.pow(2, int(has))
 
 # Toggle ApproxMC/sharpSAT usage in the line below
 get_model_count = lambda x, i, m: get_approxmc_model_count(x, i, m)
+get_model_count_pb = lambda x, i, m: get_approxmc_model_count(x, i, m, True)
 heuristic = lambda ub, lb: ub - lb
 logheuristic = lambda ub, lb: math.log(ub) - math.log(lb)
 
@@ -97,6 +101,7 @@ def main():
     parser.add_argument('file', help='filename of input FO CNF')
     parser.add_argument('--improve', action='store_true', help='if use improved method to'
                         ' comput lower and upper bound')
+    parser.add_argument('--with_pb', action='store_true', help='if use approxcpb')
     parser.add_argument('--debug', action='store_true', help='debug mode')
     parser.add_argument('--log', type=str, default='./log.txt')
 
@@ -338,12 +343,18 @@ def main():
                         # for pred in weights.keys():
                         for predic in aux_predicates:
                             amin, amax = newbounds[predic]
-                            for x in encode_cardinality_constraint(amin, amax, m[predic]):
-                                tout.add(DimacsClause(*list(x)))
+                            if not args.with_pb:
+                                for x in encode_cardinality_constraint(amin, amax, m[predic]):
+                                    tout.add(DimacsClause(*list(x)))
+                            else:
+                                pb_cc = encode_cardinality_constraint_with_pb(amin, amax, m[predic])
 
                         number_of_mc_calls += 1
                         # ivalue += 1
-                        mcA = get_model_count(output_to_dimacs(tout, sampling_set), None, mmax)
+                        if not args.with_pb:
+                            mcA = get_model_count(output_to_dimacs(tout, sampling_set), None, mmax)
+                        else:
+                            mcA = get_model_count_pb(output_to_opb(tout, pb_cc, sampling_set), None, mmax)
                         varcount = oldvc  # Restore the old varcount
                     except Exception as e:
                         logger.debug('approxMC failed, might encount infeasible area: %s', e)
@@ -441,12 +452,18 @@ def main():
                     oldvc = varcount  # Cache the varcount before adding the constraints
                     for predic in aux_predicates:
                         amin, amax = temp[best_pred][i][5][predic]
-                        for x in encode_cardinality_constraint(amin, amax, m[predic]):
-                            tout.add(DimacsClause(*list(x)))
+                        if not args.with_pb:
+                            for x in encode_cardinality_constraint(amin, amax, m[predic]):
+                                tout.add(DimacsClause(*list(x)))
+                        else:
+                            pb_cc = encode_cardinality_constraint_with_pb(amin, amax, m[predic])
 
                     number_of_mc_calls += 1  # if one of the splits is zero, we don't need to increase this
                     non_heuristic_calls += 1
-                    mcs[i] = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
+                    if not args.with_pb:
+                        mcs[i] = get_model_count(output_to_dimacs(tout, sampling_set), non_heuristic_calls, mmax)
+                    else:
+                        mcs[i] = get_model_count_pb(output_to_opb(tout, pb_cc, sampling_set), non_heuristic_calls, mmax)
                     varcount = oldvc  # Restore the old varcount
                 except Exception:
                     logger.debug('approxMC failed, might encount infeasible area')
@@ -480,6 +497,31 @@ def output_to_dimacs(clauses, sampling_set=None):
         p += "c ind " + " ".join(map(str, sampling_set)) + " 0\n"
     p += '\n'.join(map(str, clauses))
     return p
+
+
+def output_to_opb(clauses, pb_cc, sampling_set=None):
+    p = '* #variable= ' + str(varcount) + ' #constraint= ' + str(len(clauses) + len(pb_cc)) + '\n'
+    if sampling_set is not None:
+        p += '* ind ' + ' '.join(map(str, sampling_set)) + ' 0\n'
+    for clause in clauses:
+        line = ''
+        for a in clause.args:
+            if a > 0:
+                line += '1 x{} '.format(a)
+            else:
+                line += '1 ~x{} '.format(-a)
+        line += '>= 1;\n'
+        p += line
+    p += '\n'.join(pb_cc)
+    return p
+
+
+def encode_cardinality_constraint_with_pb(l, u, vars):
+    cc = []
+    cc.append(' '.join(['1 x{}'.format(i) for i in vars]) + ' >= {};'.format(l))
+    cc.append(' '.join(['-1 x{}'.format(i) for i in vars]) + ' >= {};'.format(-u))
+    logger.debug('add cc with pb format: %s', cc)
+    return cc
 
 
 def encode_cardinality_constraint(l, u, vars):

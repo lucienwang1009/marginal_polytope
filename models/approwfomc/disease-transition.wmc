@@ -1,0 +1,25 @@
+predicate disease 1 1 1
+predicate dead 1 1 1
+predicate contact 2 1 1
+predicate aux1 1 0.5 1
+predicate aux3 3 2 1
+predicate aux4 2 2.3 1
+predicate aux5 2 0.9 1
+
+-aux1(X), -disease(X), dead(X)
+aux1(X), disease(X)
+aux1(X), -dead(X)
+
+-aux3(X,Y,Z), -contact(X,Y), -contact(Y,Z), contact(X,Z)
+aux3(X,Y,Z), contact(X,Y)
+aux3(X,Y,Z), contact(Y,Z)
+aux3(X,Y,Z), -contact(X,Z)
+  
+-aux4(X,Y), -contact(X,Y), -disease(X), disease(Y)
+aux4(X,Y), contact(X,Y)
+aux4(X,Y), disease(X)
+aux4(X,Y), -disease(Y)
+
+-aux5(X,Y), -disease(X), -contact(X,Y)
+aux5(X,Y), disease(X)
+aux5(X,Y), contact(Y,Y)

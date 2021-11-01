@@ -20,7 +20,7 @@ class WFOMCSolver(PartitionFunctionSolver):
         self.mln_generator = MLNGenerator()
         self.pattern = re.compile(r'exp\(([\d\.\-E]+)\)')
         self.jar_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                     'forclift.jar')
+                                     './external/forclift.jar')
 
         self.calls = 0
 
@@ -68,7 +68,7 @@ class ComplexWFOMCSolver(WFOMCSolver):
         super().__init__()
         self.pattern = re.compile(r'exp\(([\d\.\-\+Ei]+)\)')
         self.jar_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                                     'forclift_complex.jar')
+                                     './external/forclift_complex.jar')
 
         self.calls = 0
 

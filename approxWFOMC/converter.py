@@ -1,6 +1,7 @@
 from logzero import logger
+import tempfile
 
-from mln import MLN
+from pracmln import MLN
 from approxWFOMC.logic import Constant
 
 
@@ -48,6 +49,7 @@ def convert2mln(clauses, domain_size):
             continue
         # formula with more than 2 variables is not supported by WFOMC
         if len(aux_predicate.free_variables()) > 2:
+            logger.info('formula with more than 2 variables: %s', c)
             continue
         formula = []
         for p in c:
@@ -69,4 +71,18 @@ def convert2mln(clauses, domain_size):
         aux2dim[aux_predicate.name] = len(formulas)
         formulas.append(' v '.join(formula))
     logger.debug('predicates: %s\nformulas: %s', list(predicates), formulas)
-    return MLN(domain_name, predicates, formulas, [domain_size]), aux2dim
+    # write to pracmln file
+    # NOTE: convert pracmln to wmc later
+    input_str = ''
+    input_str += '{} = {{{}}}\n'.format(
+        domain_name[0], ','.join([str(i) for i in range(domain_size)])
+    )
+    for p in predicates:
+        input_str += '{}\n'.format(p)
+    for f in formulas:
+        input_str += '0 {}\n'.format(f)
+    with tempfile.NamedTemporaryFile(mode='w', delete=True) as tf:
+        tf.write(input_str)
+        tf.flush()
+        mln = MLN.load(tf.name, grammar='StandardGrammar')
+    return mln, aux2dim

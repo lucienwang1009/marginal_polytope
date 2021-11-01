@@ -99,15 +99,11 @@ def parseInput(input):
     return spec.parseString(input)
 
 
-def main():
-    parser = argparse.ArgumentParser(description='Perform approximate WFOMC on an input FO CNF.')
-    parser.add_argument('domain', metavar='N', type=int, help='domain size')
-    parser.add_argument('file', help='filename of input FO CNF')
-
-    args = parser.parse_args()
-    with open(args.file, 'r') as file:
+def main(input_file, domainsize, add_weights=True):
+    global i
+    i = 0
+    with open(input_file, 'r') as file:
         data = file.read()
-    domainsize = args.domain
     d = parseInput(data)
 
     clauses = []
@@ -172,24 +168,24 @@ def main():
         o = [(k, p) for p in range(v + 1)]
         pairs.append(o)
 
-    add_weights = True  # Whether to add weights or not
     pysddmode = True  # Whether to print the weights in PySDD format or not
 
-    print(output_to_dimacs(out))
+    res = output_to_dimacs(out) + '\n'
     if add_weights:
         if pysddmode:
             outstr = "c weights"
             for i, j in index.items():
                 weight = weights[i.name]
                 outstr += " " + str(weight[0]) + " " + str(weight[1])
-            print(outstr)
+            res += (outstr + '\n')
         else:
             for i, j in index.items():
                 weight = weights[i.name]
                 if weight[0] != 1:
-                    print("w", j, weight[0])
+                    res += 'w {} {}'.format(j, weight[0])
                 if weight[1] != 1:
-                    print("w", -j, weight[1])
+                    res += 'w {} {}'.format(-j, weight[1])
+    return res
 
 
 def output_to_dimacs(clauses):
@@ -225,5 +221,16 @@ def fresh_variable():
     return i
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description='Perform approximate WFOMC on an input FO CNF.')
+    parser.add_argument('domain', metavar='N', type=int, help='domain size')
+    parser.add_argument('file', help='filename of input FO CNF')
+
+    args = parser.parse_args()
+    return args
+
+
 if __name__ == '__main__':
-    main()
+    args = parse_args()
+    res = main(args.file, args.domain)
+    print(res)

@@ -4,10 +4,10 @@
 // P(friends(Nima,Nima)) = 0.49999999999999906
 //
 
-person = {1, 2, 3, 4, 5, 6, 7}
+person = {1, 2, 3}
 //, Wannes, Jesse, Luc, 1, 2, 3, 4, 5, 6}
 friends(person,person)
 smokes(person)
 stress(person)
-1.22 smokes(x)
+1.22 stress(x) => smokes(x)
 2.08 friends(x,y) ^ smokes(x) => smokes(y)
